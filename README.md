@@ -1,3 +1,4 @@
+
 ![tes](/image.png)
 
 ### Hi there 👋
@@ -24,4 +25,3 @@
 - RAM 32GB DDR5 6000MHz
 - SSD 1TB
 - PSU 650W
-
