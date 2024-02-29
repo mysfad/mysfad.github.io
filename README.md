@@ -1,4 +1,5 @@
-<body style="background-color:fff"> 
+</body style="background-color:fff"> 
+
 
 ![tes](/image.png)
 
@@ -27,4 +28,3 @@
 - SSD 1TB
 - PSU 650W
 
-</body>
