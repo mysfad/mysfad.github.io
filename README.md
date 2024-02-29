@@ -1,4 +1,4 @@
-<body style:"background-color=fff"> 
+<body style="background-color:fff"> 
 
 ![tes](/image.png)
 
