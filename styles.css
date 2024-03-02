@@ -61,7 +61,7 @@ body {
     padding: 20px;
 }
 
-.side img {
+/*.side img {
     width: 100%;
     display: block;
     margin-left: auto;
@@ -70,12 +70,126 @@ body {
     outline-style: solid;
     outline-width: 2px;
     outline-color: #333333;
+}*/
+
+.me {
+    text-align: center;
+}
+
+.card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    background-color: #e6e6e6;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 25px #1a1a1a;
+}
+
+.card::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.card h2 {
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+    color: #333333;
+}
+
+.card a {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
 }
 
 .main {
     flex: 70%;
     background-color: white;
     padding: 20px;
+    box-shadow: 0px 0px 50px gray;
+}
+
+/* SLOGAN */
+
+.slogan {
+    margin: 75px;
+}
+
+.slogan h1 {
+    margin: 0px;
+    text-align: center;
+    font-size: 4vw;
+}
+
+/* SKILLS */
+
+.my-skills .skills {
+    margin-top: -10px;
+}
+
+.skills {
+    width: 100%;
+    background-color: grey;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.skill {
+    text-align: right;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    font-size: 1vh;
+    color: white;
+}
+
+.ae {
+    width: 70%;
+    background-color: #339966;
+}
+
+.b3d {
+    width: 10%;
+    background-color: #cc0000;
+}
+
+.html {
+    width: 90%;
+    background-color: #339966;
+}
+
+.js {
+    width: 80%;
+    background-color: #339966;
+}
+
+.css {
+    width: 40%;
+    background-color: #ff9933;
+}
+
+.ps {
+    width: 70%;
+    background-color: #339966;
+}
+
+.vs {
+    width: 60%;
+    background-color: #339966;
 }
 
 /* FOOTER */
@@ -147,7 +261,11 @@ body {
     }
 
     .pf {
-        width: 33%;
+        width: 50%;
+    }
+
+    .slogan h1 {
+        font-size: 4vh;
     }
 }
 
