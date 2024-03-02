@@ -1,0 +1,298 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+
+* {
+    color: #DEE4EA;
+}
+
+hr {
+    border-color: #101214;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #DEE4EA;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #738496;
+    border-radius: 100px;
+}
+
+/* HEADER */
+
+.header {
+    padding: 50px;
+    text-align: center;
+    background-color: #22272B;
+}
+
+.header h1,
+.header p {
+    margin: 10px;
+}
+
+/* NAVBAR */
+
+.navbar {
+    overflow: hidden;
+    background-color: #1D2125;
+    position: sticky;
+    top: 0;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+.navbar a.right {
+    float: right;
+}
+
+.navbar a:hover {
+    background-color: #DEE4EA;
+    color: black;
+}
+
+/* CONTENT */
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 30%;
+    background-color: #101214;
+    padding: 20px;
+}
+
+/*.side img {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #333333;
+}*/
+
+.me {
+    text-align: center;
+}
+
+.card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    background-color: #161A1D;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1000px #9BB4CA80;
+}
+
+.card::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.card h2 {
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+    color: #738496;
+}
+
+.card a {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    background-color: #22272B;
+    border-radius: 5px;
+}
+
+.main {
+    flex: 70%;
+    background-color: #161A1D;
+    padding: 20px;
+}
+
+/* SLOGAN */
+
+.slogan {
+    margin: 75px;
+}
+
+.slogan h1 {
+    margin: 0px;
+    text-align: center;
+    font-size: 4vw;
+}
+
+/* SKILLS */
+
+.my-skills .skills {
+    margin-top: -10px;
+}
+
+.skills {
+    width: 100%;
+    background-color: #22272B;
+    border-radius: 100px;
+}
+
+.skill {
+    text-align: right;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    font-size: 1vh;
+    border-radius: 100px;
+}
+
+.ae {
+    width: 70%;
+    background-color: #339966;
+}
+
+.b3d {
+    width: 10%;
+    background-color: #cc0000;
+}
+
+.html {
+    width: 90%;
+    background-color: #339966;
+}
+
+.js {
+    width: 80%;
+    background-color: #339966;
+}
+
+.css {
+    width: 40%;
+    background-color: #ff9933;
+}
+
+.ps {
+    width: 70%;
+    background-color: #339966;
+}
+
+.vs {
+    width: 60%;
+    background-color: #339966;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #1D2125;
+}
+
+/* PF */
+
+.pfs:after {
+    content: "";
+    clear: both;
+    display: table;
+    margin-bottom: 25px;
+}
+
+.pf {
+    text-decoration: none;
+    color: #333333;
+    width: 25%;
+    float: left;
+    background-color: #1D2125;
+    padding: 10px;
+    border-radius: 10px;
+    outline: solid 2px #DEE4EA;
+    box-shadow: 5px 5px #DEE4EA;
+}
+
+.pf img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pf h3,
+.pf p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pf:hover {
+    transform: translateY(-5%);
+    background-color: #2C333A;
+}
+
+/* LOADER */
+
+/*.loader {
+    border: 15px solid grey;
+    border-top: 15px solid lightskyblue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}*/
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .pf {
+        width: 50%;
+    }
+
+    .slogan h1 {
+        font-size: 4vh;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    .navbar a {
+        float: none;
+        width: 100%;
+    }
+
+    .pf {
+        width: 100%;
+    }
+}
