@@ -1,15 +1,41 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    background-color: black;
   }
 
 * {
     color: #DEE4EA;
+    box-sizing: border-box;
+    transition: 0.25s;
+    cursor: crosshair;
 }
 
 hr {
     border-color: #101214;
 }
+
+.free:before {
+    content: "Free";
+    color: #ffcc00;
+}
+
+.progress-container {
+    width: 100%;
+    height: 0.5vh;
+    background-color: #DEE4EA;
+    position: sticky;
+    top: 40px;
+    z-index: 1;
+}
+
+.progress-bar {
+    height: 0.5vh;
+    width: 0;
+    background-color: #339966;
+    box-shadow: 0px 0px 50px #339966;
+}
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -44,30 +70,74 @@ hr {
     background-color: #1D2125;
     position: sticky;
     top: 0;
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 1);
+    z-index: 1;
 }
 
-.navbar a {
+.navbar p {
+    float: left;
+    display: block;
+    margin: 0px;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.navbar i {
     float: left;
     display: block;
     text-align: center;
-    padding: 15px 20px;
+    margin: 0px;
+    padding: 5px 20px;
     text-decoration: none;
+    font-size: xx-large;
 }
 
-.navbar a.right {
+.navbar i.right {
     float: right;
 }
 
-.navbar a:hover {
+.navbar i:hover {
     background-color: #DEE4EA;
     color: black;
 }
 
-/* CONTENT */
+/* SIDENAV */
 
-* {
-    box-sizing: border-box;
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #101214;
+    overflow-x: hidden;
+    padding-top: 10vh;
+    text-align: center;
 }
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #738496;
+    display: block;
+    margin: 10px;
+}
+
+.sidenav a:hover {
+    color: #DEE4EA;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: xx-large;
+}
+
+/* CONTENT */
 
 .row {
     display: flex;
@@ -77,7 +147,7 @@ hr {
 .side {
     flex: 30%;
     background-color: #101214;
-    padding: 20px;
+    padding: 25px;
 }
 
 /*.side img {
@@ -99,6 +169,8 @@ hr {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
     width: 75%;
     background-color: #161A1D;
     padding: 10px;
@@ -106,10 +178,14 @@ hr {
     box-shadow: 0px 0px 1000px #9BB4CA80;
 }
 
-.card::after {
+.card:after {
     content: "";
     clear: both;
     display: table;
+}
+
+.card:hover {
+    scale: 1.05;
 }
 
 .card img {
@@ -135,22 +211,28 @@ hr {
     border-radius: 5px;
 }
 
+.card a:hover {
+    background-color: #339966;
+}
+
 .main {
     flex: 70%;
     background-color: #161A1D;
-    padding: 20px;
+    padding: 25px;
 }
 
 /* SLOGAN */
 
 .slogan {
-    margin: 75px;
+    margin: 10vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .slogan h1 {
     margin: 0px;
     text-align: center;
-    font-size: 4vw;
+    font-size: 4vh;
 }
 
 /* SKILLS */
@@ -165,12 +247,16 @@ hr {
     border-radius: 100px;
 }
 
+.skills:hover {
+    outline: 1px solid white;
+}
+
 .skill {
     text-align: right;
     padding-top: 3px;
     padding-bottom: 3px;
     padding-right: 10px;
-    font-size: 1vh;
+    font-size: xx-small;
     border-radius: 100px;
 }
 
@@ -244,14 +330,30 @@ hr {
 }
 
 .pf h3,
-.pf p {
+.pf span {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .pf:hover {
     transform: translateY(-5%);
+    scale: 1.05;
     background-color: #2C333A;
+}
+
+.gears {
+    width: 100%;
+}
+
+.gears td {
+    padding: 10px;
+    background-color: #2C333A;
+    text-align: center;
+}
+
+.gears td:hover {
+    scale: 1.05;
+    outline: 1px solid white;
 }
 
 /* LOADER */

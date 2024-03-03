@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body id="main">
+    <script src="script.js"></script>
     <div class="header">
         <h1>M. Yusuf A. D</h1>
         <p>Official Portfolio Website</p>
     </div>
     <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">About</a>
+        <p>yusufdkv.xyz</p>
+        <i class="material-icons right" onclick="openNav()">menu</i>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+    <div class="sidenav" id="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">Contact</a>
-        <a href="#" class="right">More</a>
+        <a href="#">Report</a>
     </div>
     <div class="row">
         <div class="side">
@@ -71,41 +79,67 @@
         <div class="main">
             <div>
                 <h1 style="color: #738496;">Welcome</h1>
-                <p>Selamat datang di website Yusuf Pertex</p>
+                <p id="typing"></p>
             </div>
             <hr>
             <div>
                 <div class="slogan">
                     <h1>Realize Your</h1>
-                    <h1 style="color: #738496;">Creativity</h1>
+                    <h1 style="color: #339966;">Creativity...</h1>
                 </div>
             </div>
             <hr>
             <div>
                 <h2>Project File's</h2>
-                <h5>Poject file ini 100% gratis</h5>
+                <h5>This Poject file's 100% Free</h5>
                 <div class="pfs">
                     <a href="#pf" class="pf">
                         <img src="./media/soon.jpeg" alt="#">
                         <h3>Preset Name</h3>
-                        <p>Free</p>
+                        <span class="free"></span>
                     </a>
                     <a href="#pf" class="pf">
                         <img src="./media/soon.jpeg" alt="#">
                         <h3>Preset Name</h3>
-                        <p>Free</p>
+                        <span class="free"></span>
                     </a>
                     <a href="#pf" class="pf">
                         <img src="./media/soon.jpeg" alt="#">
                         <h3>Preset Name</h3>
-                        <p>Free</p>
+                        <span class="free"></span>
                     </a>
                     <a href="#pf" class="pf">
                         <img src="./media/soon.jpeg" alt="#">
                         <h3>Preset Name</h3>
-                        <p>Free</p>
+                        <span class="free"></span>
                     </a>
                 </div>
+            </div>
+            <hr>
+            <div class="gear">
+                <h2>My Gear's</h2>
+                <table class="gears">
+                    <tr>
+                        <td>CPU</td>
+                        <td>R5 7500F</td>
+                    </tr>
+                    <tr>
+                        <td>GPU</td>
+                        <td>RTX 3060 12GB</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>32GB</td>
+                    </tr>
+                    <tr>
+                        <td>SSD</td>
+                        <td>1TB</td>
+                    </tr>
+                    <tr>
+                        <td>PSU</td>
+                        <td>650W</td>
+                    </tr>
+                </table>
             </div>
             <hr>
         </div>
