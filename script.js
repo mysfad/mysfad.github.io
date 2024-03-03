@@ -11,13 +11,13 @@ function closeNav() {
 let i = 0
 let txt = 'Welcome to Yusuf Official Portfolio Website'
 
-function typing() {
+/*function typing() {
     if (i < txt.length) {
         document.getElementById("typing").innerHTML += txt.charAt(i);
         i++;
         setTimeout(typing, 50);
     }
-}
+}*/
 
 function scrollbar() {
     let winscroll = document.body.scrollTop || document.documentElement.scrollTop;
