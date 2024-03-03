@@ -26,5 +26,5 @@ function scrollbar() {
     document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-window.onload = typing
+//window.onload = typing
 window.onscroll = scrollbar

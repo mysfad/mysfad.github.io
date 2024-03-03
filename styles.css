@@ -2,7 +2,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-color: black;
-    overflow-x: hidden;
   }
 
 * {
@@ -19,6 +18,7 @@ hr {
 .free:before {
     content: "Free";
     color: #ffcc00;
+    font-size: small;
 }
 
 .progress-container {
@@ -176,6 +176,7 @@ hr {
     background-color: #22272B;
     padding: 10px;
     border-radius: 10px;
+    outline: solid 2px #2C333A;
 }
 
 .card:after {
@@ -232,7 +233,7 @@ hr {
 .slogan h1 {
     margin: 0px;
     text-align: center;
-    font-size: xx-large;
+    font-size: xxx-large;
 }
 
 /* SKILLS */
@@ -300,7 +301,7 @@ hr {
 .footer {
     padding: 10px;
     text-align: center;
-    background-color: #1D2125;
+    background-color: #22272B;
 }
 
 /* PF */
@@ -321,12 +322,23 @@ hr {
     padding: 10px;
     border-radius: 10px;
     outline: solid 2px #DEE4EA;
-    box-shadow: 5px 5px #DEE4EA;
+    box-shadow: 0px 5px #DEE4EA;
+    display: block;
 }
 
 .pf img {
     width: 100%;
     border-radius: 5px;
+}
+
+.pf h4,
+.pf .free {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
@@ -376,6 +388,10 @@ hr {
     .pf {
         width: 50%;
     }
+
+    .slogan h1 {
+        font-size: xx-large;
+    }
 }
 
 @media screen and (max-width: 384px) {
@@ -398,4 +414,23 @@ hr {
     }
     75% { rotate: -3deg; }
     100% { rotate: 0deg; }
+}
+
+@keyframes text {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+.typing {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation: text 10s infinite;
 }
