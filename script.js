@@ -1,11 +1,11 @@
 function openNav() {
     document.getElementById("sidenav").style.width = "100vw";
-    document.body.style.marginLeft = "100vw";
+    //document.body.style.marginLeft = "0";
 }
 
 function closeNav() {
     document.getElementById("sidenav").style.width = "0";
-    document.body.style.marginLeft = "0";
+    //document.body.style.marginLeft = "0";
 }
 
 let i = 0
