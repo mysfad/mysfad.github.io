@@ -1,12 +1,12 @@
 function openNav() {
-    let sidenav = document.getElementById("sidenav").style
-    sidenav.width = "100vw";
+    document.body.style.overflow = "hidden"
+    document.getElementById("sidenav").style.width = "100vw";
     //document.body.style.marginLeft = "0";
 }
 
 function closeNav() {
-    let sidenav = document.getElementById("sidenav").style
-    sidenav.width = "0";
+    document.body.style.overflow = "auto"
+    document.getElementById("sidenav").style.width = "0";
     //document.body.style.marginLeft = "0";
 }
 
