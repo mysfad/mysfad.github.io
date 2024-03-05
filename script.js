@@ -1,10 +1,12 @@
 function openNav() {
-    document.getElementById("sidenav").style.width = "100vw";
+    let sidenav = document.getElementById("sidenav").style
+    sidenav.width = "100vw";
     //document.body.style.marginLeft = "0";
 }
 
 function closeNav() {
-    document.getElementById("sidenav").style.width = "0";
+    let sidenav = document.getElementById("sidenav").style
+    sidenav.width = "0";
     //document.body.style.marginLeft = "0";
 }
 

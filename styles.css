@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
     background-color: black;
+    margin: 0;
   }
 
 * {
@@ -13,6 +13,8 @@ body {
 
 hr {
     border-color: #101214;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .free:before {
@@ -149,7 +151,9 @@ hr {
     flex: 30%;
     background-image: linear-gradient(to bottom, #101214, #339966 1000%);
     padding: 20px;
+    width: 100%;
 }
+
 
 /*.side img {
     width: 100%;
@@ -167,22 +171,14 @@ hr {
 }
 
 .card {
-    display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
-    margin-bottom: 10%;
     width: 75%;
     background-color: #22272B;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     outline: solid 2px #2C333A;
-}
-
-.card:after {
-    content: "";
-    clear: both;
-    display: table;
+    display: block;
 }
 
 .card:hover {
@@ -191,7 +187,6 @@ hr {
 
 .card img {
     width: 100%;
-    display: block;
     border-radius: 10px;
 }
 
@@ -267,7 +262,7 @@ hr {
 }
 
 .b3d {
-    width: 10%;
+    width: 15%;
     background-color: #cc0000;
 }
 
@@ -306,11 +301,11 @@ hr {
 
 /* PF */
 
+
 .pfs:after {
     content: "";
     clear: both;
     display: table;
-    margin-bottom: 25px;
 }
 
 .pf {
