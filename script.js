@@ -1,17 +1,21 @@
 function openNav() {
-    document.body.style.overflow = "hidden"
-    document.getElementById("sidenav").style.width = "100vw";
-    //document.body.style.marginLeft = "0";
+    //document.body.style.overflow = "hidden";
+    //document.getElementById("opacity").style.opacity = "50%";
+    document.getElementById("opacity").style.height = "100vh";
+    document.getElementById("sidenav").style.width = "30vw";
+    document.body.style.marginLeft = "30vw";
 }
 
 function closeNav() {
-    document.body.style.overflow = "auto"
+    //document.body.style.overflow = "auto";
+    //document.getElementById("opacity").style.opacity = "100%";
+    document.getElementById("opacity").style.height = "0";
     document.getElementById("sidenav").style.width = "0";
-    //document.body.style.marginLeft = "0";
+    document.body.style.marginLeft = "0";
 }
 
-let i = 0
-let txt = 'Welcome to Yusuf Official Portfolio Website'
+let i = 0;
+let txt = 'Welcome to Yusuf Official Portfolio Website';
 
 /*function typing() {
     if (i < txt.length) {
@@ -29,4 +33,4 @@ function scrollbar() {
 }
 
 //window.onload = typing
-window.onscroll = scrollbar
+window.onscroll = scrollbar;

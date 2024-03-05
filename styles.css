@@ -117,13 +117,13 @@ hr {
     left: 0;
     background-image: linear-gradient(to bottom, #101214, #339966 1000%);
     overflow-x: hidden;
-    padding-top: 10vh;
+    padding-top: 20vh;
     text-align: center;
 }
 
 .sidenav a {
     text-decoration: none;
-    font-size: 25px;
+    font-size: x-large;
     color: #738496;
     display: block;
     margin: 10px;
@@ -138,6 +138,18 @@ hr {
     top: 0;
     right: 20px;
     font-size: xx-large;
+}
+
+.opacity {
+    width: 100vw;
+    height: 0;
+    position: fixed;
+    background-color: black;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    opacity: 50%;
+    z-index: 1;
 }
 
 /* CONTENT */
@@ -378,6 +390,10 @@ hr {
 @media screen and (max-width: 768px) {
     .row {
         flex-direction: column-reverse;
+    }
+
+    .sidenav a {
+        font-size: larger;
     }
 
     .pf {
