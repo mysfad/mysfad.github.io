@@ -2,8 +2,8 @@ function openNav() {
     //document.body.style.overflow = "hidden";
     //document.getElementById("opacity").style.opacity = "50%";
     document.getElementById("opacity").style.height = "100vh";
-    document.getElementById("sidenav").style.width = "30vw";
-    document.body.style.marginLeft = "30vw";
+    document.getElementById("sidenav").style.width = "200px";
+    //document.body.style.marginLeft = "30vw";
 }
 
 function closeNav() {
@@ -11,7 +11,7 @@ function closeNav() {
     //document.getElementById("opacity").style.opacity = "100%";
     document.getElementById("opacity").style.height = "0";
     document.getElementById("sidenav").style.width = "0";
-    document.body.style.marginLeft = "0";
+    //document.body.style.marginLeft = "0";
 }
 
 let i = 0;
@@ -34,3 +34,8 @@ function scrollbar() {
 
 //window.onload = typing
 window.onscroll = scrollbar;
+
+function totop() {
+    document.body.scrollTop = "0"
+    document.documentElement.scrollTop = "0"
+}
