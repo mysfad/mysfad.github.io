@@ -222,6 +222,7 @@ hr {
     text-align: center;
     background-color: #2C333A;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 .card a:hover {
