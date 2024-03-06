@@ -2,12 +2,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
     margin: 0;
+    padding: 0;
   }
 
 * {
     color: #DEE4EA;
     box-sizing: border-box;
-    transition: 0.25s;
+    transition: 0.5s;
     cursor: crosshair;
 }
 
@@ -162,7 +163,7 @@ hr {
 .side {
     flex: 30%;
     background-image: linear-gradient(to bottom, #101214, #339966 1000%);
-    padding: 20px;
+    padding: 3%;
     width: 100%;
 }
 
@@ -187,7 +188,7 @@ hr {
     margin-right: auto;
     width: 75%;
     background-color: #22272B;
-    padding: 15px;
+    padding: 5%;
     border-radius: 10px;
     outline: solid 2px #2C333A;
     display: block;
@@ -202,13 +203,17 @@ hr {
     border-radius: 10px;
 }
 
-.card h2 {
-    text-align: center;
-}
-
 .card p {
     text-align: center;
-    color: #738496;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 5%;
+}
+
+.card .name {
+    font-weight: bold;
+    font-size: large;
 }
 
 .card a {
@@ -223,10 +228,39 @@ hr {
     background-color: #339966;
 }
 
+/* MAIN */
+
 .main {
     flex: 70%;
     background-color: #161A1D;
-    padding: 20px;
+    padding: 5vw;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.welcome {
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.welcome h2 {
+    color: #738496;
+}
+
+.typing {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.typing p {
+    white-space: nowrap;
+    border-right: 3px solid #DEE4EA;
+    overflow: hidden;
+    animation: text 10s infinite;
 }
 
 /* SLOGAN */
@@ -237,10 +271,10 @@ hr {
     margin-right: auto;
 }
 
-.slogan h1 {
+.slogan p {
     margin: 0px;
     text-align: center;
-    font-size: xxx-large;
+    font-weight: bold;
 }
 
 /* SKILLS */
@@ -313,7 +347,6 @@ hr {
 
 /* PF */
 
-
 .pfs:after {
     content: "";
     clear: both;
@@ -338,13 +371,17 @@ hr {
     border-radius: 5px;
 }
 
-.pf h4,
+.pf p {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.pf p,
 .pf .free {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    max-width: 300px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -354,18 +391,29 @@ hr {
     animation: rotate 1s infinite;
 }
 
+.softwares ul {
+    list-style-type: square;
+}
+
+.softwares li {
+    margin: 10px;
+}
+
 .gears {
     width: 100%;
 }
 
 .gears td {
+    font-size: small;
     padding: 10px;
     background-color: #2C333A;
     text-align: center;
 }
 
 .gears td:hover {
-    scale: 1.05;
+    padding: 15px;
+    font-size: medium;
+    font-weight: bold;
     outline: 1px solid white;
 }
 
@@ -385,6 +433,11 @@ hr {
     100% { transform: rotate(360deg);}
 }*/
 
+
+.largetext {
+    font-size: xxx-large;
+}
+
 /* RESPONSIVE */
 
 @media screen and (max-width: 768px) {
@@ -396,25 +449,29 @@ hr {
         font-size: larger;
     }
 
+    .side {
+        padding: 5%;
+    }
+
     .pf {
         width: 50%;
     }
 
-    .slogan h1 {
+    .largetext {
         font-size: xx-large;
     }
 }
 
-@media screen and (max-width: 384px) {
+/*@media screen and (max-width: 384px) {
     .navbar a {
         float: none;
         width: 100%;
     }
 
     .pf {
-        width: 100%;
+        width: 50%;
     }
-}
+}*/
 
 @keyframes rotate {
     0% { rotate: 0deg; }
@@ -437,11 +494,4 @@ hr {
     100% {
         width: 0;
     }
-}
-
-.typing {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    animation: text 10s infinite;
 }
