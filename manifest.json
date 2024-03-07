@@ -1,0 +1,23 @@
+{
+    "name": "Yusuf Pertex",
+    "short_name": "Yusuf Pertex",
+    "start_url": ".",
+    "display": "fullscreen",
+    "background_color": "#101214",
+    "theme_color": "black",
+    "description": "Yusuf Pertex Official Portfolio Website",
+    "icons": [
+        {
+            "src": "./media/icon256.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./media/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

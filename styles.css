@@ -20,8 +20,22 @@ hr {
 
 .free:before {
     content: "Free";
-    color: #ffcc00;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: #101214;
     font-size: small;
+    font-weight: bold;
+    background-color: #ffcc00;
+}
+
+.info {
+    border-left: 5px solid white;
+    border-radius: 0px 5px 5px 0px;
+    padding: 5px 10px;
+    background-color: #339966;
+    width: fit-content;
+    font-size: small;
+    font-weight: bold;
 }
 
 .progress-container {
@@ -344,6 +358,8 @@ hr {
     padding: 10px;
     text-align: center;
     background-color: #22272B;
+    font-size: small;
+    font-weight: bold;
 }
 
 /* PF */
