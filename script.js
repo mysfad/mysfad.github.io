@@ -1,43 +1,12 @@
-// Initialize deferredPrompt for use later to show browser install prompt.
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  showInstallPromotion();
-  // Optionally, send analytics event that PWA install promo was shown.
-  console.log(`'beforeinstallprompt' event was fired.`);
-});
-
 function openNav() {
-    //document.body.style.overflow = "hidden";
-    //document.getElementById("opacity").style.opacity = "50%";
     document.getElementById("opacity").style.height = "100vh";
-    document.getElementById("sidenav").style.width = "200px";
-    //document.body.style.marginLeft = "30vw";
+    document.getElementById("sidenav").style.width = "150px";
 }
 
 function closeNav() {
-    //document.body.style.overflow = "auto";
-    //document.getElementById("opacity").style.opacity = "100%";
     document.getElementById("opacity").style.height = "0";
     document.getElementById("sidenav").style.width = "0";
-    //document.body.style.marginLeft = "0";
 }
-
-let i = 0;
-let txt = 'Welcome to Yusuf Official Portfolio Website';
-
-/*function typing() {
-    if (i < txt.length) {
-        document.getElementById("typing").innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typing, 50);
-    }
-}*/
 
 function scrollbar() {
     let winscroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -46,10 +15,4 @@ function scrollbar() {
     document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-//window.onload = typing
 window.onscroll = scrollbar;
-
-function totop() {
-    document.body.scrollTop = "0"
-    document.documentElement.scrollTop = "0"
-}
