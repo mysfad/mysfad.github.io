@@ -243,6 +243,7 @@ CONTENT SIDE
 
 .card img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
@@ -364,6 +365,7 @@ CONTENT MAIN
 
 .pf img {
     width: 100%;
+    height: auto;
     border-radius: 5px;
 }
 
