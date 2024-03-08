@@ -1,6 +1,6 @@
 function openNav() {
     document.getElementById("opacity").style.height = "100vh";
-    document.getElementById("sidenav").style.width = "150px";
+    document.getElementById("sidenav").style.width = "200px";
 }
 
 function closeNav() {
