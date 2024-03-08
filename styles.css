@@ -24,12 +24,15 @@ body {
     background-color: black;
     margin: 0;
     padding: 0;
-  }
+}
 
 hr {
-    border-color: #101214;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    border: 3px solid #101214;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 100px;
 }
 
 .largetext { font-size: xxx-large; }
@@ -52,8 +55,6 @@ hr {
     width: fit-content;
     font-size: small;
     font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 .warning {
@@ -64,8 +65,6 @@ hr {
     width: fit-content;
     font-size: small;
     font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 /*////
@@ -203,22 +202,26 @@ PAGES
     flex-wrap: wrap;
 }
 
-.side {
+.sidepage {
     flex: 30%;
     background-image: linear-gradient(to bottom, #101214, #339966 1000%);
-    padding: 3%;
     width: 100%;
     overflow-x: hidden;
 }
 
-.main {
+.mainpage {
     flex: 70%;
     background-color: #161A1D;
-    padding: 5vw;
-    padding-top: 0;
-    padding-bottom: 5vh;
     width: 100%;
     overflow-x: hidden;
+}
+
+.sidepage > div {
+    margin: 10% 10%;
+}
+
+.mainpage > div {
+    margin: 3% 10%;
 }
 
 /*//////////
@@ -227,14 +230,13 @@ CONTENT SIDE
 
 /* ABOUT ME */
 
-.me { text-align: center; }
+.page1 { text-align: center; }
 
 .card {
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
+    margin: 0 auto;
+    width: 70%;
     background-color: #22272B;
-    padding: 5%;
+    padding: 3%;
     border-radius: 10px;
     outline: solid 2px #2C333A;
     display: block;
@@ -307,21 +309,19 @@ CONTENT MAIN
 
 /* WELCOME */
 
-.welcome {
+.mainpage .page1 {
     text-align: center;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding: 5% 0;
 }
 
-.welcome h2 { color: #738496; }
+.mainpage .page1 h2 { color: #738496; margin: 0; }
 
-.typing {
+.mainpage .page1 div {
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
-.typing p {
+.mainpage .page1 p {
     white-space: nowrap;
     border-right: 3px solid #DEE4EA;
     overflow: hidden;
@@ -331,19 +331,17 @@ CONTENT MAIN
 
 /* SLOGAN */
 
-.slogan {
-    margin: 10vh;
-    margin-left: auto;
-    margin-right: auto;
-}
+.mainpage .page2 { padding: 5% 0; }
 
-.slogan p {
+.mainpage .page2 p {
     margin: 0px;
-    text-align: center;
     font-weight: bold;
+    text-align: center;
 }
 
 /* PROJECT FILE */
+
+.pfs { margin: 20px 0; }
 
 .pfs:after {
     content: "";
@@ -381,8 +379,7 @@ CONTENT MAIN
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0;
 }
 
 .pf:hover {
@@ -450,7 +447,12 @@ RESPONSIVE
 
 @media screen and (max-width: 768px) {
     .row { flex-direction: column-reverse; }
-    .side { padding: 5%; }
+    .sidepage > div {
+        margin: 5% 5%;
+    }
+    .mainpage > div {
+        margin: 5% 5%;
+    }
     .pf { width: 50%; }
     .largetext { font-size: xx-large; }
 }
