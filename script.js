@@ -16,3 +16,13 @@ function scrollbar() {
 }
 
 window.onscroll = scrollbar;
+
+function sendmsg() {
+    console.log("tes")
+    let div = document.createElement("div")
+    div.className = "textmsg right"
+    let p = document.createElement("p")
+    p.innerHTML = "tes scfef435f65gy5y5ygvy5yytvg5tytes"
+    div.appendChild(p)
+    document.getElementById("msgpage").appendChild(div)
+}

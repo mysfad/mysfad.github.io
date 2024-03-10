@@ -27,7 +27,7 @@ body {
 }
 
 hr {
-    border: 3px solid #101214;
+    border: 2px solid #9BB4CA80;
     padding: 0;
     margin: 0;
     width: 90%;
@@ -230,13 +230,13 @@ CONTENT SIDE
 
 /* ABOUT ME */
 
-.page1 { text-align: center; }
+.sidepage .page1 { text-align: center; }
 
 .card {
     margin: 0 auto;
     width: 70%;
     background-color: #22272B;
-    padding: 3%;
+    padding: 4%;
     border-radius: 10px;
     outline: solid 2px #2C333A;
     display: block;
@@ -276,7 +276,7 @@ CONTENT SIDE
 
 /* SKILLS */
 
-.my-skills .skills { margin-top: -10px; }
+.sidepage .page2 .skills { margin-top: -10px; }
 
 .skills {
     width: 100%;
@@ -447,12 +447,8 @@ RESPONSIVE
 
 @media screen and (max-width: 768px) {
     .row { flex-direction: column-reverse; }
-    .sidepage > div {
-        margin: 5% 5%;
-    }
-    .mainpage > div {
-        margin: 5% 5%;
-    }
+    .sidepage > div { margin: 5% 5%; }
+    .mainpage > div { margin: 5% 5%; }
     .pf { width: 50%; }
     .largetext { font-size: xx-large; }
 }
