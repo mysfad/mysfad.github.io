@@ -72,7 +72,7 @@ HEADER
 ////*/
 
 .header {
-    padding: 50px;
+    padding: 5%;
     text-align: center;
     background-image: linear-gradient(to right, #101214, #339966 500%);
 }
@@ -214,6 +214,16 @@ PAGES
     background-color: #161A1D;
     width: 100%;
     overflow-x: hidden;
+}
+
+.rmargin {
+    flex: 5%;
+    background-color: #101214;
+}
+
+.lmargin {
+    flex: 5%;
+    background-color: #101214;
 }
 
 .sidepage > div {
@@ -389,9 +399,9 @@ CONTENT MAIN
 
 /* SOFTWARE */
 
-.softwares ul { list-style-type: square; }
+.page4 ul { list-style-type: square; }
 
-.softwares li { margin: 10px; }
+.page4 li { margin: 7px; }
 
 /* GEARS */
 
@@ -446,6 +456,7 @@ RESPONSIVE
 ////////*/
 
 @media screen and (max-width: 768px) {
+    .header { padding: 15%; }
     .row { flex-direction: column-reverse; }
     .sidepage > div { margin: 5% 5%; }
     .mainpage > div { margin: 5% 5%; }
