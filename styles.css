@@ -197,25 +197,7 @@ PROGRESS BAR
 PAGES
 ///*/
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidepage {
-    flex: 30%;
-    background-image: linear-gradient(to bottom, #101214, #339966 1000%);
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.mainpage {
-    flex: 70%;
-    background-color: #161A1D;
-    width: 100%;
-    overflow-x: hidden;
-}
-
+/*
 .rmargin {
     flex: 5%;
     background-color: #101214;
@@ -224,14 +206,52 @@ PAGES
 .lmargin {
     flex: 5%;
     background-color: #101214;
+}*/
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidepage {
+    flex: 30%;
+    background-image: linear-gradient(to bottom, #101214, #339966 1000%);
+    /*background-color: #101214;*/
+    width: 100%;
+    overflow-x: hidden;
+    padding: 2% 3%;
+}
+
+.mainpage {
+    flex: 70%;
+    background-color: #161A1D;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 2% 5%;
 }
 
 .sidepage > div {
-    margin: 10% 10%;
+    margin: 5% 0;
+    background-color: #161A1D;
+    padding: 10%;
+    border-radius: 25px;
 }
 
 .mainpage > div {
-    margin: 3% 10%;
+    margin: 2% 0;
+    background-color: #1D2125;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.sidepage h1, 
+.sidepage h2 {
+    margin: 0;
+}
+
+.mainpage h1,
+.mainpage h2 {
+    margin: 5px;
 }
 
 /*//////////
@@ -458,8 +478,8 @@ RESPONSIVE
 @media screen and (max-width: 768px) {
     .header { padding: 15%; }
     .row { flex-direction: column-reverse; }
-    .sidepage > div { margin: 5% 5%; }
-    .mainpage > div { margin: 5% 5%; }
+    .sidepage { padding: 0 5%; }
+    .mainpage { padding: 1% 5%; }
     .pf { width: 50%; }
     .largetext { font-size: xx-large; }
 }
