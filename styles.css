@@ -479,7 +479,7 @@ RESPONSIVE
     .header { padding: 15%; }
     .row { flex-direction: column-reverse; }
     .sidepage { padding: 0 5%; }
-    .mainpage { padding: 1% 5%; }
+    .mainpage { padding: 3% 5%; }
     .pf { width: 50%; }
     .largetext { font-size: xx-large; }
 }
