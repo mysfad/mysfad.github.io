@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,172 +7,201 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
 </head>
 <style>
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
-::-webkit-scrollbar {
-    width: 0;
-}
+    i {
+        display: flex;
+        align-items: center;
+        font-size: larger;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    font-size: medium;
-    color: white;
-}
+    ::-webkit-scrollbar {
+        width: 0;
+    }
 
-body, html {
-    height: 100%;
-    font-family: Poppins, sans-serif;
-    background-color: #101214;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: medium;
+        color: white;
+    }
 
-#main {
-    width: 500px;
-    background-color: #161A1D;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    height: 600px; /* Tinggi tetap, atau Anda bisa menyesuaikannya */
-    max-height: 600px;
-    overflow: hidden;
-}
+    body, html {
+        height: 100%;
+        font-family: Poppins, sans-serif;
+        background-color: #101214;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#header {
-    background-color: #1D2125;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    #main {
+        width: 90vw;
+        max-width: 500px;
+        height: 80vh;
+        max-height: 600px;
+        background-color: #161A1D;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
 
-#header p {
-    font-weight: bold;
-    font-size:large;
-}
+    #header {
+        background-color: #1D2125;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-#header button {
-    background-color: transparent;
-    border: none;
-    font-size: medium;
-    cursor: pointer;
-}
+    #header p {
+        font-weight: bold;
+        font-size: large;
+    }
 
-#chat {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
+    #header button {
+        background-color: transparent;
+        border: none;
+        font-size: medium;
+        cursor: pointer;
+    }
 
-#chat button {
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
-    margin-left: 0;
-    background-color: #1D2125;
-    border-style: none;
-}
+    #chat {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
 
-.question, .answer {
-    margin-bottom: 10px;
-    max-width: 80%;
-    padding: 10px;
-    position: relative;
-}
+    #chat button {
+        padding: 5px;
+        border-radius: 5px;
+        margin: 5px;
+        margin-left: 0;
+        background-color: #1D2125;
+        border-style: none;
+    }
 
-.question {
-    align-self: flex-end;
-    background-color: #0C66E4;
-    border-radius: 10px 10px 0 10px;
-}
+    .question, .answer {
+        margin-bottom: 10px;
+        max-width: 80%;
+        padding: 10px;
+        position: relative;
+    }
 
-.answer {
-    align-self: flex-start;
-    background-color: #1F845A;
-    border-radius: 10px 10px 10px 0;
-}
+    .question {
+        align-self: flex-end;
+        background-color: #0C66E4;
+        border-radius: 10px 10px 0 10px;
+    }
 
-.time {
-    font-size: 70%;
-    text-align: right;
-}
+    .answer {
+        align-self: flex-start;
+        background-color: #1F845A;
+        border-radius: 10px 10px 10px 0;
+    }
 
-#footer {
-    padding: 10px;
-    background-color: #1D2125;
-}
+    .time {
+        font-size: x-small;
+        text-align: right;
+    }
 
-#inputMsg {
-    display: flex;
-    gap: 10px;
-}
+    #footer {
+        padding: 10px;
+        background-color: #1D2125;
+    }
 
-#inputMsg input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border-style: none;
-    border-radius: 5px;
-    font-size: small;
-    background-color: #DEE4EA;
-    color: black;
-}
+    #inputMsg {
+        display: flex;
+        gap: 10px;
+    }
 
-#inputMsg input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #0C66E4;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: small;
-}
+    #inputMsg input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        border-style: none;
+        border-radius: 5px;
+        font-size: small;
+        background-color: #DEE4EA;
+        color: black;
+    }
 
-#settings {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    #inputMsg input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #0C66E4;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: small;
+    }
 
-#inputApiKey {
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #1D2125;
-    text-align: center;
-}
+    #settings {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#inputApiKey input {
-    padding: 10px;
-    border-radius: 5px;
-    border-style: none;
-    background-color: #DEE4EA;
-    color: black;
-}
+    #inputApiKey {
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #1D2125;
+        text-align: center;
+    }
 
-#inputApiKey input[type="submit"] {
-    background-color: #0C66E4;
-    color: #DEE4EA;
-}
+    #inputApiKey * {
+        font-size: small;
+    }
 
+    #inputApiKey input {
+        padding: 10px;
+        border-radius: 5px;
+        border-style: none;
+        background-color: #DEE4EA;
+        color: black;
+    }
+
+    #inputApiKey input[type="submit"] {
+        background-color: #0C66E4;
+        color: #DEE4EA;
+    }
+
+    @media (max-width: 600px) {
+        * {
+            font-size: small;
+        }
+        #main {
+            width: 90vw;
+            height: 75vh;
+        }
+
+        .msgText {
+            font-size: small;
+        }
+
+        .time {
+            font-size: xx-small;
+        }
+    }
 </style>
 <body>
     <div id="main">
         <div id="header"><p>Ai Chat</p>
-            <button id="setting" onclick="openSettings()">Settings</button>
+            <button id="setting" onclick="openSettings()"><i class="bi bi-gear"></i></button>
         </div>
         <div id="chat">
         </div>
         <div id="footer">
             <div id="inputMsg">
-                <input id="msg" type="text" placeholder="Isi pesan..." onkeydown="if(event.key === 'Enter') input();">
-                <input type="submit" onclick="input()" value="Send">
+                <input id="msg" type="text" placeholder="Isi pesan..." onkeydown="if(event.key === 'Enter') input()">
+                <input type="submit" onclick="input()" value="Kirim">
             </div>
         </div>
     </div>
@@ -180,8 +209,8 @@ body, html {
         <div id="inputApiKey">
             <a href="https://aistudio.google.com/app/apikey" target="_blank">Dapatkan API Key</a>
             <br>
-            <input id="apiKeyInput" type="text" placeholder="Masukkan API Key">
-            <input type="submit" onclick="submitApiKey()">
+            <input id="apiKeyInput" type="text" placeholder="Masukkan API Key" onkeydown="if(event.key === 'Enter') submitApiKey()">
+            <input type="submit" value="Terapkan" onclick="submitApiKey()">
         </div>
     </div>
 </body>
@@ -230,6 +259,7 @@ function output(from, text, buttons) {
     let div = document.createElement("div")
     div.className = from === "Q" ? "question" : "answer"
     let p = document.createElement("p")
+    p.className = "msgText"
     p.textContent = text
     let time = document.createElement("p")
     time.className = "time"
