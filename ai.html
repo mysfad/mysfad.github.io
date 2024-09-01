@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+</head>
+<style>
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: medium;
+    color: white;
+}
+
+body, html {
+    height: 100%;
+    font-family: Poppins, sans-serif;
+    background-color: #101214;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    width: 500px;
+    background-color: #161A1D;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 600px; /* Tinggi tetap, atau Anda bisa menyesuaikannya */
+    max-height: 600px;
+    overflow: hidden;
+}
+
+#header {
+    background-color: #1D2125;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header p {
+    font-weight: bold;
+    font-size:large;
+}
+
+#header button {
+    background-color: transparent;
+    border: none;
+    font-size: medium;
+    cursor: pointer;
+}
+
+#chat {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat button {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    margin-left: 0;
+    background-color: #1D2125;
+    border-style: none;
+}
+
+.question, .answer {
+    margin-bottom: 10px;
+    max-width: 80%;
+    padding: 10px;
+    position: relative;
+}
+
+.question {
+    align-self: flex-end;
+    background-color: #0C66E4;
+    border-radius: 10px 10px 0 10px;
+}
+
+.answer {
+    align-self: flex-start;
+    background-color: #1F845A;
+    border-radius: 10px 10px 10px 0;
+}
+
+.time {
+    font-size: 70%;
+    text-align: right;
+}
+
+#footer {
+    padding: 10px;
+    background-color: #1D2125;
+}
+
+#inputMsg {
+    display: flex;
+    gap: 10px;
+}
+
+#inputMsg input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-style: none;
+    border-radius: 5px;
+    font-size: small;
+    background-color: #DEE4EA;
+    color: black;
+}
+
+#inputMsg input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0C66E4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: small;
+}
+
+#settings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputApiKey {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #1D2125;
+    text-align: center;
+}
+
+#inputApiKey input {
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #DEE4EA;
+    color: black;
+}
+
+#inputApiKey input[type="submit"] {
+    background-color: #0C66E4;
+    color: #DEE4EA;
+}
+
+</style>
+<body>
+    <div id="main">
+        <div id="header"><p>Ai Chat</p>
+            <button id="setting" onclick="openSettings()">Settings</button>
+        </div>
+        <div id="chat">
+        </div>
+        <div id="footer">
+            <div id="inputMsg">
+                <input id="msg" type="text" placeholder="Isi pesan..." onkeydown="if(event.key === 'Enter') input();">
+                <input type="submit" onclick="input()" value="Send">
+            </div>
+        </div>
+    </div>
+    <div id="settings">
+        <div id="inputApiKey">
+            <a href="https://aistudio.google.com/app/apikey" target="_blank">Dapatkan API Key</a>
+            <br>
+            <input id="apiKeyInput" type="text" placeholder="Masukkan API Key">
+            <input type="submit" onclick="submitApiKey()">
+        </div>
+    </div>
+</body>
+<script>
+
+let settings = document.getElementById("settings")
+let apiKey = null
+
+function submitApiKey(){
+    let input = document.getElementById("apiKeyInput").value
+    if (input) {
+        apiKey = input
+        settings.style.display = "none"
+    }
+}
+
+function openSettings() {
+    settings.style.display = "flex"
+}
+
+async function input(req, button) {
+    if (req) {
+        let res = responses[req]
+        output(res.from, res.text, res.buttons)
+        button.disabled = true
+    } else {
+        let msg = document.getElementById("msg").value
+        if(!msg) return
+        document.getElementById("msg").value = ""
+        output("Q", msg)
+        let res = responses[msg.toLowerCase()]
+        if (res) {
+            output(res.from, res.text, res.buttons)
+        } else {
+            let text = await ai(msg)
+            output("A", text)
+        }
+        if (msg === "clear") {
+            document.getElementById("chat").innerHTML = ""
+        }
+    }
+}
+
+function output(from, text, buttons) {
+    let chat = document.getElementById("chat")
+    let div = document.createElement("div")
+    div.className = from === "Q" ? "question" : "answer"
+    let p = document.createElement("p")
+    p.textContent = text
+    let time = document.createElement("p")
+    time.className = "time"
+    time.textContent = getTime()
+    div.appendChild(p)
+    if (buttons) {
+        let buttonsDiv = document.createElement("div")
+        buttons.forEach(btn=>{
+            let button = document.createElement("button")
+            button.setAttribute("onclick", btn.type === 0 ? `input("${btn.content}", this, this.parentNode.parentNode)` : `window.open("${btn.content}", "_blank")`)
+            button.textContent = btn.text
+            buttonsDiv.appendChild(button)
+        })
+        div.appendChild(buttonsDiv)
+    }
+    div.appendChild(time)
+    chat.appendChild(div)
+    chat.scrollTop = chat.scrollHeight;
+}
+
+async function ai(msg) {
+    let url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+    try {
+        let res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{ text: msg }]
+                }]
+            })
+        });
+        let data = await res.json();
+        let text = data.candidates[0].content.parts[0].text;
+        return text;
+    } catch (error) {
+        console.error('Error:', error)
+        return `Something went wrong.\n${error}`
+    }
+}
+
+function getTime() {
+    let now = new Date()
+    return now.toLocaleTimeString()
+}
+
+let responses = {
+    "tes": {
+        from: "A",
+        text: "WWWWWWWWWW WWWWWWWWWW WWWWWWWWWW WWWWWWWWWW",
+    },
+    "text": {
+        from: "A",
+        text: "Halo, apakah ada masalah yang bisa saya bantu?",
+    },
+    "button": {
+        from: "A",
+        text: "Ini adalah pesan button",
+        buttons: [
+            { type: 0, text: "Button", content: "text" },
+            { type: 1, text: "Url Button", content: "https://google.com" }
+        ]
+    }
+}
+
+</script>
+</html>
