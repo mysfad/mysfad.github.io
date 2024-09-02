@@ -27,6 +27,10 @@
         color: rgba(0,125,255,1);
     }
 
+    #settings {
+        background-color: rgba(0,0,0,0.1);
+    }
+
     input, button {
         background-color: rgba(0,0,0,0.1);
         font-size: small;
@@ -64,6 +68,18 @@
         flex-direction: column-reverse;
     }
 
+    #chat div:last-child {
+        padding: 20px;
+    }
+
+    #footer {
+        display: none;
+    }
+
+    .smallText {
+        font-size: small;
+    }
+
 </style>
 <body>
     <div id="main">
@@ -72,11 +88,12 @@
             <button id="setting" onclick="openSettings()">Settings</button>
         </div>
         <div id="settings">
+            <p>Dapatkan<a href="https://aistudio.google.com/app/apikey" target="_blank">API Key</a></p>
             <div id="inputApiKey">
-                <p>Dapatkan<a href="https://aistudio.google.com/app/apikey" target="_blank">API Key</a></p>
                 <input id="apiKeyInput" type="text" placeholder="Masukkan API Key" onkeydown="if(event.key === 'Enter') submitApiKey()">
                 <input type="submit" value="Terapkan" onclick="submitApiKey()">
             </div>
+            <p class="smallText">API Key berfungsi agar AI dapat menjawab</p>
         </div>
         <div id="footer">
             <div id="inputMsg">
@@ -90,6 +107,8 @@
 </body>
 <script>
 
+let chat = document.getElementById("chat")
+let footer = document.getElementById("footer")
 let settings = document.getElementById("settings")
 let apiKey = null
 
@@ -98,11 +117,15 @@ function submitApiKey(){
     if (input) {
         apiKey = input
         settings.style.display = "none"
+        footer.style.display = "block"
     }
 }
 
 function openSettings() {
     settings.style.display = settings.style.display === "none" ? "block" : "none"
+    if (!apiKey) return
+    chat.style.display = footer.style.display === "none" ? "flex" : "none"
+    footer.style.display = footer.style.display === "none" ? "block" : "none"
 }
 
 async function input(req, button) {
@@ -154,6 +177,7 @@ function output(from, text, buttons) {
 }
 
 async function ai(msg) {
+    if (!apiKey) return "Masukkan API Key!"
     let url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
     try {
         let res = await fetch(url, {
@@ -172,13 +196,17 @@ async function ai(msg) {
         return text;
     } catch (error) {
         console.error('Error:', error)
-        return `Something went wrong.\n${error}`
+        return `Tidak dapat menjawab, mungkin API Key yang anda masukkan salah`
     }
 }
 
 function getTime() {
     let now = new Date()
     return now.toLocaleTimeString()
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 let responses = {
