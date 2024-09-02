@@ -13,7 +13,7 @@
     }
 
     * {
-        margin: 0;
+        margin: 2px;
         padding: 4px;
         font-size: medium;
         text-align: center;
@@ -29,6 +29,7 @@
 
     #settings {
         background-color: rgba(0,0,0,0.1);
+        padding: 15px;
     }
 
     input, button {
@@ -51,16 +52,16 @@
         font-size: x-small;
     }
 
+    .question p, .answer p {
+        margin: 0;
+    }
+
     .question {
         background-color: rgba(0,125,255,0.1);
     }
 
     .answer {
         background-color: rgba(0,255,0,0.1);
-    }
-
-    .wm {
-        font-size: small;
     }
 
     #chat {
@@ -116,7 +117,9 @@ function submitApiKey(){
     let input = document.getElementById("apiKeyInput").value
     if (input) {
         apiKey = input
+        localStorage.setItem("apiKey", apiKey)
         settings.style.display = "none"
+        chat.style.display = "flex"
         footer.style.display = "block"
     }
 }
