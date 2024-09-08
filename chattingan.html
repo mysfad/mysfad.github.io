@@ -44,8 +44,16 @@ body > div > div {
     background-color: rgba(0,0,0,0.05);
 }
 
+.msg {
+    background-color: rgba(0,125,0,0.5);
+}
+
+.msg p {
+    text-align: right;
+}
+
 .time {
-    font-size: smaller;
+    font-size: x-small;
 }
 
 .bg-green {
@@ -62,28 +70,24 @@ body > div > div {
     <div>
         <div id="page-chat" class="hide">
             <div>
-                <form>
-                    <input id="target-id" type="text" placeholder="ID Target" onkeypress="if (event.key === 'Enter') setTarget()">
-                    <input id="target-set" type="button" value="Chat" onclick="setTarget()">
-                </form>
-                <form id="input-message" class="hide">
-                    <input id="message" type="text" placeholder="Pesan" onkeypress="if (event.key === 'Enter') send()">
-                    <input type="button" value="Kirim" onclick="send()">
-                </form>
-                <div id="list-message" class="hide"></div>
+                <input id="target-id" type="text" placeholder="ID Target" onkeypress="if (event.key === 'Enter') setTarget()">
+                <input id="target-set" type="button" value="Chat" onclick="setTarget()">
             </div>
+            <div id="input-message" class="hide">
+                <input id="message" type="text" placeholder="Pesan" onkeypress="if (event.key === 'Enter') send()">
+                <input type="button" value="Kirim" onclick="send()">
+            </div>
+            <div id="list-message" class="hide"></div>
         </div>
         <div id="page-account">
             <div>
-                <form>
-                    <input id="id" type="text" placeholder="ID Akun">
-                    <br>
-                    <input id="password" type="password" placeholder="Kata Sandi">
-                    <input id="toggle-password" type="button" value="Show" onclick="togglePassword()">
-                    <br>
-                    <input type="button" value="Daftar" onclick="signup()">
-                    <input type="button" value="Masuk" onclick="check()">
-                </form>
+                <input id="id" type="text" placeholder="ID Akun">
+                <br>
+                <input id="password" type="password" placeholder="Kata Sandi">
+                <input id="toggle-password" type="button" value="Show" onclick="togglePassword()">
+                <br>
+                <input type="button" value="Daftar" onclick="signup()">
+                <input type="button" value="Masuk" onclick="check()">
             </div>
         </div>
     </div>
@@ -121,17 +125,6 @@ let user = {
     }
 }
 
-async function showHide(array) {
-    array.forEach(element => {
-        let hide = element.classList.contains('hide')
-        if (hide) {
-            element.classList.remove('hide')
-        } else {
-            element.classList.add('hide')
-        }
-    })
-}
-
 async function togglePassword() {
     let type = pw.getAttribute('type') === 'password' ? 'text' : 'password'
     pw.setAttribute('type', type)
@@ -141,7 +134,7 @@ async function togglePassword() {
 async function send() {
     if (!message.value||!target_id.value) return
     list_message.innerHTML += `
-    <div>
+    <div class='msg'>
         <p>${message.value}</p>
         <p class='time'>${new Date().toLocaleTimeString()}</p>
     </div>`
@@ -159,7 +152,8 @@ async function setTarget() {
         localStorage.setItem('target', target_id.value)
         target_set.style.visibility = 'hidden'
         target_id.classList.add('bg-green')
-        showHide([input_message, list_message])
+        input_message.classList.remove('hide')
+        list_message.classList.remove('hide')
     }
 }
 
@@ -193,7 +187,8 @@ async function signin(text) {
     if (user.account) {
         let isConfirm = confirm(`${text ? `${text}.\n` : ''}Masuk sebagai @${user.account}?`)
         if (isConfirm) {
-            showHide([page_account, page_chat])
+            page_account.classList.add('hide')
+            page_chat.classList.remove('hide')
         }
     }
 }
