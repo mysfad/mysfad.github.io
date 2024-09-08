@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chattingan</title>
+    <style>
+        * {
+            margin: 2px;
+            padding: 4px;
+            font-size: medium;
+            transition: 250ms;
+            font-family: Roboto;
+            text-align: center;
+            color: black;
+            border-style: none;
+            border-radius: 4px;
+        }
+
+        input {
+            padding: 6px 8px;
+            background-color: rgba(0,0,0,0.1);
+            font-size: small;
+            outline-style: none;
+        }
+
+        input[type='button']:hover, input:not([type='button']):focus {
+            background-color: rgba(0,125,255,1);
+            color: white;
+        }
+
+        input[type='button'] {
+            cursor: pointer;
+        }
+
+        input:focus::placeholder {
+            color: white;
+            text-align: left;
+        }
+
+        body > div > div {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .time {
+            font-size: smaller;
+        }
+
+        .bg-green {
+            background-color: rgba(0,125,0,0.5);
+            color: white;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="page-chat" class="hide">
+            <div>
+                <form>
+                    <input id="target-id" type="text" placeholder="ID Target" onkeypress="if (event.key === 'Enter') setTarget()">
+                    <input id="target-set" type="button" value="Chat" onclick="setTarget()">
+                </form>
+                <form id="input-message" class="hide">
+                    <input id="message" type="text" placeholder="Pesan" onkeypress="if (event.key === 'Enter') send()">
+                    <input type="button" value="Kirim" onclick="send()">
+                </form>
+                <div id="list-message" class="hide"></div>
+            </div>
+        </div>
+        <div id="page-account">
+            <div>
+                <form>
+                    <input id="id" type="text" placeholder="ID Akun">
+                    <br>
+                    <input id="password" type="password" placeholder="Kata Sandi">
+                    <input id="toggle-password" type="button" value="Show" onclick="togglePassword()">
+                    <br>
+                    <input type="button" value="Daftar" onclick="signup()">
+                    <input type="button" value="Masuk" onclick="check()">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let page_chat = document.getElementById('page-chat')
+    let list_message = document.getElementById('list-message')
+    let target_id = document.getElementById('target-id')
+    let target_set = document.getElementById('target-set')
+    let input_message = document.getElementById('input-message')
+    let message = document.getElementById('message')
+    let page_account = document.getElementById('page-account')
+    let id = document.getElementById('id')
+    let pw = document.getElementById('password')
+    let toggle_password = document.getElementById('toggle-password')
+
+    let accounts = {
+        "yusuf": {
+            name: "Yusuf",
+            password: "dkv"
+        },
+        "pertex": {
+            name: "Pertex",
+            password: "aep"
+        }
+    }
+
+    let user = {
+        get account() {
+            return localStorage.getItem('id')
+        },
+        get target() {
+            return localStorage.getItem('target')
+        }
+    }
+
+    function showHide(array) {
+        array.forEach(element => {
+            element.classList.toggle('hide')
+        })
+    }
+
+    function togglePassword() {
+        let type = pw.getAttribute('type') === 'password' ? 'text' : 'password'
+        pw.setAttribute('type', type)
+        toggle_password.value = type === 'password' ? 'Show' : 'Hide'
+    }
+
+    function send() {
+        if (!message.value || !target_id.value) return
+        list_message.innerHTML += `
+        <div>
+            <p>${message.value}</p>
+            <p class='time'>${new Date().toLocaleTimeString()}</p>
+        </div>`
+        message.value = ''
+    }
+
+    function setTarget() {
+        if (!target_id.value) return
+        let exist = accounts[target_id.value.toLowerCase()]
+        if (!exist) {
+            alert('ID tersebut tidak ada!')
+        } else if (target_id.value.toLowerCase() === user.account) {
+            alert('Itu adalah ID Anda!')
+        } else {
+            localStorage.setItem('target', target_id.value.toLowerCase())
+            target_set.style.visibility = 'hidden'
+            target_id.classList.add('bg-green')
+            showHide([input_message, list_message])
+        }
+    }
+
+    function check() {
+        if (!id.value || !pw.value) return
+        let exist = accounts[id.value.toLowerCase()]
+        if (exist) {
+            if (pw.value === exist.password) {
+                localStorage.setItem('id', id.value.toLowerCase())
+                signin()
+            } else {
+                alert('Password salah!')
+            }
+        } else {
+            alert('ID tersebut tidak ada!')
+        }
+    }
+
+    function signup() {
+        if (!id.value || !pw.value) return
+        let exist = accounts[id.value.toLowerCase()]
+        if (exist) {
+            alert('ID tersebut sudah ada!')
+        } else {
+            localStorage.setItem('id', id.value.toLowerCase())
+            signin('Akun berhasil dibuat')
+        }
+    }
+
+    function signin(text) {
+        if (user.account) {
+            let isConfirm = confirm(`${text ? `${text}.\n` : ''}Masuk sebagai @${user.account}?`)
+            if (isConfirm) {
+                showHide([page_account, page_chat])
+            }
+        }
+    }
+
+    target_id.addEventListener('input', () => {
+        target_set.style.visibility = 'visible'
+        target_id.classList.remove('bg-green')
+    })
+
+    signin()
+</script>
+</html>
