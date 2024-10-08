@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baso Condong</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 250ms;
+    line-height: 1.5;
+}
+html, body {
+    background: white;
+}
+#top {
+    background: rgb(0, 125, 255);
+    color: white;
+    padding: 32px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+#top::before {
+    background: url('bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    opacity: 0.25;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+#top * {
+    position: relative;
+    z-index: 1;
+}
+#nav {
+    background: rgb(255, 200, 0);
+    padding: 4px;
+    font-size: small;
+    text-align: center;
+    border-bottom: solid white 16px;
+}
+#middle {
+    background: rgba(0, 0, 0, 0.05);
+    color: black;
+    padding: 32px;
+}
+#menu, #contact {
+    list-style: none;
+}
+#menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    gap: 16px;
+    padding: 8px;
+}
+#menu li {
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 16px;
+}
+#menu li:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+#menu img {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+}
+#menu div {
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 8px 16px;
+    border-radius: 16px;
+    max-width: 100%;
+    box-shadow: 16px -16px 16px rgba(0, 0, 0, 0.25);
+}
+#menu h3, #menu p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: medium;
+}
+#menu p {
+    background: rgb(255, 200, 0);
+    font-weight: bold;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: small;
+}
+#menu .popular {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 16px;
+    border-radius: 0 16px;
+    font-size: medium;
+    box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.5);
+}
+#contact li {
+    background: rgb(0, 125, 255);
+    color: white;
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
+}
+#contact li:hover {
+    background: rgb(0, 100, 200);
+    cursor: pointer;
+}
+#bottom {
+    background: rgb(0, 125, 255);
+    color: white;
+    font-size: small;
+    padding: 8px;
+    text-align: center;
+}
+#bottom ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+#bottom li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(255, 200, 0);
+}
+.indent {
+    text-indent: 32px;
+    text-align: justify;
+}
+</style>
+<body>
+    <div id="top">
+        <h1>Baso Condong</h1>
+        <p>Cilandak - Bang Kodir</p>
+    </div>
+    <div id="nav">
+        <p>Cilandak - Kec. Anjatan, Kab. Indramayu - Jawa Barat</p>
+    </div>
+    <div id="middle">
+        <h2>Menu Makanan</h2>
+        <ul id="menu"></ul>
+        <br>
+        <h2>Hubungi Penjual</h2>
+        <ul id="contact">
+            <li>WhatsApp</li>
+            <li>Facebook</li>
+        </ul>
+        <br>
+        <h2>Tentang Usaha</h2>
+        <p class="indent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div id="bottom">
+        <ul>
+            <li>Syarat & Ketentuan</li>
+            <li>Kebijakan Privasi</li>
+        </ul>
+        <p>Copyright 2024 - Baso Condong</p>
+    </div>
+</body>
+<script>
+
+let menus = [
+    {
+        name: "Baso Sapi",
+        price: 10,
+        img: 'menu.jpeg',
+        popular: false
+    },
+    {
+        name: "Baso Ayam Telur",
+        price: 10,
+        img: 'menu.jpeg',
+        popular: false
+    },
+    {
+        name: "Baso Sapi + Es Teh",
+        price: 15,
+        img: 'menu.jpeg',
+        popular: true
+    },
+    {
+        name: "Baso Ayam Telur + Es Teh",
+        price: 15,
+        img: 'menu.jpeg',
+        popular: false
+    }
+]
+
+menus.forEach(menu => {
+    document.getElementById('menu').innerHTML += `
+        <li>
+            <img src="${menu.img}" alt="${menu.name}">
+            <div>
+                <h3>${menu.name}</h3>
+                <p>Rp. ${menu.price}.000</p>
+            </div>
+            ${menu.popular ? '<p class="popular">Populer</p>' : ''}
+        </li>`
+})
+
+</script>
+</html>
