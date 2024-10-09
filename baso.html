@@ -16,6 +16,7 @@
 }
 html, body {
     background: white;
+    font-size: 16px;
 }
 #top {
     background: rgb(0, 125, 255);
@@ -27,7 +28,7 @@ html, body {
     overflow: hidden;
 }
 #top::before {
-    background: url('media/bg.jpeg');
+    background: url('bg.jpeg');
     background-size: cover;
     background-position: center;
     filter: blur(1px);
@@ -44,10 +45,16 @@ html, body {
     position: relative;
     z-index: 1;
 }
+#top h1 {
+    font-size: 2rem;
+}
+#top p {
+    font-size: 1rem;
+}
 #nav {
     background: rgb(255, 200, 0);
     padding: 4px;
-    font-size: small;
+    font-size: 0.75rem;
     text-align: center;
     border-bottom: solid white 16px;
 }
@@ -55,6 +62,12 @@ html, body {
     background: rgba(0, 0, 0, 0.05);
     color: black;
     padding: 32px;
+}
+#middle > h2 {
+    font-size: 1.5rem;
+}
+#middle > p {
+    font-size: 1rem;
 }
 #menu, #contact {
     list-style: none;
@@ -95,7 +108,9 @@ html, body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: medium;
+}
+#menu h3 {
+    font-size: 1rem;
 }
 #menu p {
     background: rgb(255, 200, 0);
@@ -103,7 +118,7 @@ html, body {
     display: inline-block;
     padding: 2px 8px;
     border-radius: 4px;
-    font-size: small;
+    font-size: 0.75rem;
 }
 #menu .popular {
     position: absolute;
@@ -111,7 +126,7 @@ html, body {
     right: 0;
     padding: 8px 16px;
     border-radius: 0 16px;
-    font-size: medium;
+    font-size: 1rem;
     box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.5);
 }
 #contact li {
@@ -121,7 +136,7 @@ html, body {
     padding: 6px 10px;
     border-radius: 6px;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
-    font-size: medium;
+    font-size: 1rem;
 }
 #contact li:hover {
     background: rgb(0, 100, 200);
@@ -129,19 +144,21 @@ html, body {
 }
 #bottom {
     background: rgb(0, 125, 255);
-    color: white;
-    font-size: small;
     padding: 8px;
-    text-align: center;
 }
 #bottom ul {
     list-style: none;
     display: flex;
-    gap: 32px;
     justify-content: center;
-    font-size: small;
+    gap: 32px;
 }
-#bottom li:hover {
+#bottom * {
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-align: center;
+    color: white;
+}
+#bottom a:hover {
     text-decoration: underline;
     cursor: pointer;
     color: rgb(255, 200, 0);
@@ -174,8 +191,8 @@ html, body {
     </div>
     <div id="bottom">
         <ul>
-            <li>Syarat & Ketentuan</li>
-            <li>Kebijakan Privasi</li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
         </ul>
         <p>Copyright 2024 - Baso Condong</p>
     </div>
