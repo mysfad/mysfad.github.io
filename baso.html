@@ -14,21 +14,20 @@
     transition: 250ms;
     line-height: 1.5;
 }
-html, body {
-    background: white;
+html {
     font-size: 16px;
+}
+body {
+    background: white;
 }
 #top {
     background: rgb(0, 125, 255);
-    color: white;
     padding: 32px;
-    text-align: center;
-    font-weight: bold;
     position: relative;
     overflow: hidden;
 }
 #top::before {
-    background: url('bg.jpeg');
+    background: url('media/bg.jpeg');
     background-size: cover;
     background-position: center;
     filter: blur(1px);
@@ -44,6 +43,9 @@ html, body {
 #top * {
     position: relative;
     z-index: 1;
+    color: white;
+    text-align: center;
+    font-weight: bold;
 }
 #top h1 {
     font-size: 2rem;
@@ -57,6 +59,10 @@ html, body {
     font-size: 0.75rem;
     text-align: center;
     border-bottom: solid white 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 #middle {
     background: rgba(0, 0, 0, 0.05);
@@ -65,27 +71,26 @@ html, body {
 }
 #middle > h2 {
     font-size: 1.5rem;
+    text-align: center;
 }
 #middle > p {
     font-size: 1rem;
 }
-#menu, #contact {
-    list-style: none;
-}
 #menu {
+    list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-    gap: 16px;
-    padding: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+    gap: 32px;
+    margin: 16px 32px;
 }
-#menu li {
+#menu > div {
     background: white;
     padding: 16px;
     border-radius: 16px;
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 16px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
 }
-#menu li:hover {
+#menu > div:hover {
     scale: 1.05;
     cursor: pointer;
 }
@@ -94,15 +99,15 @@ html, body {
     display: block;
     width: 100%;
 }
-#menu div {
+#menu > div > div {
     background: white;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -8px;
+    left: -8px;
     padding: 8px 16px;
-    border-radius: 16px;
+    border-radius: 8px;
     max-width: 100%;
-    box-shadow: 16px -16px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
 }
 #menu h3, #menu p {
     white-space: nowrap;
@@ -111,9 +116,11 @@ html, body {
 }
 #menu h3 {
     font-size: 1rem;
+    color: black;
 }
 #menu p {
     background: rgb(255, 200, 0);
+    color: black;
     font-weight: bold;
     display: inline-block;
     padding: 2px 8px;
@@ -127,27 +134,36 @@ html, body {
     padding: 8px 16px;
     border-radius: 0 16px;
     font-size: 1rem;
-    box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
 }
-#contact li {
+#contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px;
+}
+#contact a {
     background: rgb(0, 125, 255);
-    color: white;
-    display: inline-block;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 6px;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
+    color: white;
+    text-decoration: none;
     font-size: 1rem;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
 }
-#contact li:hover {
+#contact a:hover {
     background: rgb(0, 100, 200);
-    cursor: pointer;
+}
+#map {
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.25);
+    margin: 16px 0;
 }
 #bottom {
     background: rgb(0, 125, 255);
     padding: 8px;
 }
-#bottom ul {
-    list-style: none;
+#bottom div {
     display: flex;
     justify-content: center;
     gap: 32px;
@@ -160,12 +176,12 @@ html, body {
 }
 #bottom a:hover {
     text-decoration: underline;
-    cursor: pointer;
     color: rgb(255, 200, 0);
 }
 .indent {
     text-indent: 32px;
     text-align: justify;
+    line-height: 1.25;
 }
 </style>
 <body>
@@ -178,22 +194,25 @@ html, body {
     </div>
     <div id="middle">
         <h2>Menu Makanan</h2>
-        <ul id="menu"></ul>
+        <div id="menu"></div>
         <br>
         <h2>Hubungi Penjual</h2>
-        <ul id="contact">
-            <li>WhatsApp</li>
-            <li>Facebook</li>
-        </ul>
+        <div id="contact">
+            <a href="#">WhatsApp</a>
+            <a href="#">Facebook</a>
+        </div>
+        <br>
+        <h2>Lokasi Usaha</h2>
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4942590640744!2d107.9396421736401!3d-6.329945961934134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e694f2bd497060b%3A0x7e8590848b09c549!2sBakso%20Condong%20Cilandak%20Bang%20Kodir!5e0!3m2!1sid!2sid!4v1728446144354!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <br>
         <h2>Tentang Usaha</h2>
         <p class="indent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     <div id="bottom">
-        <ul>
-            <li><a href="#">Syarat & Ketentuan</a></li>
-            <li><a href="#">Kebijakan Privasi</a></li>
-        </ul>
+        <div>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Kebijakan Privasi</a>
+        </div>
         <p>Copyright 2024 - Baso Condong</p>
     </div>
 </body>
@@ -202,25 +221,25 @@ html, body {
 let menus = [
     {
         name: "Baso Sapi",
-        price: 10,
+        price: '9.900',
         img: 'media/menu.jpeg',
         popular: false
     },
     {
         name: "Baso Ayam Telur",
-        price: 10,
+        price: '9.900',
         img: 'media/menu.jpeg',
         popular: false
     },
     {
         name: "Baso Sapi + Es Teh",
-        price: 15,
+        price: '14.900',
         img: 'media/menu.jpeg',
         popular: true
     },
     {
         name: "Baso Ayam Telur + Es Teh",
-        price: 15,
+        price: '14.900',
         img: 'media/menu.jpeg',
         popular: false
     }
@@ -228,14 +247,14 @@ let menus = [
 
 menus.forEach(menu => {
     document.getElementById('menu').innerHTML += `
-        <li>
-            <img src="${menu.img}" alt="${menu.name}">
+        <div>
+            <img src="${menu.img}" alt="Foto ${menu.name}">
             <div>
                 <h3>${menu.name}</h3>
-                <p>Rp. ${menu.price}.000</p>
+                <p>Rp. ${menu.price}</p>
             </div>
             ${menu.popular ? '<p class="popular">Populer</p>' : ''}
-        </li>`
+        </div>`
 })
 
 </script>
