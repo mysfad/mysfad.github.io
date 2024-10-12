@@ -27,6 +27,7 @@
     color: white;
     transition: 250ms;
     font-size: 1rem;
+    scroll-behavior: smooth;
 }
 html, body {
     height: 100%;
@@ -81,15 +82,22 @@ body > div, #middle > div {
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
 }
 #middle > div {
     width: 100%;
-    padding: 16px;
+    padding: 32px 16px;
     flex: none;
     overflow-y: auto;
     scroll-snap-align: start;
     align-items: center;
+    text-align: center;
+}
+#middle a:hover {
+    color: rgb(255, 125, 0);
+}
+#middle::-webkit-scrollbar, #middle > div::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 #bottom {
     padding: 8px;
@@ -110,6 +118,11 @@ input, button {
     margin: 4px 0;
     padding: 6px 10px;
     font-size: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+input {
+    width: 75%;
 }
 input::placeholder {
     text-align: center;
@@ -144,6 +157,7 @@ ol, ul {
 }
 li {
     margin-top: 0.5rem;
+    text-align: left;
 }
 .paragraph {
     text-indent: 1.5rem;
@@ -161,7 +175,7 @@ li {
 </style>
 <body>
     <div id="info">
-        <p>Selamat datang di website MysFad.com 🎉</p>
+        <p>MysFad Studio Official Website</p>
     </div>
     <div id="top">
         <img src="resources/logo.png" alt="MysFad Logo">
@@ -209,7 +223,7 @@ li {
             <button>Dedicated</button>
         </div>
         <div id="partner">
-            <h1>Partners</h1>
+            <h1>Partnership</h1>
             <ul>
                 <li>One Studio</li>
                 <li>Two Studio</li>
@@ -220,10 +234,10 @@ li {
         </div>
         <div id="about">
             <h1>About Us</h1>
-            <p class="paragraph"><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
+            <p><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
             <br>
             <h1>Visi</h1>
-            <p class="paragraph">Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.</p>
+            <p>Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.</p>
             <br>
             <h1>Misi</h1>
             <ol>
@@ -252,14 +266,10 @@ li {
 </body>
 <script>
 
-function tes() {
-    alert('tes')
-}
-
 function page(id) {
     let page = document.getElementById(id)
     if (!page) return
-    page.scrollIntoView({behavior: 'smooth'})
+    page.scrollIntoView()
 }
 
 let nav = document.querySelectorAll('#nav a')
