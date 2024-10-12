@@ -8,6 +8,17 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+::-webkit-scrollbar {
+    background: transparent;
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +27,7 @@
     line-height: 1.25;
     color: white;
     transition: 250ms;
+    user-select: none;
 }
 html, body {
     height: 100%;
@@ -28,12 +40,12 @@ html {
     align-items: center;
     font-size: 16px;
 }
-body, #middle, .page {
+body, #middle, #middle > div {
     background: rgb(25, 25, 25);
     display: flex;
     flex-direction: column;
 }
-body > div, .page {
+body > div, #middle > div {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 #info {
@@ -51,6 +63,8 @@ body > div, .page {
 #nav {
     padding: 4px;
     text-align: center;
+    white-space: nowrap;
+    overflow: auto;
 }
 #nav a {
     display: inline-block;
@@ -58,7 +72,7 @@ body > div, .page {
     border-radius: 4px;
 }
 #nav a:hover {
-    background: rgb(255, 155, 0);
+    background: rgb(255, 125, 0);
     color: black;
 }
 #middle {
@@ -66,11 +80,13 @@ body > div, .page {
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
-.page {
+#middle > div {
     width: 100%;
     padding: 16px;
     flex: none;
+    overflow-y: auto;
     scroll-snap-align: center;
 }
 #bottom {
@@ -78,8 +94,11 @@ body > div, .page {
     text-align: center;
     font-size: 0.75rem;
 }
+#bottom a {
+    white-space: nowrap;
+}
 #bottom a:hover {
-    color: rgb(255, 155, 0);
+    color: rgb(255, 125, 0);
     text-decoration: underline;
 }
 input, button {
@@ -93,10 +112,11 @@ input, button {
 }
 input::placeholder {
     text-align: center;
+    font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.25);
 }
 button:hover {
-    background: rgb(255, 155, 0);
+    background: rgb(255, 125, 0);
     color: black;
     border-color: transparent;
 }
@@ -119,8 +139,8 @@ h1, h2, h3, h4, h5, h6 {
     body {
         width: 40%;
         height: 90%;
-        border-radius: 16px;
         border: 1px solid white;
+        border-radius: 16px;
     }
 }
 </style>
@@ -133,20 +153,30 @@ h1, h2, h3, h4, h5, h6 {
     </div>
     <div id="nav">
         <a>Home</a>
+        <a>Apps</a>
         <a>Dedic</a>
         <a>About</a>
         <a>Contact</a>
     </div>
     <div id="middle">
-        <div id="page-1" class="page">
+        <div id="home">
             <h1>Welcome</h1>
         </div>
-        <div id="page-2" class="page">
+        <div id="apps">
+            <h1>Apps</h1>
+        </div>
+        <div id="dedic">
             <label for="wa">WhatsApp</label>
             <input type="number" name="" id="wa" placeholder="+62 012-3456-7890">
             <label for="url">AMV / GFX</label>
             <input type="url" name="" id="url" placeholder="https://www.instagram.com/MysFad/*">
             <button>Dedicated</button>
+        </div>
+        <div id="about">
+            <h1>About</h1>
+        </div>
+        <div id="contact">
+            <h1>Contact</h1>
         </div>
     </div>
     <div id="bottom">
@@ -162,6 +192,19 @@ h1, h2, h3, h4, h5, h6 {
 function tes() {
     alert('tes')
 }
+
+function page(id) {
+    let page = document.getElementById(id)
+    if (!page) return
+    page.scrollIntoView({behavior: 'smooth'})
+}
+
+let nav = document.querySelectorAll('#nav a')
+nav.forEach(a => {
+    a.addEventListener('click', () => {
+        page(a.textContent.toLowerCase())
+    })
+})
 
 </script>
 </html>
