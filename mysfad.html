@@ -9,15 +9,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 ::-webkit-scrollbar {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.25);
     width: 2px;
     height: 2px;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 2px;
 }
-
 
 * {
     margin: 0;
@@ -27,7 +26,7 @@
     line-height: 1.25;
     color: white;
     transition: 250ms;
-    user-select: none;
+    font-size: 1rem;
 }
 html, body {
     height: 100%;
@@ -51,6 +50,8 @@ body > div, #middle > div {
 #info {
     padding: 8px;
     text-align: center;
+}
+#info *, #bottom * {
     font-size: 0.75rem;
 }
 #top {
@@ -87,12 +88,12 @@ body > div, #middle > div {
     padding: 16px;
     flex: none;
     overflow-y: auto;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    align-items: center;
 }
 #bottom {
     padding: 8px;
     text-align: center;
-    font-size: 0.75rem;
 }
 #bottom a {
     white-space: nowrap;
@@ -105,7 +106,7 @@ input, button {
     background: transparent;
     outline: none;
     border: 1px solid white;
-    border-radius: 4px;
+    border-radius: 6px;
     margin: 4px 0;
     padding: 6px 10px;
     font-size: 1rem;
@@ -133,6 +134,20 @@ label {
 h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 600;
+    line-height: 1.5;
+}
+b {
+    font-weight: 600;
+}
+ol, ul {
+    padding: 0 1rem;
+}
+li {
+    margin-top: 0.5rem;
+}
+.paragraph {
+    text-indent: 1.5rem;
+    text-align: center;
 }
 
 @media (orientation: landscape) {
@@ -155,28 +170,76 @@ h1, h2, h3, h4, h5, h6 {
         <a>Home</a>
         <a>Apps</a>
         <a>Dedic</a>
+        <a>Partner</a>
         <a>About</a>
         <a>Contact</a>
     </div>
     <div id="middle">
         <div id="home">
             <h1>Welcome</h1>
+            <b>Selamat datang di MysFad Studio</b>
+            <br>
+            <h1>Tagline Kami</h1>
+            <p>"Realize Your Creativity"</p>
+            <br>
+            <button onclick="page('about')">Selengkapnya</button>
         </div>
         <div id="apps">
             <h1>Apps</h1>
+            <br>
+            <b>Buka</b>
+            <p>01/01/2000 - 02/02/2000</p>
+            <br>
+            <b>Kami Menerima Kreator</b>
+            <ul>
+                <li>AMV 3D / VFX</li>
+                <li>AMV Typography</li>
+                <li>AMV HyperPop</li>
+                <li>GFX Design</li>
+            </ul>
+            <br>
+            <button>Join Apps</button>
         </div>
         <div id="dedic">
+            <h1>Dedic</h1>
             <label for="wa">WhatsApp</label>
-            <input type="number" name="" id="wa" placeholder="+62 012-3456-7890">
+            <input type="text" name="" id="wa" placeholder="+62 012-3456-7890">
             <label for="url">AMV / GFX</label>
             <input type="url" name="" id="url" placeholder="https://www.instagram.com/MysFad/*">
             <button>Dedicated</button>
         </div>
+        <div id="partner">
+            <h1>Partners</h1>
+            <ul>
+                <li>One Studio</li>
+                <li>Two Studio</li>
+                <li>Three Studio</li>
+            </ul>
+            <br>
+            <button onclick="page('contact')">Jadi Partner</button>
+        </div>
         <div id="about">
-            <h1>About</h1>
+            <h1>About Us</h1>
+            <p class="paragraph"><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
+            <br>
+            <h1>Visi</h1>
+            <p class="paragraph">Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.</p>
+            <br>
+            <h1>Misi</h1>
+            <ol>
+                <li>Mengembangkan talenta kreatif dalam bidang Editing AMV dan Desain GFX melalui kolaborasi, edukasi, dan berbagai proyek kreatif.</li>
+                <li>Menciptakan lingkungan yang mendukung pertukaran ide, pengetahuan, dan pengalaman antara anggota komunitas.</li>
+                <li>Menyediakan platform bagi para kreator untuk menunjukkan karya terbaik mereka ke dunia luas.</li>
+                <li>Menjalin hubungan dengan komunitas dan industri terkait untuk memperluas peluang kolaborasi dan pengembangan karier.</li>
+            </ol>
         </div>
         <div id="contact">
-            <h1>Contact</h1>
+            <h1>Contact Us</h1>
+            <ul>
+                <li>Gmail: <a href="">mysfad@gmail.com</a></li>
+                <li>Instagram: <a href="">@mysfad.studio</a></li>
+                <li>WhatsApp <a href="">+62 838-3039-3361</a></li>
+            </ul>
         </div>
     </div>
     <div id="bottom">
