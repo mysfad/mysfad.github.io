@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    line-height: 1.25;
+    color: white;
+    transition: 250ms;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    background: rgb(15, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+body, #middle, .page {
+    background: rgb(25, 25, 25);
+    display: flex;
+    flex-direction: column;
+}
+body > div, .page {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#info {
+    padding: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+#top {
+    padding: 8px;
+    text-align: center;
+}
+#top > img {
+    height: 3rem;
+}
+#nav {
+    padding: 4px;
+    text-align: center;
+}
+#nav a {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+#nav a:hover {
+    background: rgb(255, 155, 0);
+    color: black;
+}
+#middle {
+    flex: 1;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+.page {
+    width: 100%;
+    padding: 16px;
+    flex: none;
+    scroll-snap-align: center;
+}
+#bottom {
+    padding: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+#bottom a:hover {
+    color: rgb(255, 155, 0);
+    text-decoration: underline;
+}
+input, button {
+    background: transparent;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin: 4px 0;
+    padding: 6px 10px;
+    font-size: 1rem;
+}
+input::placeholder {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.25);
+}
+button:hover {
+    background: rgb(255, 155, 0);
+    color: black;
+    border-color: transparent;
+}
+a:hover, button:hover {
+    cursor: pointer;
+}
+a:active, button:active {
+    filter: brightness(50%);
+    transition: 0ms;
+}
+label {
+    margin-top: 8px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+@media (orientation: landscape) {
+    body {
+        width: 40%;
+        height: 90%;
+        border-radius: 16px;
+        border: 1px solid white;
+    }
+}
+</style>
+<body>
+    <div id="info">
+        <p>Selamat datang di website MysFad.com 🎉</p>
+    </div>
+    <div id="top">
+        <img src="resources/logo.png" alt="MysFad Logo">
+    </div>
+    <div id="nav">
+        <a>Home</a>
+        <a>Dedic</a>
+        <a>About</a>
+        <a>Contact</a>
+    </div>
+    <div id="middle">
+        <div id="page-1" class="page">
+            <h1>Welcome</h1>
+        </div>
+        <div id="page-2" class="page">
+            <label for="wa">WhatsApp</label>
+            <input type="number" name="" id="wa" placeholder="+62 012-3456-7890">
+            <label for="url">AMV / GFX</label>
+            <input type="url" name="" id="url" placeholder="https://www.instagram.com/MysFad/*">
+            <button>Dedicated</button>
+        </div>
+    </div>
+    <div id="bottom">
+        <div>
+            <a>Syarat & Ketentuan</a>
+            <a>Kebijakan Privasi</a>
+        </div>
+        <p>© 2024 - MysFad Studio</p>
+    </div>
+</body>
+<script>
+
+function tes() {
+    alert('tes')
+}
+
+</script>
+</html>
