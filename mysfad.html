@@ -3,52 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MysFad Studio</title>
+    <meta name="description" content="MysFad Studio Official Website">
+    <link rel="icon" href="resources/icon.png" type="image/png">
+    <meta property="og:title" content="MysFad Studio" />
+    <meta property="og:description" content="MysFad Studio Official Website">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="MysFad.com" />
+    <meta property="og:image" content="resources/icon.png" />
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-::-webkit-scrollbar {
-    background: rgba(255, 255, 255, 0.25);
-    width: 2px;
-    height: 2px;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 2px;
-}
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Poppins, Arial, Helvetica, sans-serif;
     line-height: 1.25;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-size: 1rem;
     color: white;
     transition: 250ms;
-    font-size: 1rem;
     scroll-behavior: smooth;
-}
-html, body {
-    height: 100%;
-    width: 100%;
+    scrollbar-width: thin;
+    user-select: none;
 }
 html {
+    height: 100%;
+    width: 100%;
     background: rgb(15, 15, 15);
+    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
 }
-body, #middle, #middle > div {
+body {
+    height: 100%;
+    width: 100%;
     background: rgb(25, 25, 25);
     display: flex;
     flex-direction: column;
 }
-body > div, #middle > div {
+body > div {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-#info {
+#info, #bottom {
     padding: 8px;
     text-align: center;
 }
@@ -59,109 +58,77 @@ body > div, #middle > div {
     padding: 8px;
     text-align: center;
 }
-#top > img {
+#top img {
     height: 3rem;
 }
 #nav {
-    padding: 4px;
+    padding: 8px;
     text-align: center;
     white-space: nowrap;
     overflow: auto;
 }
 #nav a {
-    display: inline-block;
-    padding: 4px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
+    text-decoration: none;
 }
 #nav a:hover {
-    background: rgb(255, 125, 0);
-    color: black;
+    background: rgb(255, 155, 0);
+    color: rgb(25, 25, 25);
 }
 #middle {
     flex: 1;
+    display: flex;
     flex-direction: row;
-    overflow-x: auto;
+    overflow: hidden;
     scroll-snap-type: x mandatory;
 }
 #middle > div {
     width: 100%;
-    padding: 32px 16px;
+    height: 100%;
     flex: none;
-    overflow-y: auto;
-    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: 32px 16px;
+    scroll-snap-align: start;
     text-align: center;
-}
-#middle a:hover {
-    color: rgb(255, 125, 0);
-}
-#middle::-webkit-scrollbar, #middle > div::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-#bottom {
-    padding: 8px;
-    text-align: center;
-}
-#bottom a {
-    white-space: nowrap;
-}
-#bottom a:hover {
-    color: rgb(255, 125, 0);
-    text-decoration: underline;
-}
-input, button {
-    background: transparent;
-    outline: none;
-    border: 1px solid white;
-    border-radius: 6px;
-    margin: 4px 0;
-    padding: 6px 10px;
-    font-size: 1rem;
-    max-width: 100%;
-    overflow: hidden;
-}
-input {
-    width: 75%;
-}
-input::placeholder {
-    text-align: center;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.25);
-}
-button:hover {
-    background: rgb(255, 125, 0);
-    color: black;
-    border-color: transparent;
-}
-a:hover, button:hover {
-    cursor: pointer;
-}
-a:active, button:active {
-    filter: brightness(50%);
-    transition: 0ms;
-}
-label {
-    margin-top: 8px;
+    overflow: auto;
 }
 h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 600;
-    line-height: 1.5;
+    margin: 4px 0;
 }
 b {
     font-weight: 600;
 }
 ol, ul {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
 }
 li {
-    margin-top: 0.5rem;
-    text-align: left;
+    text-align: start;
+    margin: 4px 0;
 }
-.paragraph {
-    text-indent: 1.5rem;
-    text-align: center;
+.button {
+    padding: 6px 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.button:hover {
+    background: rgb(255, 155, 0);
+    color: rgb(25, 25, 25);
+    font-weight: 500;
+    letter-spacing: -1px;
+    border-color: transparent;
+}
+.url:hover {
+    color: rgb(255, 155, 0);
+}
+.button:active, .url:active, #nav a:active {
+    filter: brightness(50%);
+    transition: 0ms;
 }
 
 @media (orientation: landscape) {
@@ -172,69 +139,35 @@ li {
         border-radius: 16px;
     }
 }
+
 </style>
 <body>
     <div id="info">
-        <p>MysFad Studio Official Website</p>
+        <p><b>MysFad Studio</b> Official Website</p>
     </div>
     <div id="top">
-        <img src="resources/logo.png" alt="MysFad Logo">
+        <img src="resources/logo.png" alt="MysFad Studio Logo">
     </div>
     <div id="nav">
-        <a>Home</a>
-        <a>Apps</a>
-        <a>Dedic</a>
-        <a>Partner</a>
-        <a>About</a>
-        <a>Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#partner">Partner</a>
+        <a href="#contact">Contact</a>
     </div>
     <div id="middle">
         <div id="home">
             <h1>Welcome</h1>
-            <b>Selamat datang di MysFad Studio</b>
+            <p>Selamat datang di <b>MysFad Studio</b></p>
             <br>
             <h1>Tagline Kami</h1>
             <p>"Realize Your Creativity"</p>
             <br>
-            <button onclick="page('about')">Selengkapnya</button>
-        </div>
-        <div id="apps">
-            <h1>Apps</h1>
-            <br>
-            <b>Buka</b>
-            <p>01/01/2000 - 02/02/2000</p>
-            <br>
-            <b>Kami Menerima Kreator</b>
-            <ul>
-                <li>AMV 3D / VFX</li>
-                <li>AMV Typography</li>
-                <li>AMV HyperPop</li>
-                <li>GFX Design</li>
-            </ul>
-            <br>
-            <button>Join Apps</button>
-        </div>
-        <div id="dedic">
-            <h1>Dedic</h1>
-            <label for="wa">WhatsApp</label>
-            <input type="text" name="" id="wa" placeholder="+62 012-3456-7890">
-            <label for="url">AMV / GFX</label>
-            <input type="url" name="" id="url" placeholder="https://www.instagram.com/MysFad/*">
-            <button>Dedicated</button>
-        </div>
-        <div id="partner">
-            <h1>Partnership</h1>
-            <ul>
-                <li>One Studio</li>
-                <li>Two Studio</li>
-                <li>Three Studio</li>
-            </ul>
-            <br>
-            <button onclick="page('contact')">Jadi Partner</button>
+            <a class="button" href="#about">Selengkapnya</a>
         </div>
         <div id="about">
-            <h1>About Us</h1>
-            <p><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
+            <h1>About</h1>
+            <p><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects).
+                <br><br>Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
             <br>
             <h1>Visi</h1>
             <p>Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.</p>
@@ -247,37 +180,41 @@ li {
                 <li>Menjalin hubungan dengan komunitas dan industri terkait untuk memperluas peluang kolaborasi dan pengembangan karier.</li>
             </ol>
         </div>
+        <div id="partner">
+            <h1>Partnership</h1>
+            <ul>
+                <li>First Studio</li>
+                <li>Second Studio</li>
+                <li>Third Studio</li>
+            </ul>
+            <br>
+            <a class="button" href="#contact">Jadi Partner</a>
+        </div>
         <div id="contact">
             <h1>Contact Us</h1>
             <ul>
-                <li>Gmail: <a href="">mysfad@gmail.com</a></li>
-                <li>Instagram: <a href="">@mysfad.studio</a></li>
-                <li>WhatsApp <a href="">+62 838-3039-3361</a></li>
+                <li>Gmail: <a class="url" href="#">mysfad@gmail.com</a></li>
+                <li>Instagram: <a class="url" href="#">@mysfad.studio</a></li>
+                <li>WhatsApp: <a class="url" href="#">+62 838-3039-3361</a></li>
             </ul>
+        </div>
+        <div id="legal">
+            <h1>Privacy Policy</h1>
+            <p>MysFad Studio menghargai privasi Anda. Website kami tidak mengumpulkan data pribadi dari pengunjung, termasuk data seperti nama, email, atau cookies.</p>
+            <br>
+            <h1>Terms of Service</h1>
+            <p>Dengan mengakses dan menggunakan website <b>MysFad Studio</b>, Anda menyetujui syarat berikut:</p>
+            <ol>
+                <li>Semua konten di website ini, termasuk gambar, teks, dan desain, adalah milik MysFad Studio. Penggunaan tanpa izin tertulis dilarang.</li>
+                <li>Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum atau hak pihak lain.</li>
+                <li>MysFad Studio tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.</li>
+                <li>Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.</li>
+            </ol>
         </div>
     </div>
     <div id="bottom">
-        <div>
-            <a>Syarat & Ketentuan</a>
-            <a>Kebijakan Privasi</a>
-        </div>
-        <p>© 2024 - MysFad Studio</p>
+        <a class="url" href="#legal">Privacy Policy & Terms of Service</a>
+        <p>© 2024 MysFad Studio. All rights reserved.</p>
     </div>
 </body>
-<script>
-
-function page(id) {
-    let page = document.getElementById(id)
-    if (!page) return
-    page.scrollIntoView()
-}
-
-let nav = document.querySelectorAll('#nav a')
-nav.forEach(a => {
-    a.addEventListener('click', () => {
-        page(a.textContent.toLowerCase())
-    })
-})
-
-</script>
 </html>
