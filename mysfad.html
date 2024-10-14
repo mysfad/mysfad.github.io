@@ -35,6 +35,7 @@ html {
     align-items: center;
 }
 body {
+    position: relative;
     width: 100%;
     height: 100%;
     background: rgb(25, 25, 25);
@@ -51,15 +52,45 @@ body > div {
     font-size: 0.75rem;
 }
 #top {
-    padding: 8px;
+    padding: 16px;
 }
 #logo {
     height: 3rem;
+    vertical-align: middle;
 }
-#navbar, #navbar1 {
-    padding: 4px;
+#navbar {
+    padding: 4px 8px;
     white-space: nowrap;
     overflow: auto;
+}
+#navbar > button {
+    background: transparent;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#navbar > button:hover {
+    background: rgb(255, 155, 0);
+    color: rgb(25, 25, 25);
+}
+#nav {
+    background: rgb(25, 25, 25);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+}
+#nav > button:not(:first-child) {
+    background: transparent;
+    margin: 4px 0;
+}
+#nav > button:not(:first-child):hover {
+    color: rgb(255, 155, 0);
 }
 #middle {
     flex: 1;
@@ -84,19 +115,10 @@ body > div {
 }
 #bottom {
     padding: 8px;
+    border-bottom: none;
 }
 #bottom * {
     font-size: 0.75rem;
-}
-.nav {
-    background: transparent;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.nav:hover {
-    background: rgb(255, 155, 0);
-    color: rgb(25, 25, 25);
 }
 h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
@@ -122,6 +144,7 @@ li {
     cursor: pointer;
     outline: none;
     overflow: hidden;
+    vertical-align: middle;
 }
 .input::placeholder {
     color: rgba(255, 255, 255, 0.25);
@@ -133,11 +156,11 @@ li {
     border-color: transparent;
     letter-spacing: -0.5px;
 }
-.url {
+.url, .url * {
     background: transparent;
     text-decoration: underline;
 }
-.url:hover {
+.url:hover, .url:hover * {
     color: rgb(255, 155, 0);
 }
 .button:active, .url:active {
@@ -154,7 +177,7 @@ li {
     }
 }
 .invisible {
-    display: none;
+    width: 0 !important;
 }
 
 </style>
@@ -166,15 +189,19 @@ li {
         <img id="logo" src="resources/logo.png" alt="MysFad Studio Logo">
     </div>
     <div id="navbar">
-        <button class="nav" onclick="page('home')">Home</button>
-        <button class="nav" onclick="page('apps')">Apps</button>
-        <button class="nav" onclick="page('dedic')">Dedic</button>
-        <button class="nav" onclick="onoff('navbar1')">More »</button>
+        <button onclick="page('home')">Home</button>
+        <button onclick="page('apps')">Apps</button>
+        <button onclick="page('dedic')">Dedic</button>
+        <button onclick="page('asset')">Assets</button>
+        <button onclick="onoff('nav')">More »</button>
     </div>
-    <div id="navbar1" class="invisible">
-        <button class="nav" onclick="page('about')">About</button>
-        <button class="nav" onclick="page('partner')">Partner</button>
-        <button class="nav" onclick="page('contact')">Contact</button>
+    <div id="nav" class="invisible">
+        <button class="button" onclick="onoff('nav')">Close »</button>
+        <br>
+        <button onclick="onoff('nav'); page('about')">About</button>
+        <button onclick="onoff('nav'); page('team')">Team</button>
+        <button onclick="onoff('nav'); page('partner')">Partner</button>
+        <button onclick="onoff('nav'); page('contact')">Contact</button>
     </div>
     <div id="middle">
         <div id="home">
@@ -203,6 +230,9 @@ li {
             <input class="input" type="url" id="url" placeholder="https://www.instagram.com/*">
             <button class="button">Dedicated</button>
         </div>
+        <div id="asset">
+            <h1>Assets</h1>
+        </div>
         <div id="about">
             <h1>About Us</h1>
             <p><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
@@ -218,6 +248,27 @@ li {
                 <li>Menjalin hubungan dengan komunitas dan industri terkait untuk memperluas peluang kolaborasi dan pengembangan karier.</li>
             </ol>
         </div>
+        <div id="team">
+            <h1>Founder</h1>
+            <a class="url" href="#"><b>MysFad</b></a>
+            <br>
+            <h1>CEO</h1>
+            <a class="url" href="#"><b>Fisual</b></a>
+            <br>
+            <h1>Staff</h1>
+            <ol>
+                <li>befbebfj</li>
+                <li>nknkwnfefnne</li>
+                <li>jnjebfjejbf</li>
+                <li>knnefoenofooeof</li>
+                <li>ndjnwjbjwbd</li>
+                <li>hwhihwiiwhei</li>
+                <li>hfehufhuefuehfu</li>
+                <li>jbdwbwj</li>
+                <li>fjjfbjebfeb</li>
+                <li>wdjwjbwbbdhb</li>
+            </ol>
+        </div>
         <div id="partner">
             <h1>Partnership</h1>
             <ul>
@@ -231,9 +282,9 @@ li {
         <div id="contact">
             <h1>Contact Us</h1>
             <ul>
-                <li>Gmail: <a class="url" href="#">mysfadstudio@gmail.com</a></li>
-                <li>Instagram: <a class="url" href="#">@mysfad.studio</a></li>
-                <li>WhatsApp: <a class="url" href="#">+62 838-3039-3361</a></li>
+                <li><b>Gmail</b>: <a class="url" href="#">mysfadstudio@gmail.com</a></li>
+                <li><b>Instagram</b>: <a class="url" href="#">@mysfad.studio</a></li>
+                <li><b>WhatsApp</b>: <a class="url" href="#">+62 838-3039-3361</a></li>
             </ul>
         </div>
         <div id="legal">
