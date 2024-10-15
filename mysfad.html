@@ -120,6 +120,24 @@ body > div {
 #bottom * {
     font-size: 0.75rem;
 }
+.product {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 8px;
+    place-items: center;
+}
+.product > a:last-child:nth-child(odd) {
+    grid-column: span 2;
+    width: 50%;
+}
+.product img {
+    border-radius: 8px;
+}
+.product p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -171,6 +189,9 @@ li {
     transition: 0ms;
     filter: brightness(50%) blur(0.5px);
 }
+.no-decoration, .no-decoration * {
+    text-decoration: none;
+}
 
 @media (orientation: landscape) {
     body {
@@ -219,6 +240,21 @@ li {
             <button class="button" onclick="page('about')">Selengkapnya »</button>
             <hr>
             <h1>Dedication</h1>
+            <br>
+            <div class="product no-decoration">
+                <a class="url" href="#">
+                    <img src="https://placehold.co/1280x720" alt="">
+                    <p>AMV First</p>
+                </a>
+                <a class="url" href="#">
+                    <img src="https://placehold.co/1280x720" alt="">
+                    <p>AMV Second</p>
+                </a>
+                <a class="url" href="#">
+                    <img src="https://placehold.co/1280x720" alt="">
+                    <p>AMV Third</p>
+                </a>
+            </div>
         </div>
         <div id="news">
             <h1>News</h1>
