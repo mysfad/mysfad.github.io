@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MysFad Studio</title>
-    <meta name="description" content="MysFad Studio Official Website">
+    <title mark="name"></title>
+    <meta name="description" content="Editing Community">
 </head>
 <style>
 
@@ -73,7 +73,7 @@ body > div {
     background: rgb(255, 155, 0);
     color: rgb(25, 25, 25);
 }
-#nav {
+#sidebar {
     background: rgb(25, 25, 25);
     position: absolute;
     width: 100%;
@@ -85,11 +85,11 @@ body > div {
     align-items: center;
     border-radius: inherit;
 }
-#nav > button:not(:first-child) {
+#sidebar > button:not(:first-child) {
     background: transparent;
     margin: 4px 0;
 }
-#nav > button:not(:first-child):hover {
+#sidebar > button:not(:first-child):hover {
     color: rgb(255, 155, 0);
 }
 #middle {
@@ -183,7 +183,7 @@ li {
 </style>
 <body>
     <div id="info">
-        <p><b>MysFad Studio</b> Official Website</p>
+        <p><b mark="name"></b> Official Website</p>
     </div>
     <div id="top">
         <img id="logo" src="resources/logo.png" alt="MysFad Studio Logo">
@@ -193,34 +193,33 @@ li {
         <button onclick="page('apps')">Apps</button>
         <button onclick="page('dedic')">Dedic</button>
         <button onclick="page('asset')">Assets</button>
-        <button onclick="onoff('nav')">More »</button>
+        <button onclick="onoff('sidebar')">More »</button>
     </div>
-    <div id="nav" class="invisible">
-        <button class="button" onclick="onoff('nav')">Close »</button>
+    <div id="sidebar" class="invisible">
+        <button class="button" onclick="onoff('sidebar')">Close »</button>
         <br>
-        <button onclick="onoff('nav'); page('about')">About</button>
-        <button onclick="onoff('nav'); page('team')">Team</button>
-        <button onclick="onoff('nav'); page('partner')">Partner</button>
-        <button onclick="onoff('nav'); page('contact')">Contact</button>
-        <br><br><br><br><br>
+        <button onclick="onoff('sidebar'); page('about')">About</button>
+        <button onclick="onoff('sidebar'); page('team')">Team</button>
+        <button onclick="onoff('sidebar'); page('partner')">Partner</button>
+        <button onclick="onoff('sidebar'); page('contact')">Contact</button>
     </div>
     <div id="middle">
         <div id="home">
             <h1>Welcome</h1>
-            <p>Selamat datang di <b>MysFad Studio</b></p>
+            <p>Selamat datang di <b mark="name"></b></p>
             <br>
             <h1>Tagline Kami</h1>
-            <p>"Realize Your Creativity"</p>
+            <p mark="tagline"></p>
             <br>
             <button class="button" onclick="page('about')">Selengkapnya »</button>
         </div>
         <div id="apps">
             <h1>Apps</h1>
             <br>
-            <p><b>Buka</b></p>
-            <p>01/01/2000 - 02/02/2000</p>
+            <b mark="apps.status"></b>
+            <p mark="apps.date"></p>
             <br>
-            <a class="button" href="#">Join Apps</a>
+            <a class="button" href="#" mark="apps.url">Join Apps</a>
         </div>
         <div id="dedic">
             <h1>Dedication</h1>
@@ -236,46 +235,39 @@ li {
         </div>
         <div id="about">
             <h1>About Us</h1>
-            <p><b>MysFad Studio</b> adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.</p>
+            <p><b mark="name"></b> <span mark="about"></span></p>
             <br>
             <h1>Visi</h1>
-            <p>Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.</p>
+            <p mark="visi"></p>
             <br>
             <h1>Misi</h1>
             <ol>
-                <li>Mengembangkan talenta kreatif dalam bidang Editing AMV dan Desain GFX melalui kolaborasi, edukasi, dan berbagai proyek kreatif.</li>
-                <li>Menciptakan lingkungan yang mendukung pertukaran ide, pengetahuan, dan pengalaman antara anggota komunitas.</li>
-                <li>Menyediakan platform bagi para kreator untuk menunjukkan karya terbaik mereka ke dunia luas.</li>
-                <li>Menjalin hubungan dengan komunitas dan industri terkait untuk memperluas peluang kolaborasi dan pengembangan karier.</li>
+                <li mark="misi[0]"></li>
+                <li mark="misi[1]"></li>
+                <li mark="misi[2]"></li>
+                <li mark="misi[3]"></li>
             </ol>
         </div>
         <div id="team">
             <h1>Founder</h1>
-            <a class="url" href="#"><b>MysFad</b></a>
+            <a class="url" href="#" mark="founder.url"><b mark="founder.name"></b></a>
             <br>
             <h1>CEO</h1>
-            <a class="url" href="#"><b>Fisual</b></a>
+            <a class="url" href="#" mark="ceo.url"><b mark="ceo.name"></b></a>
             <br>
             <h1>Staff</h1>
             <ol>
-                <li>befbebfj</li>
-                <li>nknkwnfefnne</li>
-                <li>jnjebfjejbf</li>
-                <li>knnefoenofooeof</li>
-                <li>ndjnwjbjwbd</li>
-                <li>hwhihwiiwhei</li>
-                <li>hfehufhuefuehfu</li>
-                <li>jbdwbwj</li>
-                <li>fjjfbjebfeb</li>
-                <li>wdjwjbwbbdhb</li>
+                <li mark="staff[0]"></li>
+                <li mark="staff[1]"></li>
+                <li mark="staff[2]"></li>
             </ol>
         </div>
         <div id="partner">
             <h1>Partnership</h1>
             <ul>
-                <li>First studio</li>
-                <li>Second Studio</li>
-                <li>Third Studio</li>
+                <li><a class="url" href="#" mark="partner[0].url"><span mark="partner[0].name"></span></a></li>
+                <li><a class="url" href="#" mark="partner[1].url"><span mark="partner[1].name"></span></a></li>
+                <li><a class="url" href="#" mark="partner[2].url"><span mark="partner[2].name"></span></a></li>
             </ul>
             <br>
             <button class="button" onclick="page('contact')">Jadi Partner »</button>
@@ -283,31 +275,78 @@ li {
         <div id="contact">
             <h1>Contact Us</h1>
             <ul>
-                <li><b>Gmail</b>: <a class="url" href="#">mysfadstudio@gmail.com</a></li>
-                <li><b>Instagram</b>: <a class="url" href="#">@mysfad.studio</a></li>
-                <li><b>WhatsApp</b>: <a class="url" href="#">+62 838-3039-3361</a></li>
+                <li><b mark="contact[0].type"></b>: <a class="url" href="#"><span mark="contact[0].content"></span></a></li>
+                <li><b mark="contact[1].type"></b>: <a class="url" href="#"><span mark="contact[1].content"></span></a></li>
+                <li><b mark="contact[2].type"></b>: <a class="url" href="#"><span mark="contact[2].content"></span></a></li>
             </ul>
         </div>
         <div id="legal">
             <h1>Privacy Policy</h1>
-            <p>MysFad Studio menghargai privasi Anda. Website kami tidak mengumpulkan data pribadi dari pengunjung, termasuk data seperti nama, email, atau cookies.</p>
+            <p mark="privacy_policy"></p>
             <br>
             <h1>Terms of Service</h1>
-            <p>Dengan mengakses dan menggunakan website MysFad Studio, Anda menyetujui syarat berikut:</p>
+            <p mark="terms_of_service[0]"></p>
             <ol>
-                <li>Semua konten di website ini, termasuk gambar, teks, dan desain, adalah milik MysFad Studio. Penggunaan tanpa izin tertulis dilarang.</li>
-                <li>Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum atau hak pihak lain.</li>
-                <li>MysFad Studio tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.</li>
-                <li>Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.</li>
+                <li mark="terms_of_service[1]"></li>
+                <li mark="terms_of_service[2]"></li>
+                <li mark="terms_of_service[3]"></li>
+                <li mark="terms_of_service[4]"></li>
             </ol>
         </div>
     </div>
     <div id="bottom">
         <button class="url" onclick="page('legal')">Privacy Policy & Terms of Service</button>
-        <p>© 2024 MysFad Studio. All rights reserved.</p>
+        <p mark="copyright"></p>
     </div>
 </body>
 <script>
+
+let unit = {
+    name: 'MysFad Studio',
+    tagline: '"Realize Your Creativity"',
+    about: 'adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.',
+    visi: 'Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.',
+    misi: [
+        'Mengembangkan talenta kreatif dalam bidang Editing AMV dan Desain GFX melalui kolaborasi, edukasi, dan berbagai proyek kreatif.',
+        'Menciptakan lingkungan yang mendukung pertukaran ide, pengetahuan, dan pengalaman antara anggota komunitas.',
+        'Menyediakan platform bagi para kreator untuk menunjukkan karya terbaik mereka ke dunia luas.',
+        'Menjalin hubungan dengan komunitas dan industri terkait untuk memperluas peluang kolaborasi dan pengembangan karier.'
+    ],
+    founder: { name: 'MysFad', url: '#mf' },
+    ceo: { name: 'Fisual', url: '#fs' },
+    staff: ['First', 'Second', 'Third'],
+    partner: [
+        { name: 'First Studio', url: '#fs' },
+        { name: 'Second Studio', url: '#ss' },
+        { name: 'Third Studio', url: '#ts' }
+    ],
+    contact: [
+        { type: 'Gmail', url: '#gm', content: 'mysfad@gmail.com' },
+        { type: 'Instagram', url: '#ig', content: '@mysfads' },
+        { type: 'WhatsApp', url: '#wa', content: '+62 838-3039-3361' }
+    ],
+    privacy_policy: 'Kami menghargai privasi Anda. Website kami tidak mengumpulkan data pribadi dari pengunjung, termasuk data seperti nama, email, atau cookies.',
+    terms_of_service: [
+        'Dengan mengakses dan menggunakan website Kami, Anda menyetujui syarat berikut:',
+        'Semua konten di website ini, termasuk gambar, teks, dan desain, adalah milik Kami. Penggunaan tanpa izin tertulis dilarang.',
+        'Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum atau hak pihak lain.',
+        'Kami tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.',
+        'Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.'
+    ],
+    copyright: '© 2024 MysFad Studio. All rights reserved.',
+    apps: {
+        status: 'Buka',
+        date: '01/01/2024 - 02/02/2024',
+        url: '#ap'
+    }
+}
+
+document.querySelectorAll('[mark]').forEach(e => {
+    let value = (new Function('unit', `return unit.${e.getAttribute('mark')}`))(unit)
+    if (e.getAttribute('href')) {
+        e.setAttribute('href', value)
+    } else e.textContent = value
+})
 
 function page(id) { document.getElementById(id).scrollIntoView() }
 function onoff(id) {
