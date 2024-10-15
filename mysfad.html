@@ -127,6 +127,11 @@ h1, h2, h3, h4, h5, h6 {
 b {
     font-weight: 600;
 }
+hr {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin: 32px 0 !important;
+}
 ul, ol {
     padding-left: 1.5rem;
 }
@@ -143,7 +148,6 @@ li {
     display: inline-block;
     cursor: pointer;
     outline: none;
-    overflow: hidden;
     vertical-align: middle;
 }
 .input::placeholder {
@@ -190,18 +194,19 @@ li {
     </div>
     <div id="navbar">
         <button onclick="page('home')">Home</button>
+        <button onclick="page('news')">News</button>
+        <button onclick="page('team')">Team</button>
         <button onclick="page('apps')">Apps</button>
-        <button onclick="page('dedic')">Dedic</button>
-        <button onclick="page('asset')">Assets</button>
         <button onclick="onoff('sidebar')">More »</button>
     </div>
     <div id="sidebar" class="invisible">
         <button class="button" onclick="onoff('sidebar')">Close »</button>
         <br>
+        <button onclick="onoff('sidebar'); page('asset')">Assets</button>
         <button onclick="onoff('sidebar'); page('about')">About</button>
-        <button onclick="onoff('sidebar'); page('team')">Team</button>
         <button onclick="onoff('sidebar'); page('partner')">Partner</button>
         <button onclick="onoff('sidebar'); page('contact')">Contact</button>
+        <button onclick="onoff('sidebar'); page('faq')">FAQ</button>
     </div>
     <div id="middle">
         <div id="home">
@@ -212,6 +217,11 @@ li {
             <p mark="tagline"></p>
             <br>
             <button class="button" onclick="page('about')">Selengkapnya »</button>
+            <hr>
+            <h1>Dedication</h1>
+        </div>
+        <div id="news">
+            <h1>News</h1>
         </div>
         <div id="apps">
             <h1>Apps</h1>
@@ -220,15 +230,6 @@ li {
             <p mark="apps.date"></p>
             <br>
             <a class="button" href="#" mark="apps.url">Join Apps</a>
-        </div>
-        <div id="dedic">
-            <h1>Dedication</h1>
-            <br>
-            <label for="wa">WhatsApp</label>
-            <input class="input" type="text" id="wa" placeholder="+62 838-3039-3361">
-            <label for="url">AMV / GFX</label>
-            <input class="input" type="url" id="url" placeholder="https://www.instagram.com/*">
-            <button class="button">Dedicated</button>
         </div>
         <div id="asset">
             <h1>Assets</h1>
@@ -279,6 +280,9 @@ li {
                 <li><b mark="contact[1].type"></b>: <a class="url" href="#"><span mark="contact[1].content"></span></a></li>
                 <li><b mark="contact[2].type"></b>: <a class="url" href="#"><span mark="contact[2].content"></span></a></li>
             </ul>
+        </div>
+        <div id="faq">
+            <h1>FAQ</h1>
         </div>
         <div id="legal">
             <h1>Privacy Policy</h1>
@@ -354,6 +358,13 @@ function onoff(id) {
     if (e.contains('invisible')) {
         e.remove('invisible')
     } else e.add('invisible')
+}
+
+//window.location.hash = ''
+let search = window.location.search
+if (search) {
+    let Params = new URLSearchParams(search)
+    document.getElementById(Params.get('page')).scrollIntoView()
 }
 
 </script>
