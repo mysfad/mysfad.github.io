@@ -59,7 +59,7 @@ body > div {
     vertical-align: middle;
 }
 #navbar {
-    padding: 4px 8px;
+    padding: 6px 10px;
     white-space: nowrap;
     overflow: auto;
 }
@@ -85,9 +85,13 @@ body > div {
     align-items: center;
     border-radius: inherit;
 }
+#sidebar > button {
+    white-space: nowrap;
+    cursor: pointer;
+}
 #sidebar > button:not(:first-child) {
     background: transparent;
-    margin: 4px 0;
+    padding: 4px;
 }
 #sidebar > button:not(:first-child):hover {
     color: rgb(255, 155, 0);
@@ -121,9 +125,11 @@ body > div {
     font-size: 0.75rem;
 }
 .product {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 50%);
     gap: 8px;
+    justify-content: center;
     place-items: center;
 }
 .product > a:last-child:nth-child(odd) {
@@ -192,6 +198,28 @@ li {
 .no-decoration, .no-decoration * {
     text-decoration: none;
 }
+#qa {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    gap: 4px;
+}
+.question {
+    background: rgb(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+}
+.question * {
+    margin: 4px 0 !important;
+}
+.question p:first-child {
+    font-weight: 600;
+}
+.invisible {
+    width: 0 !important;
+    filter: blur(1px);
+}
 
 @media (orientation: landscape) {
     body {
@@ -200,9 +228,6 @@ li {
         border: 1px solid white;
         border-radius: 16px;
     }
-}
-.invisible {
-    width: 0 !important;
 }
 
 </style>
@@ -215,19 +240,19 @@ li {
     </div>
     <div id="navbar">
         <button onclick="page('home')">Home</button>
-        <button onclick="page('news')">News</button>
         <button onclick="page('team')">Team</button>
-        <button onclick="page('apps')">Apps</button>
-        <button onclick="onoff('sidebar')">More »</button>
+        <button onclick="page('partner')">Partner</button>
+        <button onclick="sidebar()">More »</button>
     </div>
     <div id="sidebar" class="invisible">
-        <button class="button" onclick="onoff('sidebar')">Close »</button>
+        <button class="button" onclick="sidebar()">Close »</button>
         <br>
-        <button onclick="onoff('sidebar'); page('asset')">Assets</button>
-        <button onclick="onoff('sidebar'); page('about')">About</button>
-        <button onclick="onoff('sidebar'); page('partner')">Partner</button>
-        <button onclick="onoff('sidebar'); page('contact')">Contact</button>
-        <button onclick="onoff('sidebar'); page('faq')">FAQ</button>
+        <button onclick="sidebar(); page('news')">News</button>
+        <button onclick="sidebar(); page('apps')">Apps</button>
+        <button onclick="sidebar(); page('assets')">Assets</button>
+        <button onclick="sidebar(); page('about')">About</button>
+        <button onclick="sidebar(); page('contact')">Contact</button>
+        <button onclick="sidebar(); page('faq')">FAQ</button>
     </div>
     <div id="middle">
         <div id="home">
@@ -267,7 +292,7 @@ li {
             <br>
             <a class="button" href="#" mark="apps.url">Join Apps</a>
         </div>
-        <div id="asset">
+        <div id="assets">
             <h1>Assets</h1>
         </div>
         <div id="about">
@@ -319,6 +344,20 @@ li {
         </div>
         <div id="faq">
             <h1>FAQ</h1>
+            <div id="qa">
+                <div class="question">
+                    <p>Apa itu <b mark="name"></b>?</p>
+                    <button class="button" onclick="page('about')">About</button>
+                </div>
+                <div class="question">
+                    <p>Apakah Digaji?</p>
+                    <p>Ya, setiap bulan Founder menyiapkan sejumlah uang. Uang tersebut akan dibagikan setiap bulan ke Staff yang dedic.</p>
+                </div>
+                <div class="question">
+                    <p>Berapa nominal gaji?</p>
+                    <p>Nominal gaji tidak menentu. Kalau ada 10 Dedication pada bulan tersebut, dan uang yang disediakan Founder adalah Rp. 100.000, berarti uang tersebut akan dibagikan ke Staff yang Dedic tersebut.</p>
+                </div>
+            </div>
         </div>
         <div id="legal">
             <h1>Privacy Policy</h1>
@@ -389,18 +428,31 @@ document.querySelectorAll('[mark]').forEach(e => {
 })
 
 function page(id) { document.getElementById(id).scrollIntoView() }
-function onoff(id) {
-    let e = document.getElementById(id).classList
+function sidebar() {
+    let e = document.getElementById('sidebar').classList
     if (e.contains('invisible')) {
         e.remove('invisible')
     } else e.add('invisible')
 }
 
-//window.location.hash = ''
+window.location.hash = ''
 let search = window.location.search
 if (search) {
-    let Params = new URLSearchParams(search)
-    document.getElementById(Params.get('page')).scrollIntoView()
+    let params = new URLSearchParams(search)
+    if (params.get('page')) {
+        page(params.get('page'))
+    }
+    if (params.get('sidebar') === 'on') {
+        sidebar()
+    }
+    if (params.get('as') === 'admin') {
+        let answer = prompt('Password:')
+        if (answer === '123') {
+            alert('Sukses')
+        } else {
+            alert('Gagal')
+        }
+    }
 }
 
 </script>
