@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title mark="name"></title>
     <meta name="description" content="Editing Community">
 </head>
@@ -16,14 +16,14 @@
     padding: 0;
     line-height: 1.25;
     box-sizing: border-box;
-    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-family: Poppins;
     color: white;
     text-align: center;
     font-size: 1rem;
     border: none;
     scrollbar-width: thin;
-    scroll-behavior: smooth;
-    transition: 250ms;
+    transition: 250ms ease;
+    user-select: none;
 }
 html {
     width: 100%;
@@ -42,8 +42,22 @@ body {
     display: flex;
     flex-direction: column;
 }
-body > div {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+#loading {
+    background: rgb(25, 25, 25);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    overflow: hidden;
+    transition: 500ms;
+    z-index: 1;
+}
+#loading h1 {
+    transform: skew(-8deg) rotate(-4deg);
 }
 #info {
     padding: 8px;
@@ -55,8 +69,11 @@ body > div {
     padding: 16px;
     position: relative;
     overflow: hidden;
+    border: solid rgba(255, 255, 255, 0.1);
+    border-width: 2px 0;
 }
-#top video {
+#top video, #sidebar video {
+    filter: blur(2px);
     position: absolute;
     top: 0;
     left: 0;
@@ -64,9 +81,12 @@ body > div {
     height: 100%;
     object-fit: cover;
     opacity: 0.25;
-    filter: blur(1px);
+    pointer-events: none;
 }
-#logo {
+#sidebar video {
+    filter: blur(4px);
+}
+.logo {
     height: 3rem;
     vertical-align: middle;
     position: relative;
@@ -90,7 +110,7 @@ body > div {
 #sidebar {
     background: rgb(25, 25, 25);
     position: absolute;
-    width: 100%;
+    width: 0px;
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -102,12 +122,13 @@ body > div {
 #sidebar > button {
     white-space: nowrap;
     cursor: pointer;
+    position: relative;
 }
-#sidebar > button:not(:first-child) {
+#sidebar > button:not(:nth-child(2)) {
     background: transparent;
     padding: 4px;
 }
-#sidebar > button:not(:first-child):hover {
+#sidebar > button:not(:nth-child(2)):hover {
     color: rgb(255, 155, 0);
 }
 #middle {
@@ -116,6 +137,9 @@ body > div {
     flex-direction: column;
     overflow: hidden;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    border: solid rgba(255, 255, 255, 0.1);
+    border-width: 2px 0;
 }
 #middle > div {
     width: 100%;
@@ -133,7 +157,6 @@ body > div {
 }
 #bottom {
     padding: 8px;
-    border-bottom: none;
 }
 #bottom * {
     font-size: 0.75rem;
@@ -230,9 +253,6 @@ li {
 .question p:first-child {
     font-weight: 600;
 }
-.invisible {
-    width: 0 !important;
-}
 
 @media (orientation: landscape) {
     body {
@@ -245,12 +265,16 @@ li {
 
 </style>
 <body>
+    <div id="loading">
+        <img class="logo" src="resources/logo.png" alt="MysFad Studio Logo">
+        <h1>Loading...</h1>
+    </div>
     <div id="info">
         <p><b mark="name"></b> Official Website</p>
     </div>
     <div id="top">
         <video src="resources/bg.mp4" muted loop autoplay></video>
-        <img id="logo" src="resources/logo.png" alt="MysFad Studio Logo">
+        <img class="logo" src="resources/logo.png" alt="MysFad Studio Logo">
     </div>
     <div id="navbar">
         <button onclick="page('home')">Home</button>
@@ -258,7 +282,8 @@ li {
         <button onclick="page('partner')">Partner</button>
         <button onclick="sidebar()">More »</button>
     </div>
-    <div id="sidebar" class="invisible">
+    <div id="sidebar">
+        <video src="resources/bg.mp4" muted loop autoplay></video>
         <button class="button" onclick="sidebar()">Close »</button>
         <br>
         <button onclick="sidebar(); page('news')">News</button>
@@ -270,7 +295,7 @@ li {
     </div>
     <div id="middle">
         <div id="home">
-            <h1>Welcome</h1>
+            <h1>Hello World!</h1>
             <p>Selamat datang di <b mark="name"></b></p>
             <br>
             <h1>Tagline Kami</h1>
@@ -389,10 +414,19 @@ li {
     </div>
     <div id="bottom">
         <button class="url" onclick="page('legal')">Privacy Policy & Terms of Service</button>
-        <p mark="copyright"></p>
+        <p>© 2024 <b mark="name"></b>. All rights reserved.</p>
     </div>
 </body>
-<script>
+<script defer>
+
+document.addEventListener('contextmenu', i => i.preventDefault())
+document.addEventListener('dragstart', i => i.preventDefault())
+document.addEventListener('keydown', (i) => {
+    if (i.key === 'F12' || (i.ctrlKey && i.shiftKey && i.key === 'I')) {
+        //alert('Aktivitas terlarang!')
+        //i.preventDefault()
+    }
+})
 
 let unit = {
     name: 'MysFad Studio',
@@ -426,7 +460,6 @@ let unit = {
         'Kami tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.',
         'Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.'
     ],
-    copyright: '© 2024 MysFad Studio. All rights reserved.',
     apps: {
         status: 'Buka',
         date: '01/01/2024 - 02/02/2024',
@@ -443,10 +476,10 @@ document.querySelectorAll('[mark]').forEach(e => {
 
 function page(id) { document.getElementById(id).scrollIntoView() }
 function sidebar() {
-    let e = document.getElementById('sidebar').classList
-    if (e.contains('invisible')) {
-        e.remove('invisible')
-    } else e.add('invisible')
+    let e = document.getElementById('sidebar')
+    if (e.style.width !== '100%') {
+        e.style.width = '100%'
+    } else e.style.width = '0%'
 }
 
 window.location.hash = ''
@@ -456,18 +489,14 @@ if (search) {
     if (params.get('page')) {
         page(params.get('page'))
     }
-    if (params.get('sidebar') === 'on') {
-        sidebar()
-    }
-    if (params.get('as') === 'admin') {
-        let answer = prompt('Password:')
-        if (answer === '123') {
-            alert('Sukses')
-        } else {
-            alert('Gagal')
-        }
-    }
 }
+
+window.addEventListener('load', () => {
+    let i = () => {
+        document.getElementById('loading').style.height = '0%'
+    }
+    setTimeout(i, 1000)
+})
 
 </script>
 </html>
