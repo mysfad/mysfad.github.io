@@ -423,8 +423,8 @@ document.addEventListener('contextmenu', i => i.preventDefault())
 document.addEventListener('dragstart', i => i.preventDefault())
 document.addEventListener('keydown', (i) => {
     if (i.key === 'F12' || (i.ctrlKey && i.shiftKey && i.key === 'I')) {
-        //alert('Aktivitas terlarang!')
-        //i.preventDefault()
+        alert('Aktivitas terlarang!')
+        i.preventDefault()
     }
 })
 
