@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>MysFad Studio</title>
     <meta name="description" content="Editing Community">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600" rel="stylesheet">
 </head>
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 * {
     max-width: 100%;
@@ -67,9 +68,6 @@ body {
 }
 #info {
     padding: 8px;
-}
-#info * {
-    font-size: 0.75rem;
 }
 #top {
     padding: 16px;
@@ -172,9 +170,6 @@ body {
 #bottom {
     padding: 8px;
 }
-#bottom * {
-    font-size: 0.75rem;
-}
 .product {
     width: 100%;
     display: grid;
@@ -188,6 +183,8 @@ body {
     width: 50%;
 }
 .product img {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
 }
 .product p {
@@ -202,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 b {
     font-weight: 600;
-    color: white;
+    color: rgb(255, 155, 0);
 }
 hr {
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -270,7 +267,10 @@ button:active, a:active {
 }
 .question p:first-child {
     color: white;
-    font-weight: 600;
+    font-weight: 500;
+}
+.small, .small * {
+    font-size: 0.75rem;
 }
 
 @media (orientation: portrait) {
@@ -299,12 +299,12 @@ button:active, a:active {
 
 </style>
 <body>
-    <div id="info">
+    <div id="info" class="small">
         <p><b mark="name"></b> Official Website</p>
     </div>
     <div id="top">
         <video id="top-bg" src="resources/top-bg.mp4" muted loop autoplay></video>
-        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="512" height="192">
+        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="256" height="96">
     </div>
     <div id="navbar">
         <button onclick="page('home')">Home</button>
@@ -326,7 +326,7 @@ button:active, a:active {
     <div id="middle">
         <div id="home">
             <h1>Hello World!</h1>
-            <p>Selamat datang di <b mark="name"></b></p>
+            <p>Welcome to <b mark="name"></b></p>
             <br>
             <h1>Tagline Kami</h1>
             <p mark="tagline"></p>
@@ -337,15 +337,15 @@ button:active, a:active {
             <br>
             <div class="product no-decoration">
                 <a class="url" href="#">
-                    <img src="https://placehold.co/256x144" alt="">
+                    <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426" height="240">
                     <p>AMV First</p>
                 </a>
                 <a class="url" href="#">
-                    <img src="https://placehold.co/256x144" alt="">
+                    <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426" height="240">
                     <p>AMV Second</p>
                 </a>
                 <a class="url" href="#">
-                    <img src="https://placehold.co/256x144" alt="">
+                    <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426" height="240">
                     <p>AMV Third</p>
                 </a>
             </div>
@@ -357,7 +357,7 @@ button:active, a:active {
             <h1>Apps</h1>
             <br>
             <b mark="apps.status"></b>
-            <p mark="apps.date"></p>
+            <p class="small" mark="apps.date"></p>
             <br>
             <a class="button" href="#" mark="apps.url">Join Apps</a>
         </div>
@@ -442,12 +442,12 @@ button:active, a:active {
             </ol>
         </div>
     </div>
-    <div id="bottom">
+    <div id="bottom" class="small">
         <button class="url" onclick="page('legal')">Privacy Policy & Terms of Service</button>
         <p>© 2024 <b mark="name"></b>. All rights reserved.</p>
     </div>
     <div id="loading">
-        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="512" height="192">
+        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="256" height="96">
         <h1>Loading...</h1>
     </div>
 </body>
@@ -495,8 +495,8 @@ let unit = {
         'Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.'
     ],
     apps: {
-        status: 'Buka',
-        date: '01/01/2024 - 02/02/2024',
+        status: 'Now Open',
+        date: '(01/01/2024 - 02/02/2024)',
         url: '#ap'
     }
 }
