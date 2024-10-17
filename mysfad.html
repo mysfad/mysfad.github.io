@@ -21,7 +21,7 @@
     font-size: 1rem;
     border: none;
     scrollbar-width: thin;
-    transition: 250ms linear;
+    transition: 250ms ease;
     user-select: none;
 }
 html {
@@ -81,14 +81,13 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.25;
     pointer-events: none;
 }
 #top video {
-    filter: blur(1px);
+    filter: brightness(0.5) grayscale(1) blur(1px);
 }
 #sidebar video {
-    filter: blur(4px);
+    filter: brightness(0.5) grayscale(0.5) blur(4px);
 }
 .logo {
     width: auto;
@@ -123,7 +122,6 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: inherit;
-    box-shadow: inset 0 0 64px rgba(255, 255, 255, 0.25);
 }
 #sidebar > button {
     white-space: nowrap;
@@ -140,7 +138,6 @@ body {
 #sidebar.hide {
     filter: blur(2px);
     width: 0;
-    box-shadow: none;
 }
 #sidebar.hide * {
     opacity: 0;
@@ -232,7 +229,7 @@ li {
 .button:hover {
     background: rgb(255, 155, 0);
     color: rgb(25, 25, 25);
-    border-color: transparent;
+    border-color: rgb(25, 25, 25);
     letter-spacing: -0.5px;
 }
 .url, .url * {
