@@ -21,7 +21,7 @@
     font-size: 1rem;
     border: none;
     scrollbar-width: thin;
-    transition: 250ms ease;
+    transition: 250ms linear;
     user-select: none;
 }
 html {
@@ -46,17 +46,20 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: inherit;
-    overflow: hidden;
     transition: 500ms;
-    z-index: 1;
 }
 #loading h1 {
     transform: skew(-8deg) rotate(-4deg);
+}
+#loading.hide {
+    filter: blur(2px);
+    height: 0;
 }
 #info {
     padding: 8px;
@@ -95,7 +98,7 @@ body {
     filter: drop-shadow(0 0 16px rgb(0, 0, 0));
 }
 #navbar {
-    padding: 6px 10px;
+    padding: 4px 8px;
     white-space: nowrap;
     overflow: auto;
 }
@@ -112,7 +115,7 @@ body {
 #sidebar {
     background: rgb(25, 25, 25);
     position: absolute;
-    width: 0px;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -120,6 +123,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: inherit;
+    box-shadow: inset 0 0 64px rgba(255, 255, 255, 0.25);
 }
 #sidebar > button {
     white-space: nowrap;
@@ -132,6 +136,14 @@ body {
 }
 #sidebar > button:not(:nth-child(2)):hover {
     color: rgb(255, 155, 0);
+}
+#sidebar.hide {
+    filter: blur(2px);
+    width: 0;
+    box-shadow: none;
+}
+#sidebar.hide * {
+    opacity: 0;
 }
 #middle {
     flex: 1;
@@ -230,8 +242,8 @@ li {
 .url:hover, .url:hover * {
     color: rgb(255, 155, 0);
 }
-.button:active, .url:active {
-    transition: 0ms;
+button:active, a:active {
+    transition: 100ms;
     filter: brightness(50%) blur(0.5px);
 }
 .no-decoration, .no-decoration * {
@@ -267,15 +279,11 @@ li {
 
 </style>
 <body>
-    <div id="loading">
-        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="512" height="192">
-        <h1>Loading...</h1>
-    </div>
     <div id="info">
         <p><b mark="name"></b> Official Website</p>
     </div>
     <div id="top">
-        <video src="resources/bg.mp4" muted loop autoplay></video>
+        <video src="resources/top-bg.mp4" muted loop autoplay></video>
         <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="512" height="192">
     </div>
     <div id="navbar">
@@ -284,8 +292,8 @@ li {
         <button onclick="page('partner')">Partner</button>
         <button onclick="sidebar()">More »</button>
     </div>
-    <div id="sidebar">
-        <video src="resources/bg.mp4" muted loop autoplay></video>
+    <div id="sidebar" class="hide">
+        <video src="resources/sidebar-bg.mp4" muted loop autoplay></video>
         <button class="button" onclick="sidebar()">Close »</button>
         <br>
         <button onclick="sidebar(); page('news')">News</button>
@@ -418,6 +426,10 @@ li {
         <button class="url" onclick="page('legal')">Privacy Policy & Terms of Service</button>
         <p>© 2024 <b mark="name"></b>. All rights reserved.</p>
     </div>
+    <div id="loading">
+        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="512" height="192">
+        <h1>Loading...</h1>
+    </div>
 </body>
 <script defer>
 
@@ -478,10 +490,10 @@ document.querySelectorAll('[mark]').forEach(e => {
 
 function page(id) { document.getElementById(id).scrollIntoView() }
 function sidebar() {
-    let e = document.getElementById('sidebar')
-    if (e.style.width !== '100%') {
-        e.style.width = '100%'
-    } else e.style.width = '0%'
+    let e = document.getElementById('sidebar').classList
+    if (e.contains('hide')) {
+        e.remove('hide')
+    } else e.add('hide')
 }
 
 window.location.hash = ''
@@ -495,7 +507,7 @@ if (search) {
 
 window.addEventListener('load', () => {
     let i = () => {
-        document.getElementById('loading').style.height = '0%'
+        document.getElementById('loading').classList.add('hide')
     }
     setTimeout(i, 1000)
 })
