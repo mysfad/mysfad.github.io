@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <title mark="name"></title>
+    <title>MysFad Studio</title>
     <meta name="description" content="Editing Community">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
 </head>
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 * {
     max-width: 100%;
@@ -19,7 +17,8 @@
     line-height: 1.25;
     box-sizing: border-box;
     font-family: Poppins;
-    color: white;
+    font-weight: 400;
+    color: rgba(225, 225, 225);
     text-align: center;
     font-size: 1rem;
     border: none;
@@ -63,7 +62,7 @@ body {
     transform: skew(-8deg) rotate(-4deg);
 }
 #loading.hide {
-    filter: blur(2px);
+    filter: blur(1px);
     height: 0;
 }
 #info {
@@ -79,7 +78,7 @@ body {
     border: solid rgba(255, 255, 255, 0.1);
     border-width: 2px 0;
 }
-#top video, #sidebar video {
+#top-bg, #sidebar-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -88,10 +87,10 @@ body {
     object-fit: cover;
     pointer-events: none;
 }
-#top video {
+#top-bg {
     filter: grayscale(1) brightness(0.5) blur(1px);
 }
-#sidebar video {
+#sidebar-bg {
     filter: grayscale(0.5) brightness(0.5) blur(4px);
 }
 .logo {
@@ -111,6 +110,7 @@ body {
     padding: 4px 8px;
     border-radius: 4px;
     cursor: pointer;
+    color: white;
 }
 #navbar > button:hover {
     background: rgb(255, 155, 0);
@@ -135,13 +135,14 @@ body {
 }
 #sidebar > button:not(:nth-child(2)) {
     background: transparent;
+    color: white;
     padding: 4px;
 }
 #sidebar > button:not(:nth-child(2)):hover {
     color: rgb(255, 155, 0);
 }
 #sidebar.hide {
-    filter: blur(2px);
+    filter: blur(1px);
     width: 0;
 }
 #middle {
@@ -197,9 +198,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 600;
+    color: white;
 }
 b {
     font-weight: 600;
+    color: white;
 }
 hr {
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -223,6 +226,7 @@ li {
     cursor: pointer;
     outline: none;
     vertical-align: middle;
+    color: white;
 }
 .input::placeholder {
     color: rgba(255, 255, 255, 0.25);
@@ -237,6 +241,7 @@ li {
 .url, .url * {
     background: transparent;
     text-decoration: underline;
+    color: white;
 }
 .url:hover, .url:hover * {
     color: rgb(255, 155, 0);
@@ -264,6 +269,7 @@ button:active, a:active {
     margin: 4px 0 !important;
 }
 .question p:first-child {
+    color: white;
     font-weight: 600;
 }
 
@@ -284,10 +290,10 @@ button:active, a:active {
 .lite .logo {
     filter: drop-shadow(0 0 16px rgb(0, 0, 0)) !important;
 }
-.lite #top video {
+.lite #top-bg {
     filter: grayscale(1) brightness(0.5) blur(1px) !important;
 }
-.lite #sidebar video {
+.lite #sidebar-bg {
     filter: grayscale(0.5) brightness(0.5) blur(4px) !important;
 }
 
@@ -297,7 +303,7 @@ button:active, a:active {
         <p><b mark="name"></b> Official Website</p>
     </div>
     <div id="top">
-        <video src="resources/top-bg.mp4" muted loop autoplay></video>
+        <video id="top-bg" src="resources/top-bg.mp4" muted loop autoplay></video>
         <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="512" height="192">
     </div>
     <div id="navbar">
@@ -307,7 +313,7 @@ button:active, a:active {
         <button onclick="sidebar()">More »</button>
     </div>
     <div id="sidebar" class="hide">
-        <video src="resources/sidebar-bg.mp4" muted loop autoplay></video>
+        <video id="sidebar-bg" src="resources/sidebar-bg.mp4" muted loop></video>
         <button class="button" onclick="sidebar()">Close »</button>
         <br>
         <button onclick="sidebar(); page('news')">News</button>
@@ -505,9 +511,17 @@ document.querySelectorAll('[mark]').forEach(e => {
 function page(id) { document.getElementById(id).scrollIntoView() }
 function sidebar() {
     let e = document.getElementById('sidebar').classList
+    let top_bg = document.getElementById('top-bg')
+    let sidebar_bg = document.getElementById('sidebar-bg')
     if (e.contains('hide')) {
+        sidebar_bg.play()
         e.remove('hide')
-    } else e.add('hide')
+        top_bg.pause()
+    } else {
+        sidebar_bg.pause()
+        e.add('hide')
+        top_bg.play()
+    }
 }
 
 window.location.hash = ''
