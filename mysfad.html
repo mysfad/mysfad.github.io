@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MysFad Studio</title>
-    <meta name="description" content="Editing Community">
-    <meta name="google" content="notranslate">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600" rel="stylesheet">
@@ -13,69 +11,56 @@
 <style>
 
 * {
-    max-width: 100%;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.25;
-    box-sizing: border-box;
     font-family: Poppins;
-    font-weight: 400;
-    color: rgba(225, 225, 225);
-    text-align: center;
     font-size: 1rem;
-    border: none;
-    scrollbar-width: thin;
+    font-weight: 400;
+    color: rgb(225, 225, 225);
+    text-align: center;
+    line-height: 1.25;
     transition: 250ms ease;
-    user-select: none;
 }
 html {
+    background: rgb(15, 15, 15);
     width: 100%;
     height: 100%;
-    background: rgb(15, 15, 15);
-    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
 }
 body {
-    position: relative;
     width: 40%;
     height: 90%;
-    background: rgb(25, 25, 25);
-    display: flex;
-    flex-direction: column;
     border: 1px solid white;
     border-radius: 16px;
+    position: relative;
+    overflow: hidden;
 }
-#loading {
+body > div {
     background: rgb(25, 25, 25);
-    position: absolute;
+    border-radius: inherit;
+}
+#main {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: inherit;
-    transition: 500ms;
 }
-#loading h1 {
-    transform: skew(-8deg) rotate(-4deg);
-}
-#loading.hide {
-    filter: blur(1px);
-    height: 0;
+#main.hide {
+    pointer-events: none;
+    filter: brightness(0.5) blur(4px);
 }
 #info {
     padding: 8px;
 }
 #top {
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-    border: solid rgba(255, 255, 255, 0.1);
+    padding: 16px 0;
+    border: solid rgba(225, 225, 225, 0.25);
     border-width: 2px 0;
+    position: relative;
 }
 #top-bg, #sidebar-bg {
     position: absolute;
@@ -84,85 +69,48 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none;
 }
 #top-bg {
     filter: grayscale(1) brightness(0.5) blur(1px);
 }
-#sidebar-bg {
-    filter: grayscale(0.5) brightness(0.5) blur(4px);
-}
 .logo {
     width: auto;
     height: 3rem;
+    filter: drop-shadow(0 0 16px black);
     vertical-align: middle;
     position: relative;
-    filter: drop-shadow(0 0 16px rgb(0, 0, 0));
 }
 #navbar {
-    padding: 4px 8px;
-    white-space: nowrap;
-    overflow: auto;
+    padding: 4px;
 }
 #navbar > button {
     background: transparent;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
     color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
 }
 #navbar > button:hover {
     background: rgb(255, 155, 0);
     color: rgb(25, 25, 25);
 }
-#sidebar {
-    background: rgb(25, 25, 25);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: inherit;
-}
-#sidebar > button {
-    white-space: nowrap;
-    cursor: pointer;
-    position: relative;
-}
-#sidebar > button:not(:nth-child(2)) {
-    background: transparent;
-    color: white;
-    padding: 4px;
-}
-#sidebar > button:not(:nth-child(2)):hover {
-    color: rgb(255, 155, 0);
-}
-#sidebar.hide {
-    filter: blur(1px);
-    width: 0;
-}
 #middle {
     flex: 1;
+    border: solid rgba(225, 225, 225, 0.25);
+    border-width: 2px 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    border: solid rgba(255, 255, 255, 0.1);
-    border-width: 2px 0;
 }
 #middle > div {
     width: 100%;
     height: 100%;
-    padding: 32px 16px;
     flex: none;
+    padding: 32px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    scroll-snap-align: start;
     overflow: auto;
 }
 #middle > div * {
@@ -170,6 +118,94 @@ body {
 }
 #bottom {
     padding: 8px;
+}
+#sidebar {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 500ms;
+}
+#sidebar > button {
+    position: relative;
+}
+#sidebar > button:not(:nth-child(2)) {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 4px 0;
+}
+#sidebar > button:not(:nth-child(2)):hover {
+    color: rgb(255, 155, 0);
+}
+#sidebar-bg {
+    filter: grayscale(0.5) brightness(0.5) blur(4px);
+}
+#sidebar.hide {
+    width: 0;
+}
+#loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 500ms;
+}
+#loading.hide {
+    height: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+b {
+    font-weight: 600;
+    color: rgb(255, 155, 0);
+}
+hr {
+    width: 100%;
+    margin: 32px 0 !important;
+    border-color: rgba(225, 225, 225, 0.25);
+}
+.url {
+    background: transparent;
+    color: white;
+    border: none;
+    text-decoration: underline;
+}
+.url:hover {
+    color: rgb(255, 155, 0);
+}
+.button {
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    margin: 2px 0;
+    padding: 6px 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+}
+.button:hover {
+    background: rgb(255, 155, 0);
+    color: rgb(25, 25, 25);
+    border-color: rgb(25, 25, 25);
+    letter-spacing: -0.5px;
+}
+.small, .small * {
+    font-size: 0.75rem;
 }
 .product {
     width: 100%;
@@ -179,99 +215,26 @@ body {
     justify-content: center;
     place-items: center;
 }
+.product * {
+    width: 100%;
+    height: auto;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
 .product > a:last-child:nth-child(odd) {
     grid-column: span 2;
     width: 50%;
 }
-.product img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-.product p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-}
-b {
-    font-weight: 600;
+.product a:hover {
     color: rgb(255, 155, 0);
 }
-hr {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    margin: 32px 0 !important;
-}
-ul, ol {
-    padding-left: 1.5rem;
-}
-li {
-    text-align: left;
-}
-.button, .input {
-    background: transparent;
-    text-decoration: none;
-    margin: 2px 0;
-    padding: 6px 10px;
-    border: 1px solid white;
-    border-radius: 6px;
-    display: inline-block;
+a, button {
     cursor: pointer;
-    outline: none;
-    vertical-align: middle;
-    color: white;
 }
-.input::placeholder {
-    color: rgba(255, 255, 255, 0.25);
-    font-size: 0.75rem;
-}
-.button:hover {
-    background: rgb(255, 155, 0);
-    color: rgb(25, 25, 25);
-    border-color: rgb(25, 25, 25);
-    letter-spacing: -0.5px;
-}
-.url, .url * {
-    background: transparent;
-    text-decoration: underline;
-    color: white;
-}
-.url:hover, .url:hover * {
-    color: rgb(255, 155, 0);
-}
-button:active, a:active {
-    transition: 100ms;
-    filter: brightness(50%) blur(0.5px);
-}
-.no-decoration, .no-decoration * {
-    text-decoration: none;
-}
-#qa {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    gap: 4px;
-}
-.question {
-    background: rgb(255, 255, 255, 0.05);
-    padding: 8px;
-    border-radius: 8px;
-}
-.question * {
-    margin: 4px 0 !important;
-}
-.question p:first-child {
-    color: white;
-    font-weight: 500;
-}
-.small, .small * {
-    font-size: 0.75rem;
+a:active, button:active {
+    filter: brightness(0.5) blur(0.5px);
+    transition: 0ms;
 }
 
 @media (orientation: portrait) {
@@ -283,267 +246,129 @@ button:active, a:active {
     }
 }
 
-.lite * {
-    filter: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-}
-.lite .logo {
-    filter: drop-shadow(0 0 16px rgb(0, 0, 0)) !important;
-}
-.lite #top-bg {
-    filter: grayscale(1) brightness(0.5) blur(1px) !important;
-}
-.lite #sidebar-bg {
-    filter: grayscale(0.5) brightness(0.5) blur(4px) !important;
-}
-
 </style>
 <body>
-    <div id="info" class="small">
-        <p><b mark="name"></b> Official Website</p>
-    </div>
-    <div id="top">
-        <video id="top-bg" src="resources/top-bg.mp4" muted loop autoplay></video>
-        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="256" height="96">
-    </div>
-    <div id="navbar">
-        <button onclick="page('home')">Home</button>
-        <button onclick="page('team')">Team</button>
-        <button onclick="page('partner')">Partner</button>
-        <button onclick="sidebar()">More »</button>
+    <div id="main">
+        <div id="info" class="small">
+            <p><b>MysFad Studio</b> Official Website</p>
+        </div>
+        <div id="top">
+            <video id="top-bg" src="resources/top-bg.mp4" muted loop autoplay></video>
+            <img class="logo" src="resources/logo.webp" alt="MysFad Logo" width="256px" height="96px">
+        </div>
+        <div id="navbar">
+            <button page="home">Home</button>
+            <button page="team">Team</button>
+            <button page="partner">Partner</button>
+            <button sidebar>More</button>
+        </div>
+        <div id="middle">
+            <div id="home">
+                <h1>Hello World!</h1>
+                <p>Welcome to <b>MysFad Studio</b></p>
+                <br>
+                <h1>Tagline Kami</h1>
+                <p>"Realize Your Creativity"</p>
+                <br>
+                <button class="button" page="about">Selengkapnya</button>
+                <hr>
+                <h1>Dedication</h1>
+                <div class="product">
+                    <a href="#">
+                        <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
+                        AMV First
+                    </a>
+                    <a href="#">
+                        <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
+                        AMV Second
+                    </a>
+                    <a href="#">
+                        <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
+                        AMV Third
+                    </a>
+                </div>
+            </div>
+            <div id="team">
+                <h1>Team</h1>
+            </div>
+            <div id="partner">
+                <h1>Partner</h1>
+            </div>
+            <div id="news">
+                <h1>News</h1>
+            </div>
+            <div id="apps">
+                <h1>Apps</h1>
+            </div>
+            <div id="assets">
+                <h1>Assets</h1>
+            </div>
+            <div id="about">
+                <h1>About</h1>
+            </div>
+            <div id="contact">
+                <h1>Contact</h1>
+            </div>
+            <div id="faq">
+                <h1>FAQ</h1>
+            </div>
+            <div id="legal">
+                <h1>Legal</h1>
+            </div>
+        </div>
+        <div id="bottom" class="small">
+            <button class="url" page="legal">Privacy Policy & Terms of Service</button>
+            <p>© 2024 <b>MysFad Studio</b>. All Rights Reserved</p>
+        </div>
     </div>
     <div id="sidebar" class="hide">
         <video id="sidebar-bg" src="resources/sidebar-bg.mp4" muted loop></video>
-        <button class="button" onclick="sidebar()">Close »</button>
+        <button class="button" sidebar>Close</button>
         <br>
-        <button onclick="sidebar(); page('news')">News</button>
-        <button onclick="sidebar(); page('apps')">Apps</button>
-        <button onclick="sidebar(); page('assets')">Assets</button>
-        <button onclick="sidebar(); page('about')">About</button>
-        <button onclick="sidebar(); page('contact')">Contact</button>
-        <button onclick="sidebar(); page('faq')">FAQ</button>
-    </div>
-    <div id="middle">
-        <div id="home">
-            <h1>Hello World!</h1>
-            <p>Welcome to <b mark="name"></b></p>
-            <br>
-            <h1>Tagline Kami</h1>
-            <p mark="tagline"></p>
-            <br>
-            <button class="button" onclick="page('about')">Selengkapnya »</button>
-            <hr>
-            <h1>Dedication</h1>
-            <br>
-            <div class="product no-decoration">
-                <a class="url" href="#">
-                    <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426" height="240">
-                    <p>AMV First</p>
-                </a>
-                <a class="url" href="#">
-                    <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426" height="240">
-                    <p>AMV Second</p>
-                </a>
-                <a class="url" href="#">
-                    <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426" height="240">
-                    <p>AMV Third</p>
-                </a>
-            </div>
-        </div>
-        <div id="news">
-            <h1>News</h1>
-        </div>
-        <div id="apps">
-            <h1>Apps</h1>
-            <br>
-            <b mark="apps.status"></b>
-            <p class="small" mark="apps.date"></p>
-            <br>
-            <a class="button" href="#" mark="apps.url">Join Apps</a>
-        </div>
-        <div id="assets">
-            <h1>Assets</h1>
-        </div>
-        <div id="about">
-            <h1>About Us</h1>
-            <p><b mark="name"></b> <span mark="about"></span></p>
-            <br>
-            <h1>Visi</h1>
-            <p mark="visi"></p>
-            <br>
-            <h1>Misi</h1>
-            <ol>
-                <li mark="misi[0]"></li>
-                <li mark="misi[1]"></li>
-                <li mark="misi[2]"></li>
-                <li mark="misi[3]"></li>
-            </ol>
-        </div>
-        <div id="team">
-            <h1>Founder</h1>
-            <a class="url" href="#" mark="founder.url"><b mark="founder.name"></b></a>
-            <br>
-            <h1>CEO</h1>
-            <a class="url" href="#" mark="ceo.url"><b mark="ceo.name"></b></a>
-            <br>
-            <h1>Staff</h1>
-            <ol>
-                <li mark="staff[0]"></li>
-                <li mark="staff[1]"></li>
-                <li mark="staff[2]"></li>
-            </ol>
-        </div>
-        <div id="partner">
-            <h1>Partnership</h1>
-            <ul>
-                <li><a class="url" href="#" mark="partner[0].url"><b mark="partner[0].name"></b></a></li>
-                <li><a class="url" href="#" mark="partner[1].url"><b mark="partner[1].name"></b></a></li>
-                <li><a class="url" href="#" mark="partner[2].url"><b mark="partner[2].name"></b></a></li>
-            </ul>
-            <br>
-            <button class="button" onclick="page('contact')">Jadi Partner</button>
-        </div>
-        <div id="contact">
-            <h1>Contact Us</h1>
-            <ul>
-                <li><b mark="contact[0].type"></b>: <a class="url" href="#"><span mark="contact[0].content"></span></a></li>
-                <li><b mark="contact[1].type"></b>: <a class="url" href="#"><span mark="contact[1].content"></span></a></li>
-                <li><b mark="contact[2].type"></b>: <a class="url" href="#"><span mark="contact[2].content"></span></a></li>
-            </ul>
-        </div>
-        <div id="faq">
-            <h1>FAQ</h1>
-            <div id="qa">
-                <div class="question">
-                    <p>Apa itu <b mark="name"></b>?</p>
-                    <button class="button" onclick="page('about')">About</button>
-                </div>
-                <div class="question">
-                    <p>Apakah Digaji?</p>
-                    <p>Ya, setiap bulan Founder menyiapkan sejumlah uang. Uang tersebut akan dibagikan setiap bulan ke Staff yang dedic.</p>
-                </div>
-                <div class="question">
-                    <p>Berapa nominal gaji?</p>
-                    <p>Nominal gaji tidak menentu. Kalau ada 10 Dedication pada bulan tersebut, dan uang yang disediakan Founder adalah Rp. 100.000, berarti uang tersebut akan dibagikan ke Staff yang Dedic tersebut.</p>
-                </div>
-            </div>
-        </div>
-        <div id="legal">
-            <h1>Privacy Policy</h1>
-            <p mark="privacy_policy"></p>
-            <br>
-            <h1>Terms of Service</h1>
-            <p mark="terms_of_service[0]"></p>
-            <ol>
-                <li mark="terms_of_service[1]"></li>
-                <li mark="terms_of_service[2]"></li>
-                <li mark="terms_of_service[3]"></li>
-                <li mark="terms_of_service[4]"></li>
-            </ol>
-        </div>
-    </div>
-    <div id="bottom" class="small">
-        <button class="url" onclick="page('legal')">Privacy Policy & Terms of Service</button>
-        <p>© 2024 <b mark="name"></b>. All rights reserved.</p>
+        <button page="news" sidebar>News</button>
+        <button page="apps" sidebar>Apps</button>
+        <button page="assets" sidebar>Assets</button>
+        <button page="about" sidebar>About</button>
+        <button page="contact" sidebar>Contact</button>
+        <button page="faq" sidebar>FAQ</button>
     </div>
     <div id="loading">
-        <img class="logo" src="resources/logo.webp" alt="MysFad Studio Logo" width="256" height="96">
         <h1>Loading...</h1>
     </div>
 </body>
-<script defer>
+<script>
 
-document.addEventListener('contextmenu', i => i.preventDefault())
-document.addEventListener('dragstart', i => i.preventDefault())
-document.addEventListener('keydown', (i) => {
-    if (i.key === 'F12' || (i.ctrlKey && i.shiftKey && i.key === 'I')) {
-        //alert('Aktivitas terlarang!')
-        //i.preventDefault()
-    }
+document.querySelectorAll('[page]').forEach(e => {
+    e.addEventListener('click', () => {
+        document.getElementById(e.getAttribute('page')).scrollIntoView()
+    })
 })
 
-let unit = {
-    name: 'MysFad Studio',
-    tagline: '"Realize Your Creativity"',
-    about: 'adalah komunitas kreatif yang berfokus pada pengembangan bakat dalam dunia Editing AMV (Anime Music Video) dan Desain GFX (Graphic Effects). Kami terdiri dari individu-individu yang memiliki passion tinggi dalam menciptakan karya visual yang memukau, mulai dari AMV cinematic hingga desain grafis tingkat tinggi. Dengan pengalaman dan keahlian yang kami miliki, kami selalu berupaya menghasilkan karya yang mampu menginspirasi dan memberikan nilai estetika tinggi.',
-    visi: 'Menjadi komunitas terdepan dalam dunia Editing AMV dan Desain GFX dengan menghadirkan karya-karya yang inovatif, inspiratif, dan berkualitas tinggi yang mampu bersaing di kancah global.',
-    misi: [
-        'Mengembangkan talenta kreatif dalam bidang Editing AMV dan Desain GFX melalui kolaborasi, edukasi, dan berbagai proyek kreatif.',
-        'Menciptakan lingkungan yang mendukung pertukaran ide, pengetahuan, dan pengalaman antara anggota komunitas.',
-        'Menyediakan platform bagi para kreator untuk menunjukkan karya terbaik mereka ke dunia luas.',
-        'Menjalin hubungan dengan komunitas dan industri terkait untuk memperluas peluang kolaborasi dan pengembangan karier.'
-    ],
-    founder: { name: 'MysFad', url: '#mf' },
-    ceo: { name: 'Fisual', url: '#fs' },
-    staff: ['First', 'Second', 'Third'],
-    partner: [
-        { name: 'First Studio', url: '#fs' },
-        { name: 'Second Studio', url: '#ss' },
-        { name: 'Third Studio', url: '#ts' }
-    ],
-    contact: [
-        { type: 'Gmail', url: '#gm', content: 'mysfad@gmail.com' },
-        { type: 'Instagram', url: '#ig', content: '@mysfads' },
-        { type: 'WhatsApp', url: '#wa', content: '+62 838-3039-3361' }
-    ],
-    privacy_policy: 'Kami menghargai privasi Anda. Website kami tidak mengumpulkan data pribadi dari pengunjung, termasuk data seperti nama, email, atau cookies.',
-    terms_of_service: [
-        'Dengan mengakses dan menggunakan website Kami, Anda menyetujui syarat berikut:',
-        'Semua konten di website ini, termasuk gambar, teks, dan desain, adalah milik Kami. Penggunaan tanpa izin tertulis dilarang.',
-        'Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum atau hak pihak lain.',
-        'Kami tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.',
-        'Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.'
-    ],
-    apps: {
-        status: 'Now Open',
-        date: '(01/01/2024 - 02/02/2024)',
-        url: '#ap'
-    }
-}
-
-document.querySelectorAll('[mark]').forEach(e => {
-    let value = (new Function('unit', `return unit.${e.getAttribute('mark')}`))(unit)
-    if (e.getAttribute('href')) {
-        e.setAttribute('href', value)
-    } else e.textContent = value
-})
-
-function page(id) { document.getElementById(id).scrollIntoView() }
-function sidebar() {
-    let e = document.getElementById('sidebar').classList
-    let top_bg = document.getElementById('top-bg')
-    let sidebar_bg = document.getElementById('sidebar-bg')
-    if (e.contains('hide')) {
-        sidebar_bg.play()
-        e.remove('hide')
-        top_bg.pause()
-    } else {
-        sidebar_bg.pause()
-        e.add('hide')
-        top_bg.play()
-    }
-}
-
-window.location.hash = ''
-let search = window.location.search
-if (search) {
-    let params = new URLSearchParams(search)
-    if (params.get('page')) {
-        page(params.get('page'))
-    }
-    if (params.get('mode')) {
-        if (params.get('mode') === 'performance') {
-            document.body.classList.add('lite')
+document.querySelectorAll('[sidebar]').forEach(e => {
+    e.addEventListener('click', () => {
+        let main = document.getElementById('main').classList
+        let top_bg = document.getElementById('top-bg')
+        let sidebar_bg = document.getElementById('sidebar-bg')
+        let sidebar = document.getElementById('sidebar').classList
+        if (sidebar.contains('hide')) {
+            main.add('hide')
+            sidebar_bg.play()
+            sidebar.remove('hide')
+            top_bg.pause()
+        } else {
+            top_bg.play()
+            sidebar.add('hide')
+            sidebar_bg.pause()
+            main.remove('hide')
         }
-    }
-}
+    })
+})
 
 window.addEventListener('load', () => {
-    let i = () => {
+    let loading = () => {
         document.getElementById('loading').classList.add('hide')
     }
-    setTimeout(i, 1000)
+    setTimeout(loading, 1000)
 })
 
 </script>
