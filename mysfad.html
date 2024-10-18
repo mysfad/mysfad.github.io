@@ -11,7 +11,6 @@
 <style>
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Poppins;
@@ -20,9 +19,11 @@
     color: rgb(225, 225, 225);
     text-align: center;
     line-height: 1.25;
+    box-sizing: border-box;
     transition: 250ms ease;
-    user-select: none;
     -webkit-tap-highlight-color: transparent;
+    scrollbar-width: thin;
+    user-select: none;
 }
 html {
     background: rgb(15, 15, 15);
@@ -75,6 +76,16 @@ body > div {
 #top-bg {
     filter: grayscale(1) brightness(0.5) blur(1px);
 }
+#top:hover {
+    padding: 32px 0;
+}
+#top:hover #top-bg {
+    filter: grayscale(0.25) brightness(0.5) blur(1px);
+}
+#top:hover .logo {
+    opacity: 25%;
+    filter: drop-shadow(0 0 0 black) blur(1px);
+}
 .logo {
     width: auto;
     height: 3rem;
@@ -84,6 +95,8 @@ body > div {
 }
 #navbar {
     padding: 4px;
+    overflow: auto;
+    white-space: nowrap;
 }
 #navbar > button {
     background: transparent;
@@ -98,18 +111,19 @@ body > div {
 }
 #middle {
     flex: 1;
-    border: solid rgba(225, 225, 225, 0.25);
-    border-width: 2px 0;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    gap: 1px;
+    border: solid rgba(225, 225, 225, 0.25);
+    border-width: 2px 0;
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 #middle > div {
     width: 100%;
     height: 100%;
-    flex: none;
     padding: 32px 16px;
+    flex: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -243,6 +257,22 @@ a:active, button:active {
 img, video {
     pointer-events: none;
 }
+#qa {
+    width: 100%;
+}
+#qa > div {
+    margin: 4px 0;
+    padding: 8px;
+    border-radius: 6px;
+    background: rgba(225, 225, 225, 0.05);
+}
+#qa > div > p:first-child {
+    font-weight: 500;
+    color: white;
+}
+#qa > div > * {
+    margin: 4px 0;
+}
 
 @media (orientation: portrait) {
     body {
@@ -280,6 +310,8 @@ img, video {
                 <button class="button" page="about">Selengkapnya »</button>
                 <hr>
                 <h1>Dedication</h1>
+                <b>MysFad Studio</b>
+                <br>
                 <div class="product">
                     <a href="#">
                         <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
@@ -304,9 +336,21 @@ img, video {
                 <br>
                 <h1>CEO</h1>
                 <a class="url" href="#"><b>Unknown</b></a>
+                <br>
+                <h1>Staff</h1>
+                <p>First Staff</p>
+                <p>Second Staff</p>
+                <p>Third Staff</p>
+                <p>Fourth Staff</p>
+                <p>Fifth Staff</p>
+                <p>Sixth Staff</p>
+                <p>Seventh Staff</p>
+                <p>Eighth Staff</p>
+                <p>Ninth Staff</p>
+                <p>Tenth Staff</p>
             </div>
             <div id="partner">
-                <h1>Partner</h1>
+                <h1>Partnership</h1>
                 <b>First Studio</b>
                 <b>Second Studio</b>
                 <b>Third Studio</b>
@@ -319,13 +363,18 @@ img, video {
             <div id="apps">
                 <h1>Apps</h1>
                 <br>
-                <b>Now Open</b>
+                <b>Now Open!</b>
                 <p class="small">(01/01/2024 - 02/02/2024)</p>
                 <br>
                 <a class="button" href="#">Join Apps</a>
             </div>
             <div id="assets">
                 <h1>Assets</h1>
+                <b>MysFad Studio</b>
+                <br>
+                <button class="button">Download</button>
+                <br>
+                <p class="small">Contains Logo, Intro, and more</p>
             </div>
             <div id="about">
                 <h1>About</h1>
@@ -340,6 +389,20 @@ img, video {
             </div>
             <div id="faq">
                 <h1>FAQ</h1>
+                <div id="qa">
+                    <div>
+                        <p>Apa itu <b>MyaFad Studio</b>?</p>
+                        <button class="button" page="about">About</button>
+                    </div>
+                    <div>
+                        <p>Siapa Foundernya?</p>
+                        <b>MysFad</b>
+                    </div>
+                    <div>
+                        <p>Lorem Ipsum?</p>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+                </div>
             </div>
             <div id="legal">
                 <h1>Legal</h1>
@@ -367,38 +430,53 @@ img, video {
 </body>
 <script>
 
-document.querySelectorAll('[page]').forEach(e => {
-    e.addEventListener('click', () => {
-        document.getElementById(e.getAttribute('page')).scrollIntoView()
-    })
-})
+try {
 
-document.querySelectorAll('[sidebar]').forEach(e => {
-    e.addEventListener('click', () => {
-        let main = document.getElementById('main').classList
-        let top_bg = document.getElementById('top-bg')
-        let sidebar_bg = document.getElementById('sidebar-bg')
-        let sidebar = document.getElementById('sidebar').classList
-        if (sidebar.contains('hide')) {
-            //main.add('hide')
-            sidebar_bg.play()
-            sidebar.remove('hide')
-            top_bg.pause()
-        } else {
-            top_bg.play()
-            sidebar.add('hide')
-            sidebar_bg.pause()
-            //main.remove('hide')
+    document.querySelectorAll('[page]').forEach(e => {
+        e.addEventListener('click', () => {
+            document.getElementById(e.getAttribute('page')).scrollIntoView()
+        })
+    })
+
+    document.querySelectorAll('[sidebar]').forEach(e => {
+        e.addEventListener('click', () => {
+            let main = document.getElementById('main').classList
+            let sidebar = document.getElementById('sidebar').classList
+            let top_bg = document.getElementById('top-bg')
+            let sidebar_bg = document.getElementById('sidebar-bg')
+            if (sidebar.contains('hide')) {
+                //main.add('hide')
+                sidebar_bg.play()
+                sidebar.remove('hide')
+                top_bg.pause()
+            } else {
+                top_bg.play()
+                sidebar.add('hide')
+                sidebar_bg.pause()
+                //main.remove('hide')
+            }
+        })
+    })
+
+    let search = window.location.search
+    if (search) {
+        let params = new URLSearchParams(search)
+        let page = params.get('page')
+        if (page) {
+            document.getElementById(page).scrollIntoView()
         }
-    })
-})
-
-window.addEventListener('load', () => {
-    let loading = () => {
-        document.getElementById('loading').classList.add('hide')
     }
-    setTimeout(loading, 1000)
-})
+
+    window.addEventListener('load', () => {
+        let loading = () => {
+            document.getElementById('loading').classList.add('hide')
+        }
+        setTimeout(loading, 1000)
+    })
+
+} catch (error) {
+    alert(error)
+}
 
 </script>
 </html>
