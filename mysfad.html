@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>MysFad Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,8 @@
     text-align: center;
     line-height: 1.25;
     transition: 250ms ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 html {
     background: rgb(15, 15, 15);
@@ -130,7 +132,6 @@ body > div {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: 500ms;
 }
 #sidebar > button {
     position: relative;
@@ -180,13 +181,13 @@ hr {
     margin: 32px 0 !important;
     border-color: rgba(225, 225, 225, 0.25);
 }
-.url {
+.url, .url * {
     background: transparent;
     color: white;
     border: none;
     text-decoration: underline;
 }
-.url:hover {
+.url:hover, .url:hover * {
     color: rgb(255, 155, 0);
 }
 .button {
@@ -229,12 +230,18 @@ hr {
 .product a:hover {
     color: rgb(255, 155, 0);
 }
+.left, .left * {
+    text-align: left;
+}
 a, button {
     cursor: pointer;
 }
 a:active, button:active {
     filter: brightness(0.5) blur(0.5px);
     transition: 0ms;
+}
+img, video {
+    pointer-events: none;
 }
 
 @media (orientation: portrait) {
@@ -260,7 +267,7 @@ a:active, button:active {
             <button page="home">Home</button>
             <button page="team">Team</button>
             <button page="partner">Partner</button>
-            <button sidebar>More</button>
+            <button sidebar>More »</button>
         </div>
         <div id="middle">
             <div id="home">
@@ -270,7 +277,7 @@ a:active, button:active {
                 <h1>Tagline Kami</h1>
                 <p>"Realize Your Creativity"</p>
                 <br>
-                <button class="button" page="about">Selengkapnya</button>
+                <button class="button" page="about">Selengkapnya »</button>
                 <hr>
                 <h1>Dedication</h1>
                 <div class="product">
@@ -290,15 +297,32 @@ a:active, button:active {
             </div>
             <div id="team">
                 <h1>Team</h1>
+                <b>MysFad Studio</b>
+                <br>
+                <h1>Founder</h1>
+                <a class="url" href="#"><b>MysFad</b></a>
+                <br>
+                <h1>CEO</h1>
+                <a class="url" href="#"><b>Unknown</b></a>
             </div>
             <div id="partner">
                 <h1>Partner</h1>
+                <b>First Studio</b>
+                <b>Second Studio</b>
+                <b>Third Studio</b>
+                <br>
+                <button class="button" page="contact">Jadi Partner</button>
             </div>
             <div id="news">
                 <h1>News</h1>
             </div>
             <div id="apps">
                 <h1>Apps</h1>
+                <br>
+                <b>Now Open</b>
+                <p class="small">(01/01/2024 - 02/02/2024)</p>
+                <br>
+                <a class="button" href="#">Join Apps</a>
             </div>
             <div id="assets">
                 <h1>Assets</h1>
@@ -308,6 +332,11 @@ a:active, button:active {
             </div>
             <div id="contact">
                 <h1>Contact</h1>
+                <div class="left">
+                    <p><b>Gmail</b>: <a class="url" href="#">mysfad@gmail.com</a></p>
+                    <p><b>Instagram</b>: <a class="url" href="#">@mysfads</a></p>
+                    <p><b>WhatsApp</b>: <a class="url" href="#">+62 838-3039-3361</a></p>
+                </div>
             </div>
             <div id="faq">
                 <h1>FAQ</h1>
@@ -323,7 +352,7 @@ a:active, button:active {
     </div>
     <div id="sidebar" class="hide">
         <video id="sidebar-bg" src="resources/sidebar-bg.mp4" muted loop></video>
-        <button class="button" sidebar>Close</button>
+        <button class="button" sidebar>Close »</button>
         <br>
         <button page="news" sidebar>News</button>
         <button page="apps" sidebar>Apps</button>
@@ -351,7 +380,7 @@ document.querySelectorAll('[sidebar]').forEach(e => {
         let sidebar_bg = document.getElementById('sidebar-bg')
         let sidebar = document.getElementById('sidebar').classList
         if (sidebar.contains('hide')) {
-            main.add('hide')
+            //main.add('hide')
             sidebar_bg.play()
             sidebar.remove('hide')
             top_bg.pause()
@@ -359,7 +388,7 @@ document.querySelectorAll('[sidebar]').forEach(e => {
             top_bg.play()
             sidebar.add('hide')
             sidebar_bg.pause()
-            main.remove('hide')
+            //main.remove('hide')
         }
     })
 })
