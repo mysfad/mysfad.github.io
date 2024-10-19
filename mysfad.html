@@ -16,12 +16,12 @@
     padding: 0;
     border: none;
     background: transparent;
+    color: rgb(225, 225, 225);
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: rgb(225, 225, 225);
-    text-align: center;
     line-height: 1.25;
+    text-align: center;
     text-decoration: none;
     box-sizing: border-box;
     transition: 250ms ease;
@@ -44,7 +44,6 @@ body {
     border: 1px solid white;
     border-radius: 16px;
     position: relative;
-    overflow: hidden;
 }
 body > div {
     background: rgb(25, 25, 25);
@@ -109,7 +108,6 @@ body > div {
     border: solid rgba(225, 225, 225, 0.25);
     border-width: 2px 0;
     scroll-behavior: smooth;
-    overscroll-behavior: none;
     overflow: hidden;
 }
 #middle > div {
@@ -335,10 +333,10 @@ img, video {
                 <b>MysFad Studio</b>
                 <br>
                 <h1>Founder</h1>
-                <a href="#"><b>MysFad <span class="material-symbols-outlined">verified_user</span></b></a>
+                <a href="#"><b>MysFad <span class="material-symbols-outlined">verified</span></b></a>
                 <br>
                 <h1>CEO</h1>
-                <b>Unknown</b>
+                <a href="#"><b>Unknown</b></a>
                 <br>
                 <h1>Staff</h1>
                 <div>
@@ -397,6 +395,16 @@ img, video {
                 <br>
                 <a class="button" href="resources/" download>Unduh <span class="material-symbols-outlined">download</span></a>
             </div>
+            <div id="service">
+                <h1><span class="material-symbols-outlined">store</span> Open Commission</h1>
+                <div class="left">
+                    <p>▸ <b>Video Editor</b></p>
+                    <p>▸ <b>Photo Editor</b></p>
+                    <p>▸ <b>Web Designer</b></p>
+                </div>
+                <br>
+                <button class="button" page="contact">Order Now <span class="material-symbols-outlined">login</span></button>
+            </div>
             <div id="about">
                 <h1><span class="material-symbols-outlined">apartment</span> About Us</h1>
                 <p class="small"><b>MysFad Studio</b> adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
@@ -427,11 +435,11 @@ img, video {
                 <div id="qa">
                     <div>
                         <p>Apa itu <b>MysFad Studio</b>?</p>
-                        <button class="button" page="about">About</button>
+                        <button class="button" page="about">About »</button>
                     </div>
                     <div>
                         <p>Siapa Founder <b>MysFad Studio</b>?</p>
-                        <button class="button" page="team">Team</button>
+                        <button class="button" page="team">Team »</button>
                     </div>
                     <div>
                         <p>Aset untuk siapa?</p>
@@ -465,6 +473,7 @@ img, video {
         <button page="news" sidebar>News</button>
         <button page="apps" sidebar>Apps</button>
         <button page="assets" sidebar>Assets</button>
+        <button page="service" sidebar>Service</button>
         <button page="about" sidebar>About</button>
         <button page="contact" sidebar>Contact</button>
         <button page="faq" sidebar>FAQ</button>
@@ -473,7 +482,7 @@ img, video {
         <img src="resources/logo.webp" alt="MysFad Logo" class="logo">
     </div>
 </body>
-<script>
+<script defer>
 
 try {
 
