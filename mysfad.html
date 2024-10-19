@@ -6,7 +6,7 @@
     <title>MysFad Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
@@ -16,7 +16,7 @@
     padding: 0;
     border: none;
     background: transparent;
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     color: rgb(225, 225, 225);
@@ -114,13 +114,14 @@ body > div {
     border: solid rgba(225, 225, 225, 0.25);
     border-width: 2px 0;
     scroll-behavior: smooth;
+    overscroll-behavior: none;
     overflow: hidden;
 }
 #middle > div {
+    flex: none;
     width: 100%;
     height: 100%;
     padding: 32px 16px;
-    flex: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -244,12 +245,15 @@ hr {
 .list * {
     margin: 8px 0 !important;
 }
+.undecor {
+    text-decoration: none;
+}
 a, button {
     cursor: pointer;
 }
 a:active, button:active {
     filter: brightness(0.5) blur(0.5px);
-    transition: 0ms;
+    transition: 100ms;
 }
 img, video {
     pointer-events: none;
@@ -271,19 +275,17 @@ img, video {
     margin: 4px 0;
 }
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  font-size: inherit;
-  color: inherit;
-  vertical-align: middle;
-  transform: translateY(-1px);
-  transition: none;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: bottom;
+    transition: none;
 }
 
 @media (orientation: portrait) {
@@ -299,7 +301,7 @@ img, video {
 <body>
     <div id="main">
         <div id="info" class="small">
-            <p><b>MysFad Studio</b> Official Website <span class="material-symbols-outlined">verified</span></p>
+            <p><b>MysFad Studio</b> Official Website</p>
         </div>
         <div id="top">
             <video id="top-bg" src="resources/top-bg.mp4" muted loop autoplay></video>
@@ -340,55 +342,55 @@ img, video {
                 </div>
             </div>
             <div id="team">
-                <h1>Team <span class="material-symbols-outlined">group</span></h1>
+                <h1><span class="material-symbols-outlined">group</span> Team</h1>
                 <b>MysFad Studio</b>
                 <br>
                 <h1>Founder</h1>
-                <a class="url" href="#"><b>MysFad</b></a>
+                <b>MysFad <span class="material-symbols-outlined">verified_user</span></b>
                 <br>
                 <h1>CEO</h1>
-                <a class="url" href="#"><b>Unknown</b></a>
+                <b>Unknown</b>
                 <br>
                 <h1>Staff</h1>
                 <div>
-                    <p>First Staff</p>
-                    <p>Second Staff</p>
-                    <p>Third Staff</p>
-                    <p>Fourth Staff</p>
-                    <p>Fifth Staff</p>
-                    <p>Sixth Staff</p>
-                    <p>Seventh Staff</p>
-                    <p>Eighth Staff</p>
-                    <p>Ninth Staff</p>
-                    <p>Tenth Staff</p>
+                    <p><b>First Staff <span class="material-symbols-outlined">editor_choice</span></b></p>
+                    <p><b>Second Staff</b></p>
+                    <p><b>Third Staff</b></p>
+                    <p><b>Fourth Staff</b></p>
+                    <p><b>Fifth Staff</b></p>
+                    <p><b>Sixth Staff</b></p>
+                    <p><b>Seventh Staff</b></p>
+                    <p><b>Eighth Staff</b></p>
+                    <p><b>Ninth Staff</b></p>
+                    <p><b>Tenth Staff</b></p>
                 </div>
             </div>
             <div id="partner">
-                <h1>Partnership <span class="material-symbols-outlined">handshake</span></h1>
+                <h1><span class="material-symbols-outlined">partner_exchange</span> Partnership</h1>
                 <div class="left">
                     <p>▸ <b>First Studio</b></p>
                     <p>▸ <b>Second Studio</b></p>
                     <p>▸ <b>Third Studio</b></p>
                 </div>
                 <br>
-                <button class="button" page="contact">Jadi Partner</button>
+                <button class="button" page="contact">Jadi Partner <span class="material-symbols-outlined">handshake</span></button>
                 <br>
                 <p class="small">Kami siap menerima Partner dan Kolaborasi dalam Proyek Kreatif.</p>
             </div>
             <div id="news">
-                <h1>News</h1>
+                <h1><span class="material-symbols-outlined">newspaper</span> News</h1>
             </div>
             <div id="apps">
-                <h1>Apps</h1>
+                <h1><span class="material-symbols-outlined">leaderboard</span> Open Apps</h1>
                 <br>
                 <b>Now Open!</b>
                 <p class="small">(01/01/2024 - 02/02/2024)</p>
                 <br>
-                <a class="button" href="#">Join Apps</a>
+                <a class="button" href="#">Join Apps <span class="material-symbols-outlined">login</span></a>
                 <br>
                 <p class="small">Kami menerima AMV Maker dan GFX Designer.</p>
                 <br>
-                <b>Keuntungan</b>
+                <b>Keuntungan <span class="material-symbols-outlined">editor_choice</span></b>
                 <div class="list left small">
                     <p><b>1 ›</b> Best Dedic / Bulan</p>
                     <p><b>2 ›</b> Best Part / MEP</p>
@@ -400,14 +402,14 @@ img, video {
                 </div>
             </div>
             <div id="assets">
-                <h1>Assets</h1>
+                <h1><span class="material-symbols-outlined">folder_open</span> Assets</h1>
                 <b>MysFad Studio</b>
                 <p class="small">Contains Logo, Intro, and more.</p>
                 <br>
-                <button class="button">Download <span class="material-symbols-outlined">download</span></button>
+                <a class="button" href="about.txt" download>Unduh <span class="material-symbols-outlined">download</span></a>
             </div>
             <div id="about">
-                <h1>About Us</h1>
+                <h1><span class="material-symbols-outlined">apartment</span> About Us</h1>
                 <p><b>MysFad Studio</b> adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
                     Kami terdiri dari individu yang yang memiliki keahlian dalam menciptakan Karya Visual.
                     Kami berupaya menghasilkan Karya yang menginspirasi dan memukau.
@@ -424,7 +426,7 @@ img, video {
                 </div>
             </div>
             <div id="contact">
-                <h1>Contact</h1>
+                <h1><span class="material-symbols-outlined">contacts</span> Contact</h1>
                 <div class="left">
                     <p><b>Gmail</b>: <a class="url" href="#">mysfad@gmail.com</a></p>
                     <p><b>Instagram</b>: <a class="url" href="#">@mysfads</a></p>
@@ -432,7 +434,7 @@ img, video {
                 </div>
             </div>
             <div id="faq">
-                <h1>FAQ</h1>
+                <h1><span class="material-symbols-outlined">quiz</span> FAQ</h1>
                 <div id="qa">
                     <div>
                         <p>Apa itu <b>MysFad Studio</b>?</p>
@@ -443,7 +445,7 @@ img, video {
                         <button class="button" page="team">Team</button>
                     </div>
                     <div>
-                        <p>Siapa yang boleh menggunakan Aset?</p>
+                        <p>Aset untuk siapa?</p>
                         <p>Aset hanya boleh digunakan oleh anggota team kami. Selain itu berarti melanggar ketentuan.</p>
                     </div>
                 </div>
@@ -479,7 +481,7 @@ img, video {
         <button page="faq" sidebar>FAQ</button>
     </div>
     <div id="loading">
-        <h1>Loading...</h1>
+        <img src="resources/logo.webp" alt="MysFad Logo" class="logo">
     </div>
 </body>
 <script>
