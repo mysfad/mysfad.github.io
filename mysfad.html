@@ -22,10 +22,12 @@
     color: rgb(225, 225, 225);
     text-align: center;
     line-height: 1.25;
+    text-decoration: none;
     box-sizing: border-box;
     transition: 250ms ease;
     -webkit-tap-highlight-color: transparent;
     scrollbar-width: thin;
+    user-select: none;
 }
 html {
     background: rgb(15, 15, 15);
@@ -77,13 +79,6 @@ body > div {
 }
 #top-bg {
     filter: grayscale(1) brightness(0.5) blur(1px);
-}
-#top:hover #top-bg {
-    filter: grayscale(0.25) brightness(0.5) blur(1px);
-}
-#top:hover .logo {
-    opacity: 25%;
-    filter: drop-shadow(0 0 0 black) blur(1px);
 }
 .logo {
     width: auto;
@@ -193,14 +188,12 @@ hr {
 }
 .url, .url * {
     color: white;
-    text-decoration: underline;
 }
 .url:hover, .url:hover * {
     color: rgb(255, 155, 0);
 }
 .button {
     color: white;
-    text-decoration: none;
     padding: 6px 10px;
     border: 1px solid white;
     border-radius: 6px;
@@ -226,7 +219,6 @@ hr {
     width: 100%;
     height: auto;
     color: white;
-    text-decoration: none;
     border-radius: 8px;
 }
 .product > a:last-child:nth-child(odd) {
@@ -244,9 +236,6 @@ hr {
 }
 .list * {
     margin: 8px 0 !important;
-}
-.undecor {
-    text-decoration: none;
 }
 a, button {
     cursor: pointer;
@@ -280,12 +269,12 @@ img, video {
         'wght' 400,
         'GRAD' 0,
         'opsz' 24;
-    margin: 0;
-    padding: 0;
-    font-size: inherit;
-    color: inherit;
-    vertical-align: bottom;
     transition: none;
+    color: inherit;
+    font-size: inherit;
+    line-height: 0;
+    vertical-align: middle;
+    transform: translateY(-1px);
 }
 
 @media (orientation: portrait) {
@@ -329,15 +318,15 @@ img, video {
                 <div class="product">
                     <a href="#">
                         <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
-                        AMV First
+                        Judul AMV
                     </a>
                     <a href="#">
                         <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
-                        AMV Second
+                        Judul AMV
                     </a>
                     <a href="#">
                         <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
-                        AMV Third
+                        Judul AMV
                     </a>
                 </div>
             </div>
@@ -346,7 +335,7 @@ img, video {
                 <b>MysFad Studio</b>
                 <br>
                 <h1>Founder</h1>
-                <b>MysFad <span class="material-symbols-outlined">verified_user</span></b>
+                <a href="#"><b>MysFad <span class="material-symbols-outlined">verified_user</span></b></a>
                 <br>
                 <h1>CEO</h1>
                 <b>Unknown</b>
@@ -406,20 +395,20 @@ img, video {
                 <b>MysFad Studio</b>
                 <p class="small">Contains Logo, Intro, and more.</p>
                 <br>
-                <a class="button" href="about.txt" download>Unduh <span class="material-symbols-outlined">download</span></a>
+                <a class="button" href="resources/" download>Unduh <span class="material-symbols-outlined">download</span></a>
             </div>
             <div id="about">
                 <h1><span class="material-symbols-outlined">apartment</span> About Us</h1>
-                <p><b>MysFad Studio</b> adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
+                <p class="small"><b>MysFad Studio</b> adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
                     Kami terdiri dari individu yang yang memiliki keahlian dalam menciptakan Karya Visual.
                     Kami berupaya menghasilkan Karya yang menginspirasi dan memukau.
                 </p>
                 <br>
                 <h1>Visi</h1>
-                <p>Menjadi komunitas terdepan dalam bidang AMV dan GFX dengan menghadirkan Karya yang <b>Inovatif</b> dan <b>Inspiratif</b>.</p>
+                <p class="small">Menjadi komunitas terdepan dalam bidang AMV dan GFX dengan menghadirkan Karya yang <b>Inovatif</b> dan <b>Inspiratif</b>.</p>
                 <br>
                 <h1>Misi</h1>
-                <div class="list left">
+                <div class="list left small">
                     <p><b>1 ›</b> Menciptakan lingkungan yang mendukung pertukaran ide dan pengetahuan antara anggota komunitas.</p>
                     <p><b>2 ›</b> Mengembangkan skill di bidang AMV dan GFX melalui proyek kreatif dan kolaborasi.</p>
                     <p><b>3 ›</b> Menjalin hubungan dengan komunitas terkait untuk memperluas kolaborasi dan pengembangan.</p>
@@ -441,7 +430,7 @@ img, video {
                         <button class="button" page="about">About</button>
                     </div>
                     <div>
-                        <p>Siapa Foundernya?</p>
+                        <p>Siapa Founder <b>MysFad Studio</b>?</p>
                         <button class="button" page="team">Team</button>
                     </div>
                     <div>
@@ -452,11 +441,11 @@ img, video {
             </div>
             <div id="legal">
                 <h1>Privacy Policy</h1>
-                <p>Kami menghargai privacy Anda. Kami tidak mengumpulkan data pribadi dari pengunjung.</p>
+                <p class="small">Kami menghargai privacy Anda. Kami tidak mengumpulkan data pribadi dari pengunjung.</p>
                 <br>
                 <h1>Terms of Service</h1>
-                <p>Dengan mengakses website kami, Anda menyetujui syarat dan ketentuan berikut:</p>
-                <div class="list left">
+                <p class="small">Dengan mengakses website kami, Anda menyetujui syarat dan ketentuan berikut:</p>
+                <div class="list left small">
                     <p><b>1 ›</b> Semua konten di website ini adalah milik kami. Dilarang menggunakannya tanpa izin.</p>
                     <p><b>2 ›</b> Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum.</p>
                     <p><b>3 ›</b> Kami tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.</p>
@@ -496,12 +485,10 @@ try {
 
     document.querySelectorAll('[sidebar]').forEach(e => {
         e.addEventListener('click', () => {
-            let main = document.getElementById('main').classList
             let sidebar = document.getElementById('sidebar').classList
             let top_bg = document.getElementById('top-bg')
             let sidebar_bg = document.getElementById('sidebar-bg')
             if (sidebar.contains('hide')) {
-                //main.add('hide')
                 sidebar_bg.play()
                 sidebar.remove('hide')
                 top_bg.pause()
@@ -509,7 +496,6 @@ try {
                 top_bg.play()
                 sidebar.add('hide')
                 sidebar_bg.pause()
-                //main.remove('hide')
             }
         })
     })
