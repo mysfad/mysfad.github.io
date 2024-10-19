@@ -7,12 +7,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
 
 * {
     margin: 0;
     padding: 0;
+    border: none;
+    background: transparent;
     font-family: Poppins;
     font-size: 1rem;
     font-weight: 400;
@@ -23,7 +26,6 @@
     transition: 250ms ease;
     -webkit-tap-highlight-color: transparent;
     scrollbar-width: thin;
-    user-select: none;
 }
 html {
     background: rgb(15, 15, 15);
@@ -76,9 +78,6 @@ body > div {
 #top-bg {
     filter: grayscale(1) brightness(0.5) blur(1px);
 }
-#top:hover {
-    padding: 32px 0;
-}
 #top:hover #top-bg {
     filter: grayscale(0.25) brightness(0.5) blur(1px);
 }
@@ -99,9 +98,7 @@ body > div {
     white-space: nowrap;
 }
 #navbar > button {
-    background: transparent;
     color: white;
-    border: none;
     border-radius: 4px;
     padding: 4px 8px;
 }
@@ -151,9 +148,7 @@ body > div {
     position: relative;
 }
 #sidebar > button:not(:nth-child(2)) {
-    background: transparent;
     color: white;
-    border: none;
     padding: 4px 0;
 }
 #sidebar > button:not(:nth-child(2)):hover {
@@ -188,27 +183,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 b {
     font-weight: 600;
-    color: rgb(255, 155, 0);
+    color: rgb(255, 155, 0) !important;
 }
 hr {
     width: 100%;
     margin: 32px 0 !important;
-    border-color: rgba(225, 225, 225, 0.25);
+    border: 1px solid rgba(225, 225, 225, 0.25);
 }
 .url, .url * {
-    background: transparent;
     color: white;
-    border: none;
     text-decoration: underline;
 }
 .url:hover, .url:hover * {
     color: rgb(255, 155, 0);
 }
 .button {
-    background: transparent;
     color: white;
     text-decoration: none;
-    margin: 2px 0;
     padding: 6px 10px;
     border: 1px solid white;
     border-radius: 6px;
@@ -216,7 +207,7 @@ hr {
 .button:hover {
     background: rgb(255, 155, 0);
     color: rgb(25, 25, 25);
-    border-color: rgb(25, 25, 25);
+    border-color: transparent;
     letter-spacing: -0.5px;
 }
 .small, .small * {
@@ -247,6 +238,12 @@ hr {
 .left, .left * {
     text-align: left;
 }
+.list {
+    margin: -4px 0 !important;
+}
+.list * {
+    margin: 8px 0 !important;
+}
 a, button {
     cursor: pointer;
 }
@@ -273,6 +270,21 @@ img, video {
 #qa > div > * {
     margin: 4px 0;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: inherit;
+  color: inherit;
+  vertical-align: middle;
+  transform: translateY(-1px);
+  transition: none;
+}
 
 @media (orientation: portrait) {
     body {
@@ -287,7 +299,7 @@ img, video {
 <body>
     <div id="main">
         <div id="info" class="small">
-            <p><b>MysFad Studio</b> Official Website</p>
+            <p><b>MysFad Studio</b> Official Website <span class="material-symbols-outlined">verified</span></p>
         </div>
         <div id="top">
             <video id="top-bg" src="resources/top-bg.mp4" muted loop autoplay></video>
@@ -301,7 +313,7 @@ img, video {
         </div>
         <div id="middle">
             <div id="home">
-                <h1>Hello World!</h1>
+                <h1>Hello World! <span class="material-symbols-outlined">waving_hand</span></h1>
                 <p>Welcome to <b>MysFad Studio</b></p>
                 <br>
                 <h1>Tagline Kami</h1>
@@ -328,7 +340,7 @@ img, video {
                 </div>
             </div>
             <div id="team">
-                <h1>Team</h1>
+                <h1>Team <span class="material-symbols-outlined">group</span></h1>
                 <b>MysFad Studio</b>
                 <br>
                 <h1>Founder</h1>
@@ -338,24 +350,30 @@ img, video {
                 <a class="url" href="#"><b>Unknown</b></a>
                 <br>
                 <h1>Staff</h1>
-                <p>First Staff</p>
-                <p>Second Staff</p>
-                <p>Third Staff</p>
-                <p>Fourth Staff</p>
-                <p>Fifth Staff</p>
-                <p>Sixth Staff</p>
-                <p>Seventh Staff</p>
-                <p>Eighth Staff</p>
-                <p>Ninth Staff</p>
-                <p>Tenth Staff</p>
+                <div>
+                    <p>First Staff</p>
+                    <p>Second Staff</p>
+                    <p>Third Staff</p>
+                    <p>Fourth Staff</p>
+                    <p>Fifth Staff</p>
+                    <p>Sixth Staff</p>
+                    <p>Seventh Staff</p>
+                    <p>Eighth Staff</p>
+                    <p>Ninth Staff</p>
+                    <p>Tenth Staff</p>
+                </div>
             </div>
             <div id="partner">
-                <h1>Partnership</h1>
-                <b>First Studio</b>
-                <b>Second Studio</b>
-                <b>Third Studio</b>
+                <h1>Partnership <span class="material-symbols-outlined">handshake</span></h1>
+                <div class="left">
+                    <p>▸ <b>First Studio</b></p>
+                    <p>▸ <b>Second Studio</b></p>
+                    <p>▸ <b>Third Studio</b></p>
+                </div>
                 <br>
                 <button class="button" page="contact">Jadi Partner</button>
+                <br>
+                <p class="small">Kami siap menerima Partner dan Kolaborasi dalam Proyek Kreatif.</p>
             </div>
             <div id="news">
                 <h1>News</h1>
@@ -367,17 +385,43 @@ img, video {
                 <p class="small">(01/01/2024 - 02/02/2024)</p>
                 <br>
                 <a class="button" href="#">Join Apps</a>
+                <br>
+                <p class="small">Kami menerima AMV Maker dan GFX Designer.</p>
+                <br>
+                <b>Keuntungan</b>
+                <div class="list left small">
+                    <p><b>1 ›</b> Best Dedic / Bulan</p>
+                    <p><b>2 ›</b> Best Part / MEP</p>
+                    <p><b>3 ›</b> Repost / Dedic</p>
+                    <p><b>4 ›</b> Free Official Resource</p>
+                    <p><b>5 ›</b> Free RSMB</p>
+                    <p><b>6 ›</b> Free AI Upscale Video and Photo</p>
+                    <p><b>7 ›</b> Free AI Increase FPS</p>
+                </div>
             </div>
             <div id="assets">
                 <h1>Assets</h1>
                 <b>MysFad Studio</b>
+                <p class="small">Contains Logo, Intro, and more.</p>
                 <br>
-                <button class="button">Download</button>
-                <br>
-                <p class="small">Contains Logo, Intro, and more</p>
+                <button class="button">Download <span class="material-symbols-outlined">download</span></button>
             </div>
             <div id="about">
-                <h1>About</h1>
+                <h1>About Us</h1>
+                <p><b>MysFad Studio</b> adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
+                    Kami terdiri dari individu yang yang memiliki keahlian dalam menciptakan Karya Visual.
+                    Kami berupaya menghasilkan Karya yang menginspirasi dan memukau.
+                </p>
+                <br>
+                <h1>Visi</h1>
+                <p>Menjadi komunitas terdepan dalam bidang AMV dan GFX dengan menghadirkan Karya yang <b>Inovatif</b> dan <b>Inspiratif</b>.</p>
+                <br>
+                <h1>Misi</h1>
+                <div class="list left">
+                    <p><b>1 ›</b> Menciptakan lingkungan yang mendukung pertukaran ide dan pengetahuan antara anggota komunitas.</p>
+                    <p><b>2 ›</b> Mengembangkan skill di bidang AMV dan GFX melalui proyek kreatif dan kolaborasi.</p>
+                    <p><b>3 ›</b> Menjalin hubungan dengan komunitas terkait untuk memperluas kolaborasi dan pengembangan.</p>
+                </div>
             </div>
             <div id="contact">
                 <h1>Contact</h1>
@@ -391,21 +435,31 @@ img, video {
                 <h1>FAQ</h1>
                 <div id="qa">
                     <div>
-                        <p>Apa itu <b>MyaFad Studio</b>?</p>
+                        <p>Apa itu <b>MysFad Studio</b>?</p>
                         <button class="button" page="about">About</button>
                     </div>
                     <div>
                         <p>Siapa Foundernya?</p>
-                        <b>MysFad</b>
+                        <button class="button" page="team">Team</button>
                     </div>
                     <div>
-                        <p>Lorem Ipsum?</p>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <p>Siapa yang boleh menggunakan Aset?</p>
+                        <p>Aset hanya boleh digunakan oleh anggota team kami. Selain itu berarti melanggar ketentuan.</p>
                     </div>
                 </div>
             </div>
             <div id="legal">
-                <h1>Legal</h1>
+                <h1>Privacy Policy</h1>
+                <p>Kami menghargai privacy Anda. Kami tidak mengumpulkan data pribadi dari pengunjung.</p>
+                <br>
+                <h1>Terms of Service</h1>
+                <p>Dengan mengakses website kami, Anda menyetujui syarat dan ketentuan berikut:</p>
+                <div class="list left">
+                    <p><b>1 ›</b> Semua konten di website ini adalah milik kami. Dilarang menggunakannya tanpa izin.</p>
+                    <p><b>2 ›</b> Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum.</p>
+                    <p><b>3 ›</b> Kami tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.</p>
+                    <p><b>4 ›</b> Kami berhak mengubah syarat dan ketentuan ini kapan saja tanpa pemberitahuan.</p>
+                </div>
             </div>
         </div>
         <div id="bottom" class="small">
