@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>MysFad Studio</title>
-    <meta name="description" content="MysFad Studio - Komunitas AMV dan GFX yang berfokus pada kreativitas visual dan desain grafis. Kami menerima commission untuk video dan desain.">
-    <meta name="keywords" content="MysFad, Studio, AMV, GFX, commission, video editing, photo editing">
+    <meta name="description" content="Editing Community">
+    <meta name="keywords" content="MysFad, Studio, AMV, GFX">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,9 +28,17 @@
     box-sizing: border-box;
     transition: 250ms ease;
     -webkit-tap-highlight-color: transparent;
-    scrollbar-width: thin;
     user-select: none;
 }
+
+::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+}
+
 html {
     background: rgb(15, 15, 15);
     width: 100%;
@@ -66,7 +74,7 @@ body > div {
 }
 #top {
     padding: 16px 0;
-    border: solid rgba(225, 225, 225, 0.25);
+    border: solid rgba(255, 255, 255, 0.25);
     border-width: 2px 0;
     position: relative;
 }
@@ -107,7 +115,7 @@ body > div {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border: solid rgba(225, 225, 225, 0.25);
+    border: solid rgba(255, 255, 255, 0.25);
     border-width: 2px 0;
     scroll-behavior: smooth;
     overflow: hidden;
@@ -194,7 +202,7 @@ b {
 hr {
     width: 100%;
     margin: 32px 0 !important;
-    border: 1px solid rgba(225, 225, 225, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .url, .url * {
     color: white;
@@ -242,10 +250,16 @@ hr {
     text-align: left;
 }
 .list {
-    margin: -4px 0;
+    margin: -4px 0 !important;
 }
 .list * {
     margin: 8px 0;
+}
+.qr {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    filter: brightness(0.9);
 }
 #qa {
     width: 100%;
@@ -304,7 +318,10 @@ hr {
         </div>
         <div id="middle">
             <div id="home">
-                <h1>Hello World! <span class="material-symbols-outlined">waving_hand</span></h1>
+                <h1>
+                    Hello World!
+                    <span class="material-symbols-outlined">waving_hand</span>
+                </h1>
                 <p>Welcome to <b>MysFad Studio</b></p>
                 <br>
                 <h1>Tagline Kami</h1>
@@ -335,18 +352,31 @@ hr {
                 <p class="small">Thank you for your dedication.</p>
             </div>
             <div id="team">
-                <h1><span class="material-symbols-outlined">group</span> Team</h1>
+                <h1>
+                    <span class="material-symbols-outlined">group</span>
+                    Team
+                </h1>
                 <b>MysFad Studio</b>
                 <br>
                 <h1>Founder</h1>
-                <a href="#"><b>MysFad <span class="material-symbols-outlined">verified</span></b></a>
+                <a href="#">
+                    <b>
+                        MysFad
+                        <span class="material-symbols-outlined">verified</span>
+                    </b>
+                </a>
                 <br>
                 <h1>CEO</h1>
                 <a href="#"><b>Unknown</b></a>
                 <br>
                 <h1>Staff</h1>
                 <div>
-                    <p><b>First Staff <span class="material-symbols-outlined">editor_choice</span></b></p>
+                    <p>
+                        <b>
+                            First Staff
+                            <span class="material-symbols-outlined">editor_choice</span>
+                        </b>
+                    </p>
                     <p><b>Second Staff</b></p>
                     <p><b>Third Staff</b></p>
                     <p><b>Fourth Staff</b></p>
@@ -358,34 +388,59 @@ hr {
                     <p><b>Tenth Staff</b></p>
                 </div>
                 <br>
-                <p class="small">Ingin bergabung? Ayo join <button page="apps"><b>Apps</b></button> kami.</p>
+                <p class="small">
+                    Ingin bergabung? Ayo join
+                    <button page="apps"><b>Apps</b></button>
+                    kami.
+                </p>
             </div>
             <div id="partner">
-                <h1><span class="material-symbols-outlined">partner_exchange</span> Partnership</h1>
+                <h1>
+                    <span class="material-symbols-outlined">partner_exchange</span>
+                    Partnership
+                </h1>
                 <div class="left">
                     <p>▸ <b>First Studio</b></p>
                     <p>▸ <b>Second Studio</b></p>
                     <p>▸ <b>Third Studio</b></p>
                 </div>
                 <br>
-                <button class="button" page="contact">Jadi Partner <span class="material-symbols-outlined">handshake</span></button>
+                <button class="button" page="contact">
+                    Jadi Partner
+                    <span class="material-symbols-outlined">handshake</span>
+                </button>
                 <br>
                 <p class="small">Kami menantikan kerja sama dengan Anda.</p>
             </div>
             <div id="news">
-                <h1><span class="material-symbols-outlined">newspaper</span> News</h1>
+                <h1>
+                    <span class="material-symbols-outlined">newspaper</span>
+                    News
+                </h1>
             </div>
             <div id="apps">
-                <h1><span class="material-symbols-outlined">leaderboard</span> Open Apps</h1>
+                <h1>
+                    <span class="material-symbols-outlined">leaderboard</span>
+                    Open Apps
+                </h1>
                 <br>
                 <b>Now Open!</b>
-                <p class="small">(01/01/2024 - 02/02/2024)</p>
+                <p class="small">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    Until 01 December 2024
+                </p>
                 <br>
-                <a class="button" href="#">Join Apps <span class="material-symbols-outlined">login</span></a>
+                <a class="button" href="#">
+                    Join Apps
+                    <span class="material-symbols-outlined">login</span>
+                </a>
                 <br>
                 <p class="small">Kami menerima AMV Maker dan GFX Designer.</p>
                 <br>
-                <b>Keuntungan <span class="material-symbols-outlined">editor_choice</span></b>
+                <b>
+                    Keuntungan
+                    <span class="material-symbols-outlined">editor_choice</span>
+                </b>
                 <div class="list left small">
                     <p><b>1 ›</b> Best Dedic / Bulan</p>
                     <p><b>2 ›</b> Best Part / MEP</p>
@@ -397,35 +452,65 @@ hr {
                 </div>
             </div>
             <div id="asset">
-                <h1><span class="material-symbols-outlined">folder_open</span> Assets</h1>
+                <h1>
+                    <span class="material-symbols-outlined">folder_open</span>
+                    Assets
+                </h1>
                 <b>MysFad Studio</b>
                 <p class="small">Contains Logo, Intro, and more.</p>
                 <br>
-                <a class="button" href="resources/" download>Download <span class="material-symbols-outlined">download</span></a>
+                <a class="button" href="resources/" download>
+                    Download
+                    <span class="material-symbols-outlined">download</span>
+                </a>
                 <br>
                 <p class="small">Gunakanlah aset dengan bijak.</p>
             </div>
             <div id="order">
-                <h1><span class="material-symbols-outlined">store</span> Commission</h1>
+                <h1>
+                    <span class="material-symbols-outlined">store</span>
+                    Commission
+                </h1>
                 <div class="left">
                     <p>▸ <b>Video Editor</b></p>
                     <p>▸ <b>Photo Editor</b></p>
                     <p>▸ <b>Web Designer</b></p>
                 </div>
                 <br>
-                <button class="button" page="contact">Order Now <span class="material-symbols-outlined">login</span></button>
+                <button class="button" page="contact">
+                    Order Now
+                    <span class="material-symbols-outlined">login</span>
+                </button>
                 <br>
                 <p class="small">Kami menerima request dari anda.</p>
             </div>
+            <div id="donation">
+                <h1>
+                    <span class="material-symbols-outlined">volunteer_activism</span>
+                    Donation
+                </h1>
+                <b>MysFad Studio</b>
+                <br>
+                <img class="qr" src="resources/qr.jpeg" alt="QRIS">
+                <br>
+                <p class="small">Kami tidak pernah memaksa siapapun untuk berdonasi.</p>
+            </div>
             <div id="about">
-                <h1><span class="material-symbols-outlined">apartment</span> About Us</h1>
-                <p class="small"><b>MysFad Studio</b> adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
+                <h1>
+                    <span class="material-symbols-outlined">apartment</span>
+                    About Us
+                </h1>
+                <p class="small">
+                    <b>MysFad Studio</b>
+                    adalah sebuah Komunitas yang berfokus di bidang <b>AMV</b> dan <b>GFX</b>.
                     Kami terdiri dari individu yang yang memiliki keahlian dalam menciptakan Karya Visual.
                     Kami berupaya menghasilkan Karya yang menginspirasi dan memukau.
                 </p>
                 <br>
                 <h1>Visi</h1>
-                <p class="small">Menjadi komunitas terdepan dalam bidang AMV dan GFX dengan menghadirkan Karya yang <b>Inovatif</b> dan <b>Inspiratif</b>.</p>
+                <p class="small">
+                    Menjadi komunitas terdepan dalam bidang AMV dan GFX dengan menghadirkan Karya yang <b>Inovatif</b> dan <b>Inspiratif</b>.
+                </p>
                 <br>
                 <h1>Misi</h1>
                 <div class="list left small">
@@ -435,7 +520,10 @@ hr {
                 </div>
             </div>
             <div id="contact">
-                <h1><span class="material-symbols-outlined">contacts</span> Contact</h1>
+                <h1>
+                    <span class="material-symbols-outlined">contacts</span>
+                    Contact
+                </h1>
                 <div class="left">
                     <p><b>Gmail</b>: <a class="url" href="#">mysfad@gmail.com</a></p>
                     <p><b>Instagram</b>: <a class="url" href="#">@mysfads</a></p>
@@ -445,7 +533,10 @@ hr {
                 <p class="small">Jangan ragu untuk menghubungi kami.</p>
             </div>
             <div id="faq">
-                <h1><span class="material-symbols-outlined">quiz</span> FAQ</h1>
+                <h1>
+                    <span class="material-symbols-outlined">quiz</span>
+                    FAQ
+                </h1>
                 <div id="qa">
                     <div>
                         <p>Apa itu <b>MysFad Studio</b>?</p>
@@ -488,6 +579,7 @@ hr {
         <button page="apps" sidebar>Apps</button>
         <button page="asset" sidebar>Assets</button>
         <button page="order" sidebar>Order</button>
+        <button page="donation" sidebar>Donation</button>
         <button page="about" sidebar>About</button>
         <button page="contact" sidebar>Contact</button>
         <button page="faq" sidebar>FAQ</button>
