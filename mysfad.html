@@ -22,13 +22,12 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.5;
     text-align: center;
     text-decoration: none;
     box-sizing: border-box;
     transition: 250ms ease;
     -webkit-tap-highlight-color: transparent;
-    user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -104,7 +103,7 @@ body > div {
 #navbar > button {
     color: white;
     border-radius: 4px;
-    padding: 4px 8px;
+    padding: 2px 8px;
 }
 #navbar > button:hover {
     background: rgb(255, 155, 0);
@@ -130,9 +129,6 @@ body > div {
     align-items: center;
     overflow: auto;
 }
-#middle > div > * {
-    margin: 2px 0;
-}
 #bottom {
     padding: 8px;
 }
@@ -153,7 +149,7 @@ body > div {
 }
 #sidebar > button:not(:nth-child(2)) {
     color: white;
-    padding: 4px 0;
+    padding: 2px 0;
 }
 #sidebar > button:not(:nth-child(2)):hover {
     color: rgb(255, 155, 0);
@@ -199,9 +195,14 @@ b {
     font-weight: 600;
     color: rgb(255, 155, 0);
 }
+br {
+    content: '';
+    margin: 0.5rem 0;
+}
 hr {
     width: 100%;
-    margin: 32px 0 !important;
+    height: 0;
+    margin: 32px 0;
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .url, .url * {
@@ -212,7 +213,7 @@ hr {
 }
 .button {
     color: white;
-    padding: 6px 10px;
+    padding: 4px 10px;
     border: 1px solid white;
     border-radius: 6px;
 }
@@ -249,15 +250,16 @@ hr {
 .left, .left * {
     text-align: left;
 }
-.list {
-    margin: -4px 0 !important;
+.list1 {
+    margin: -6px 0;
 }
-.list * {
-    margin: 8px 0;
+.list *, .list1 * {
+    margin: 6px 0;
+    text-align: left;
 }
 .bg-red {
     background: red;
-    padding: 2px 6px !important;
+    padding: 2px 6px;
     border-radius: 4px;
 }
 .qr {
@@ -339,22 +341,7 @@ hr {
                 <h1>Dedication</h1>
                 <b>MysFad Studio</b>
                 <br>
-                <div class="product">
-                    <a href="#">
-                        <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
-                        Judul AMV
-                    </a>
-                    <a href="#">
-                        <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
-                        Judul AMV
-                    </a>
-                    <a href="#">
-                        <img src="resources/426x240.webp" alt="AMV Thumbnail" width="426px" height="240px">
-                        Judul AMV
-                    </a>
-                </div>
-                <br>
-                <p class="small">Thank you for your dedication.</p>
+                <p class="small bg-red">Belum ada dedikasi.</p>
             </div>
             <div id="team">
                 <h1>
@@ -375,23 +362,7 @@ hr {
                 <a href="#"><b>Unknown</b></a>
                 <br>
                 <h1>Staff</h1>
-                <div>
-                    <p>
-                        <b>
-                            First Staff
-                            <span class="material-symbols-outlined">editor_choice</span>
-                        </b>
-                    </p>
-                    <p><b>Second Staff</b></p>
-                    <p><b>Third Staff</b></p>
-                    <p><b>Fourth Staff</b></p>
-                    <p><b>Fifth Staff</b></p>
-                    <p><b>Sixth Staff</b></p>
-                    <p><b>Seventh Staff</b></p>
-                    <p><b>Eighth Staff</b></p>
-                    <p><b>Ninth Staff</b></p>
-                    <p><b>Tenth Staff</b></p>
-                </div>
+                <p class="small bg-red">Sedang dicari.</p>
                 <br>
                 <p class="small">
                     Ingin bergabung? Ayo join
@@ -404,11 +375,9 @@ hr {
                     <span class="material-symbols-outlined">partner_exchange</span>
                     Partnership
                 </h1>
-                <div class="left">
-                    <p>▸ <b>First Studio</b></p>
-                    <p>▸ <b>Second Studio</b></p>
-                    <p>▸ <b>Third Studio</b></p>
-                </div>
+                <b>MysFad Studio</b>
+                <br>
+                <p class="small bg-red">Belum ada.</p>
                 <br>
                 <button class="button" page="contact">
                     Jadi Partner
@@ -416,15 +385,6 @@ hr {
                 </button>
                 <br>
                 <p class="small">Kami menantikan kerja sama dengan Anda.</p>
-            </div>
-            <div id="news">
-                <h1>
-                    <span class="material-symbols-outlined">newspaper</span>
-                    News
-                </h1>
-                <b>MysFad Studio</b>
-                <br>
-                <p class="small bg-red">Belum tersedia.</p>
             </div>
             <div id="apps">
                 <h1>
@@ -449,7 +409,7 @@ hr {
                     Keuntungan
                     <span class="material-symbols-outlined">editor_choice</span>
                 </b>
-                <div class="list left small">
+                <div class="list small">
                     <p><b>1 ›</b> Best Dedic / Bulan</p>
                     <p><b>2 ›</b> Best Part / MEP</p>
                     <p><b>3 ›</b> Repost / Dedic</p>
@@ -477,29 +437,6 @@ hr {
                 <br>
                 <p class="small">Mengunduh Aset kami tidak menjadikannya milik Anda.
                     Harap baca <button page="legal"><b>ketentuan layanan</b></button> kami.</p>
-            </div>
-            <div id="order">
-                <h1>
-                    <span class="material-symbols-outlined">store</span>
-                    Commission
-                </h1>
-                <div class="left">
-                    <p>▸ <b>Video Editor</b></p>
-                    <p>▸ <b>Photo Editor</b></p>
-                    <p>▸ <b>Web Designer</b></p>
-                </div>
-                <br>
-                <button class="button" page="contact">
-                    Order Now
-                    <span class="material-symbols-outlined">login</span>
-                </button>
-                <br>
-                <p class="small">Kami menerima request dari anda.</p>
-                <hr>
-                <h1>Project File</h1>
-                <b>MysFad Studio</b>
-                <br>
-                <p class="small bg-red">Belum tersedia.</p>
             </div>
             <div id="donation">
                 <h1>
@@ -530,7 +467,7 @@ hr {
                 </p>
                 <br>
                 <h1>Misi</h1>
-                <div class="list left small">
+                <div class="list1 small">
                     <p><b>1 ›</b> Menciptakan lingkungan yang mendukung pertukaran ide dan pengetahuan antara anggota komunitas.</p>
                     <p><b>2 ›</b> Mengembangkan skill di bidang AMV dan GFX melalui proyek kreatif dan kolaborasi.</p>
                     <p><b>3 ›</b> Menjalin hubungan dengan komunitas terkait untuk memperluas kolaborasi dan pengembangan.</p>
@@ -539,9 +476,9 @@ hr {
             <div id="contact">
                 <h1>
                     <span class="material-symbols-outlined">contacts</span>
-                    Contact Us
+                    Contact
                 </h1>
-                <div class="list left">
+                <div class="left">
                     <p>▸ <b>Gmail</b>: <a class="url" href="#">mysfad@gmail.com</a></p>
                     <p>▸ <b>Instagram</b>: <a class="url" href="#">@mysfads</a></p>
                     <p>▸ <b>WhatsApp</b>: <a class="url" href="#">+62 838-3039-3361</a></p>
@@ -575,7 +512,7 @@ hr {
                 <br>
                 <h1>Terms of Service</h1>
                 <p class="small">Dengan mengakses website kami, Anda menyetujui syarat dan ketentuan berikut:</p>
-                <div class="list left small">
+                <div class="list small">
                     <p><b>1 ›</b> Semua konten di website ini adalah milik kami. Dilarang menggunakannya tanpa izin.</p>
                     <p><b>2 ›</b> Anda setuju untuk tidak menggunakan website ini untuk aktivitas yang melanggar hukum.</p>
                     <p><b>3 ›</b> Kami tidak bertanggung jawab atas kerugian yang timbul dari penggunaan website ini.</p>
@@ -592,10 +529,8 @@ hr {
         <video id="sidebar-bg" src="resources/sidebar-bg.mp4" muted loop></video>
         <button class="button" sidebar>Close »</button>
         <br>
-        <button page="news" sidebar>News</button>
         <button page="apps" sidebar>Apps</button>
         <button page="asset" sidebar>Assets</button>
-        <button page="order" sidebar>Order</button>
         <button page="donation" sidebar>Donation</button>
         <button page="about" sidebar>About</button>
         <button page="contact" sidebar>Contact</button>
