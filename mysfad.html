@@ -197,7 +197,13 @@ b {
 }
 br {
     content: '';
+    display: block;
     margin: 0.5rem 0;
+}
+br.old {
+    content: '';
+    display: block;
+    margin: 0;
 }
 hr {
     width: 100%;
@@ -260,6 +266,7 @@ hr {
 }
 .bg-red {
     background: red;
+    color: white;
     padding: 2px 6px;
     border-radius: 4px;
 }
@@ -342,7 +349,7 @@ hr {
                 <h1>Dedication</h1>
                 <b>MysFad Studio</b>
                 <br>
-                <p class="small bg-red">Belum ada dedikasi dari member.</p>
+                <p class="small bg-red">Belum ada dedikasi dari Member.</p>
             </div>
             <div id="team">
                 <h1>
@@ -378,7 +385,7 @@ hr {
                 </h1>
                 <b>MysFad Studio</b>
                 <br>
-                <p class="small bg-red">Belum memiliki partner.</p>
+                <p class="small bg-red">Belum memiliki Partner.</p>
                 <br>
                 <button class="button" page="contact">
                     Jadi Partner
@@ -439,7 +446,7 @@ hr {
                 <p class="small">Mengunduh Aset kami tidak menjadikannya milik Anda.
                     Harap baca <button page="legal"><b>ketentuan layanan</b></button> kami.</p>
             </div>
-            <div id="donation">
+            <div id="donate">
                 <h1>
                     <span class="material-symbols-outlined">volunteer_activism</span>
                     Donation
@@ -473,6 +480,9 @@ hr {
                     <p><b>2 ›</b> Mengembangkan skill di bidang AMV dan GFX melalui proyek kreatif dan kolaborasi.</p>
                     <p><b>3 ›</b> Menjalin hubungan dengan komunitas terkait untuk memperluas kolaborasi dan pengembangan.</p>
                 </div>
+                <br>
+                <p class="small">Situs web ini dibuat oleh <b>MysFad</b>.</p>
+                <p class="small">Dibuat menggunakan HTML, CSS, dan JavaScript.</p>
             </div>
             <div id="contact">
                 <h1>
@@ -532,7 +542,7 @@ hr {
         <br>
         <button page="apps" sidebar>Apps</button>
         <button page="asset" sidebar>Assets</button>
-        <button page="donation" sidebar>Donation</button>
+        <button page="donate" sidebar>Donate</button>
         <button page="about" sidebar>About</button>
         <button page="contact" sidebar>Contact</button>
         <button page="faq" sidebar>FAQ</button>
