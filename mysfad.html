@@ -89,9 +89,11 @@ body > div {
 .logo {
     width: auto;
     height: 3rem;
-    filter: drop-shadow(0 0 1rem black);
     vertical-align: middle;
     position: relative;
+}
+#top .logo {
+    filter: drop-shadow(0 0 1rem black);
 }
 #navbar {
     padding: 0.25rem;
@@ -103,7 +105,7 @@ body > div {
     border-radius: 0.25rem;
     padding: 0.15rem 0.5rem;
 }
-#navbar > button:hover {
+#navbar > button:hover, #navbar > button.active {
     background: rgb(255, 155, 0);
     color: rgb(25, 25, 25);
 }
@@ -150,7 +152,7 @@ body > div {
     color: white;
     padding: 0.25rem 0;
 }
-#sidebar > button:not(:nth-child(2)):hover {
+#sidebar > button:not(:nth-child(2)):hover, #sidebar > button:not(:nth-child(2)).active {
     color: rgb(255, 155, 0);
 }
 #sidebar-bg {
@@ -576,53 +578,51 @@ hr {
 </body>
 <script defer>
 
-try {
-
-    document.querySelectorAll('[page]').forEach(e => {
-        e.addEventListener('click', () => {
-            let page = document.getElementById(e.getAttribute('page'))
-            page.scrollIntoView()
+let buttons = document.querySelectorAll('[page]')
+buttons.forEach(e => {
+    e.addEventListener('click', () => {
+        buttons.forEach(i => {
+            i.classList.remove('active')
         })
+        let page = document.getElementById(e.getAttribute('page'))
+        page.scrollIntoView()
+        e.classList.add('active')
     })
+})
 
-    document.querySelectorAll('[sidebar]').forEach(e => {
-        e.addEventListener('click', () => {
-            let sidebar = document.getElementById('sidebar').classList
-            let top_bg = document.getElementById('top-bg')
-            let sidebar_bg = document.getElementById('sidebar-bg')
-            if (sidebar.contains('hide')) {
-                sidebar_bg.play()
-                sidebar.remove('hide')
-                top_bg.pause()
-            } else {
-                top_bg.play()
-                sidebar.add('hide')
-                sidebar_bg.pause()
-            }
-        })
-    })
-
-    let search = window.location.search
-    if (search) {
-        let params = new URLSearchParams(search)
-        let page = params.get('page')
-        if (page) {
-            document.getElementById(page).scrollIntoView()
+document.querySelectorAll('[sidebar]').forEach(e => {
+    e.addEventListener('click', () => {
+        let sidebar = document.getElementById('sidebar').classList
+        let top_bg = document.getElementById('top-bg')
+        let sidebar_bg = document.getElementById('sidebar-bg')
+        if (sidebar.contains('hide')) {
+            sidebar_bg.play()
+            sidebar.remove('hide')
+            top_bg.pause()
+        } else {
+            top_bg.play()
+            sidebar.add('hide')
+            sidebar_bg.pause()
         }
+    })
+})
+
+let search = window.location.search
+if (search) {
+    let params = new URLSearchParams(search)
+    let page = params.get('page')
+    if (page) {
+        document.getElementById(page).scrollIntoView()
     }
-
-    window.addEventListener('load', () => {
-        let loading = () => {
-            document.getElementById('loading').classList.add('hide')
-        }
-        setTimeout(loading, 1000)
-    })
-
-    //let p = document.getElementById('p')
-
-} catch (error) {
-    alert(error)
 }
+
+window.addEventListener('load', () => {
+    let loading = () => {
+        document.querySelector('#navbar > button:first-child').classList.add('active')
+        document.getElementById('loading').classList.add('hide')
+    }
+    setTimeout(loading, 1000)
+})
 
 </script>
 </html>
